@@ -155,6 +155,20 @@
   }
 
   /* ---------- decorative motion respects reduced motion ---------- */
+  /* the hero arc and its travelling dot: on phones the path is rebuilt from the real section size so the dot is never stretched or cropped */
+  var arcSvg = doc.querySelector(".astra .arc");
+  if (arcSvg) {
+    var arcPath = arcSvg.querySelector("path"), arcMove = arcSvg.querySelector("animateMotion"), arcOrig = { d: arcPath.getAttribute("d"), vb: arcSvg.getAttribute("viewBox"), par: arcSvg.getAttribute("preserveAspectRatio") };
+    var fitArc = function () {
+      if (window.innerWidth > 900) { arcPath.setAttribute("d", arcOrig.d); arcSvg.setAttribute("viewBox", arcOrig.vb); arcSvg.setAttribute("preserveAspectRatio", arcOrig.par); if (arcMove) arcMove.setAttribute("path", arcOrig.d); return; }
+      var r = arcSvg.getBoundingClientRect(), w = Math.round(r.width), h = Math.round(r.height); if (!w || !h) return;
+      var d = "M -20 " + Math.round(h * 0.3) + " C " + Math.round(w * 0.35) + " " + Math.round(h * 0.04) + ", " + Math.round(w * 0.7) + " " + Math.round(h * 0.96) + ", " + (w + 20) + " " + Math.round(h * 0.62);
+      arcSvg.setAttribute("viewBox", "0 0 " + w + " " + h); arcSvg.setAttribute("preserveAspectRatio", "none");
+      arcPath.setAttribute("d", d); if (arcMove) arcMove.setAttribute("path", d);
+    };
+    fitArc(); window.addEventListener("resize", fitArc); window.addEventListener("load", fitArc);
+    if ("ResizeObserver" in window) new ResizeObserver(fitArc).observe(arcSvg.parentElement);
+  }
   var svgs = doc.querySelectorAll(".arc");
   if (reduce) svgs.forEach(function (s) { if (s.pauseAnimations) s.pauseAnimations(); });
 

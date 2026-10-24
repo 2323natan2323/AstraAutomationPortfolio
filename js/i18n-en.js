@@ -59,7 +59,7 @@ window.I18N.en = {
   "video.title": "Watch the <em>demo</em>",
   "video.sub": "A real recording of ASTRA running a flight booking workflow in the browser, from the homepage to the payment screen.",
   "video.ph.title": "Watch a real ASTRA run",
-  "video.ph.text": "About 73 seconds. The video loads only after you press play.",
+  "video.ph.text": "About a minute and a quarter.",
   "video.play": "Play the demonstration",
 
 
@@ -123,7 +123,7 @@ window.I18N.en = {
   "ax.flow.h": "What ASTRA does on its own",
   "ax.s1": "Flight search",
   "ax.s2": "Flight selection",
-  "ax.s3": "Regular or flexible fare",
+  "ax.s3": "Regular or flexible ticket",
   "ax.s4": "Passengers and baggage",
   "ax.s5": "Extra services",
   "ax.s6": "Summary and payment",

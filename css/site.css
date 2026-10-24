@@ -498,7 +498,6 @@ html[dir="rtl"] .sheet__tab { display: inline-block; margin: 0; padding: .3rem 1
 
 
 /* phones: the travelling dot would cross a cropped path, so only the dashed arc stays (intentional, not a workaround) */
-@media (max-width: 900px) { .arc circle { display: none; } }
 
 /* ---------- real charts (historical aggregates) ---------- */
 .charts { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 1.4rem; align-items: stretch; }
@@ -686,3 +685,18 @@ html[lang="he"] .name { line-height: 1.05; }
 @media (max-width: 560px) { .case__more .donut-wrap { grid-template-columns: 1fr; justify-items: center; } }
 .case__more .res__legend li { grid-template-columns: auto auto auto auto; justify-content: start; column-gap: .8rem; }
 .case__more .chart__read { display: none; }
+
+/* nav portrait */
+.brand__mark { padding: 2px; overflow: hidden; }
+.brand__mark img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: 50% 30%; transform: scale(1.25); transform-origin: 50% 32%; background: var(--ink-2); display: block; }
+
+/* test example: tidy vertical route on phones */
+@media (max-width: 760px) {
+  .scenario__route { position: relative; flex-direction: column; align-items: flex-start; flex-wrap: nowrap; gap: 0; padding-inline-start: 1.7rem; }
+  .scenario__route::before { content: ""; position: absolute; inset-inline-start: .43rem; inset-block: 1.1rem; width: 2px; background: rgba(35, 56, 255, .35); }
+  .scenario__city { position: relative; padding-block: .45rem; }
+  .scenario__city::before { content: ""; position: absolute; inset-inline-start: -1.7rem; inset-block-start: 50%; width: .9rem; height: .9rem; margin-top: -.45rem; border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 4px #fff; }
+  .scenario__city:last-of-type::before { background: var(--orange); }
+  .scenario__city::after, html[dir="rtl"] .scenario__city:not(:last-of-type)::after, .scenario__city:not(:last-of-type)::after { content: none; }
+  .scenario__city b { font-size: 1.5rem; }
+}
