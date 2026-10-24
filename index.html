@@ -1,401 +1,344 @@
-<!DOCTYPE HTML>
-
-<html>
-	<head>
-		<title>נתן שור- עמוד הבית</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	
-	<!-- הוספת גופן Heebo מ-Google Fonts -->
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="meta.home.title">נתן שור | ASTRA · אוטומציה לבדיקות תוכנה</title>
+  <meta name="description" content="נתן שור, QA Engineer עם ניסיון מעשי, מתמקד ב-QA Automation Engineering. ASTRA היא מערכת אוטומציה שפותחה ביוזמתו ב-C#‎, ב-.NET וב-Playwright, לבדיקת תהליכי הזמנת טיסות מעמוד הבית ועד מסך התשלום." data-i18n-attr="content:meta.home.desc">
+  <meta name="theme-color" content="#0b1020">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%230b1020%27/%3E%3Ctext x=%2716%27 y=%2722.5%27 font-family=%27Arial,sans-serif%27 font-size=%2716%27 font-weight=%27700%27 text-anchor=%27middle%27 fill=%27%23ff6a13%27%3ENS%3C/text%3E%3C/svg%3E">
+  <script>!function(){var d=document.documentElement;d.classList.add("js");if(/[?&]motion=off/.test(location.search))d.classList.add("still");try{var l=new URLSearchParams(location.search).get("lang")||localStorage.getItem("lang");if(l==="en"){d.lang="en";d.dir="ltr";d.classList.add("pending")}}catch(e){}}()</script>
+  <link rel="preload" href="fonts/Rubik-hebrew.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/GveretLevin-Regular.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet">
-	
-	</head>
-	<body class="landing is-preload">
-
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
-
-	<!-- Header -->
-<header id="header" class="alt">
-    <h1><a href="index.html">נתן שור</a></h1>
-    <nav id="nav">
-        <ul>
-            <li class="special">
-                <a href="#menu" class="menuToggle"><span>תפריט</span></a>
-                <div id="menu">
-                    <ul style="list-style-type: none; padding: 0; text-align: right;">
-                        <li><a href="index.html" style="font-size: 24px; margin-bottom; color: black;: 10px;">דף הבית</a></li>
-                        <li><a href="generic.html" style="font-size: 24px; margin-bottom: 10px; color: black;">הטיול לברלין</a></li>
-                        <li><a href="elements.html" style="font-size: 24px; color: black;">צרו קשר</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Heebo:wght@300;400;600;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body class="page-home">
+<!--@nav-->
+<a class="skip" href="#main" data-i18n="skip">דלגו לתוכן</a>
+<div class="runbar" aria-hidden="true"><span></span></div>
+<div class="wipe" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="brand" href="index.html" aria-label="Natan Shor">
+      <span class="brand__mark" aria-hidden="true">NS</span>
+      <span class="brand__name" data-i18n="brand">נתן שור</span>
+    </a>
+    <nav class="nav__links" id="primary" data-i18n-attr="aria-label:nav.primary" aria-label="ניווט ראשי">
+      <a href="index.html" aria-current="page" data-i18n="nav.home">ASTRA</a>
+      <a href="experience.html" data-i18n="nav.experience">ניסיון וכישורים</a>
+      <a href="projects.html" data-i18n="nav.projects">פרויקטים</a>
+      <a href="about.html" data-i18n="nav.about">אודות</a>
+      <a href="#contact" data-i18n="nav.contact">יצירת קשר</a>
     </nav>
+    <div class="nav__tools">
+      <div class="lang" role="group" aria-label="שפה" data-i18n-attr="aria-label:lang.label">
+        <button type="button" data-lang="he" aria-pressed="true" lang="he">עב</button>
+        <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="primary" data-i18n-attr="aria-label:nav.menu" aria-label="תפריט"><span></span><span></span></button>
+    </div>
+  </div>
 </header>
+<!--/@nav-->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet">
-
-<!-- Banner -->
-<section id="banner">
-    <div class="inner">
-<h2 style="font-size: 36px;">נתן שור</h2>
-<p class="about-me" style="text-align: center; font-size: 20px;">קצת על עצמי</p>
-<p class="qa-path" style="text-align: center; font-size: 20px;">QA-והדרך ל</p>
-
-
-
-        <a href="#one" class="more scrolly">ראה עוד</a>
-    </div>
-</section>
-
-<style>
-    /* עבור כל המסכים */
-    #banner {
-        display: flex;
-        justify-content: center; /* מרכז את התוכן אופקית */
-        align-items: center; /* מרכז את התוכן אנכית */
-        height: 100vh; /* גובה של 100% מהגובה של המסך */
-        text-align: center; /* כל הטקסט ממורכז */
-        padding: 0 10px; /* padding אחיד */
-    }
-
-    #banner .inner {
-        max-width: 800px; /* מגביל את רוחב התוכן */
-        width: 100%;
-    }
-
-    /* הגדרת גודל הפונט עבור כותרת וקטעים */
-    #banner h2 {
-        font-size: 36px;
-        margin: 0;
-    }
-
-    #banner .about-me,
-    #banner .qa-path {
-        font-size: 24px; /* גודל אחיד לפסקאות */
-        margin: 10px 0; /* מרווח אחיד בין הפסקאות */
-    }
-
-    /* עבור הלינק "ראה עוד" */
-    #banner a {
-        font-size: 20px;
-        display: inline-block;
-        margin-top: 20px;
-    }
-
-    /* עבור מסכים קטנים מ-768px (מובייל) */
-    @media screen and (max-width: 768px) {
-        #banner h2 {
-            font-size: 24px; /* גודל הכותרת במובייל */
-        }
-
-        #banner .about-me,
-        #banner .qa-path {
-            font-size: 22px; /* גודל הפסקאות במובייל */
-        }
-
-        #banner a {
-            font-size: 18px; /* גודל לינק במובייל */
-        }
-    }
-
-    /* עבור מסכים רחבים מאוד (מעל 1200px) */
-    @media screen and (min-width: 1200px) {
-        #banner h2 {
-            font-size: 36px; /* גודל קבוע למסכים גדולים */
-        }
-
-        #banner .about-me,
-        #banner .qa-path {
-            font-size: 24px; /* גודל קבוע לפסקאות */
-        }
-
-        #banner a {
-            font-size: 20px; /* גודל לינק קבוע */
-        }
-    }
-</style>
-
-
-
-
-<!-- One -->
-<section id="one" class="wrapper style1 special">
-    <div class="inner">
-        <header class="major">
-            <h2 style="color: black; font-size: 36px; margin-bottom: 10px;">!שלום לכולם</h2>
-            <span style="color: black; font-size: 24px; display: block; margin-bottom: 5px;">שמי נתן שור, בן 25 מקרית ים. אני כאן כדי לשתף אתכם במסע שלי</span>
-            <span style="color: black; font-size: 24px; display: block; margin-top: 0;">והדרך שהובילה אותי לעסוק</span>
-			<span style="color: black; font-size: 24px; display: block; margin-top: 0;">.(QA) בתחום בדיקות התוכנה</span>
-        
-        </header>
-    </div>
-</section>
-
-<style>
-  /* באופן כללי המילה (QA) תהיה באותו קו */
-  .qa-text {
-    display: inline;
-  }
-
-  /* על מסכים קטנים (מובייל) המילה (QA) תעבור לשורה חדשה */
-  @media screen and (max-width: 768px) {
-    .qa-text {
-      display: block;
-      margin-top: 10px; /* רווח נוסף במובייל */
-    }
-  }
-</style>
-
-
-
-<style>
-  /* באופן כללי המילה (QA) תהיה באותו קו */
-  .qa-text {
-    display: inline;
-  }
-
-  /* על מסכים קטנים (מובייל) המילה (QA) תעבור לשורה חדשה */
-  @media screen and (max-width: 768px) {
-    .qa-text {
-      display: block;
-      margin-top: 10px; /* הוספתי רווח כדי לשמור על מקום בין השורות */
-    }
-  }
-</style>
-
-
-
-				<!-- Two -->
-					<section id="two" class="wrapper alt style2">
-						<section class="spotlight">
-							<div class="image"><img src="images/pic01.jpg" alt="" /></div><div class="content">
-						<h2 style="text-align: right" dir="rtl">קצת על עצמי<br /></h2>
-<p style="text-align: right" dir="rtl">
-במהלך הדרך נחשפתי למקצוע "בודק תוכנה", חקרתי עליו והבנתי מהר מאוד שזה
-<br>מקצוע מאתגר, מקצוע שבו צריכים לשים לב לפרטים הקטנים, וכמובן איך אפשר
-<br>לשכוח, את החיבור הגדול למחשבים. התהליך של לימוד התחום מרגש אותי, ואני מצפה
-<br>לאתגרים החדשים שצפויים לי. אני מאמין שהיכולת שלי לחשוב בצורה אנליטית תיתן לי את הכלים להתמודד עם האתגרים הצפויים ולהביא ערך מוסף לצוות שבו אהיה.
-</p>
-
-					
-							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><img src="images/pic02.jpg" alt="" /></div><div class="content">
-							<h2 style="text-align: right" dir="rtl"> מה זה QA?<br /></h2>
-
-								</h2>
-								<p style="text-align: right" dir="rtl">
-    QA (בקרת איכות) היא פעולה שנעשית כדי לוודא שהמוצרים שאנחנו מפתחים פועלים כמו שצריך. זה כמו לבדוק משחק חדש לפני שמשחקים בו, כדי לוודא שאין בו בעיות.
-
-    במהלך ה-QA, בודקי תוכנה מחפשים באגים (טעויות) במערכת ודואגים לתקן אותם. הם גם בודקים אם הכל מתפקד בצורה חלקה ונעימה למשתמשים. כך, כל אחד יכול ליהנות מהמוצר מבלי לחוות תקלות.
-
-    בעצם, QA עוזרת לנו להיות בטוחים שאנחנו נותנים למשתמשים את הטוב ביותר!
-</p>
-
-								
-							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><img src="images/pic03.jpg" alt="" /></div><div class="content">
-					<h2 dir="rtl">מה משך אותי לעולם המחשבים והטכנולוגיה: הסיפור האישי שלי</h2>
-					
-<p dir="rtl" style="text-align: right; line-height: 1.6;">
-    הכל התחיל כשהייתי בן 7, אמא שלי בדיוק קנתה טלפון מסוג "נוקיה". 
-    <br> ביקשתי להסתכל על הטלפון שלה וברגע שהתחלתי להשתמש בו,
-    <br> הרגשתי מן תשוקה וסקרנות מטורפת ללמוד עוד ולחקור אותו.
-    <br> מאז ועד היום, כל בקשה או שאלה מהמשפחה שקשורה לעולם הטכנולוגיה וכמובן המחשבים, מופנית אליי. <br> הרצון שלי היה ללכת ללמוד מדעי המחשב כי זה היה הדבר האינטואיטיבי לעשות.<br> אך כאשר התחלתי את הלימודים, הבנתי שזה לא בשבילי. 
-    <br> חשבתי רבות מה ניתן ללמוד כדי לתת מענה לרצון העז ללמוד ולהתפתח בכל מה שקשור למחשבים וכמובן לעזור ולתת ערך לאנשים.
-    <br> חיפשתי רבות באינטרנט, ובסוף הגעתי לתחום לימודי QA (הבטחת איכות תוכנה)
-    <br>וכעת, אני לומד אצל גל מטלון במכללה לאוטומציה ואני אשמח ללמוד ולהתפתח כמה שיותר ולתת ערך לצוות ולחברה שבה אעבוד.
-</p>
-
-
-
-
-
-
-
-
-
-
-
-
-							</div>
-
-						</section>
-					</section>
-
-<!-- Three -->
- <section id="three" class="wrapper style3 special">
-    <div class="inner">
-        <header class="major">
-            <h2>הכישורים שאני מביא לעולם בדיקות התוכנה</h2>
-        </header>
-        <ul class="features">
-              <li class="icon fa-paper-plane" style="text-align: right;  background-color: #8a508f;">
-                <h4 style="text-align: right;">ניסיון בבדיקות תוכנה ידניות</h4>
-                <p dir="rtl" style="text-align: right;">ניסיון רב בביצוע בדיקות ידניות על אפליקציות ואתרי אינטרנט, כולל ניתוח מערכות וכתיבת תסריטים ידניים, עם דגש על עבודה בתנאים משתנים, מה שמבטיח תשומת לב לפרטים ולהתמודדות עם כל אתגר.</p>
-            </li>
-           <li class="icon solid fa-laptop" style="text-align: right;  background-color: #b17aa2;">
-                <h4 style="text-align: right;">QA  הבנה וידע במתודולוגיות</h4>
-     <p dir="rtl" style="text-align: right; margin-bottom: 0;">בקיאות במתודולוגיות Waterfall ו-Agile.</p>
-<p dir="rtl" style="text-align: right; margin-top: 0;">כולל שיטות עבודה וארגון פרויקטים כדי לבצע בדיקות בצורה שיטתית ויעילה תוך שמירה על זמן ולוחות זמנים.</p>
-
-</li>
-<li class="icon solid fa-code" style="text-align: right; background-color: #7b6992;">
-  <h4 style="text-align: right;">ניסיון בעבודה עם</h4>
-  <h4 style="text-align: right;">SQL, CSS ו-HTML</h4>
-  <p dir="rtl" style="text-align: right;">
-    ניסיון ביצירת אתרים וכתיבת קוד בסיסי ב-HTML ו-CSS, כמו גם יכולת לבצע בדיקות פונקציונליות וויזואליות של אתרי אינטרנט. בנוסף, בעל ידע בשפת SQL עבור ביצוע שאילתות והבנת נתונים מתוך מסדי נתונים.
-  </p>
-    <p dir="rtl" style="text-align: right; color: #f0f0f0;">
-    עבודה עם <strong>Postman</strong> וחילוץ נתוני צד שרת בעזרת קריאות <strong>API</strong>.
-  <p dir="rtl" style="text-align: right; color: #f0f0f0;">
-    STR על אתר גדול ומפורסם ● דיווח באגים בתוכנת <strong>Jira</strong> וניהול הבדיקות ב-<strong>TestRail</strong> יחד עם חברה לקבוצה.  
-    <br>לצפייה בפרויקט:  
-    <a href="https://bit.ly/STR-SuperPharm-Michal-Natan" target="_blank" style="color: #ffeb3b; font-weight: bold;">MySuperPharmSTR</a>
-  </p>
-   <p dir="rtl" style="text-align: right; color: #f0f0f0;">
-        STR על אפליקציית מובייל ● בדיקות יסודיות וניהול תקלות במערכת.  
-    <br>לצפייה בפרויקט:  
-    <a href="https://github.com/2323natan2323/STR-Tiv-Taam-Project/blob/main/Tiv-Taam%20QA%20Mobile%20Project%20Natan%20Shor%20and%20Michal%20Cohen%20STR.pdf" target="_blank" style="color: #ffeb3b; font-weight: bold;">Tiv Taam QA Mobile Project</a>
-</li>
-
-            </li>
-            <li class="icon solid fa-headphones-alt" style="text-align: right; background-color: #445881;">
-                <h4 style="text-align: right;">הבנה מעמיקה של דפדפנים</h4>
-                <h4 style="text-align: right;">Multi-Platform Testing-ו</h4>
-               <p dir="rtl" style="text-align: right;">ניסיון בבדיקות דפדפנים כמו Chrome, Firefox ו-Edge, והתאמה לפלטפורמות שונות (Web, Mobile), כולל ביצוע התאמות והבנה כיצד אפליקציות ואתרים פועלים בסביבות מגוונות.</p>
-
-            </li>
-    
-		  <li class="icon solid fa-flag" style="text-align: right;  background-color: #0d4771;">
- <br><br><h4>ניסיון עם כלים לניהול תקלות</h4>
-	  <h4>ומעקב בדיקות</h4>
-       <p style="margin-bottom: 0; margin-top: 0;">.TestRail-ו Jira ניסיון בעבודה עם כלים כמו</p>
-<p style="margin-bottom: 0; margin-top: 0;">לניהול תקלות ותיעוד תוצאות הבדיקות בצורה</p>
-<p style="margin-bottom: 0; margin-top: 0;">מדוייקת תוך שמירה על מקצועיות והבטחת></p>
-<p style="margin-bottom: 0; margin-top: 0;">.הצגת נתונים ברורים ומובנים למעסיקים</p>
-
-
-            </li>
-            <li class="icon solid fa-star" style="text-align: right;  background-color: #6a4c93;">
-                <h4>יכולת לעבוד בצוות ולהתנהל בתיאום עם צוותי פיתוח ומעצבים</h4>
-         <p style="margin-bottom: 0; margin-top: 0;">ניסיון בעבודה בצוותים דינמיים, תוך שמירה על קשר ושיתוף פעולה עם צוותי פיתוח, מעצבים ומנהלים, על מנת להבטיח תהליך עבודה חלק</p>
-<p style="margin-bottom: 0; margin-top: 0;">.ושהמוצר הסופי יגיע לאיכות גבוהה</p>
-
-            </li>
+<main id="main">
+  <!-- HERO: the person first -->
+  <section class="hero hero--person" id="top">
+    <div class="hero__bg" aria-hidden="true"><i class="glow glow--blue"></i><i class="glow glow--warm"></i></div>
+    <div class="wrap hero__grid">
+      <div class="hero__text">
+        <ul class="identity">
+          <li><span data-i18n="id.role"><bdi dir="ltr">QA Engineer</bdi></span></li>
+          <li><span data-i18n="id.auto">אוטומציית בדיקות</span></li>
+          <li><span data-i18n="id.ai">פיתוח בסיוע <bdi dir="ltr">AI</bdi></span></li>
         </ul>
+        <h1 class="name" data-i18n="hero.name">נתן <em>שור</em></h1>
+        <p class="role" data-i18n="hero.role">QA Engineer עם ניסיון מעשי<span class="role__focus">מתמקד ב-<bdi dir="ltr" class="nw">QA Automation Engineering</bdi></span></p>
+        <p class="lead" data-i18n="hero.lead">אני מביא ניסיון בבדיקות מקצה לקצה של תהליכי הזמנה מורכבים, בחקירת תקלות וברגרסיה. את הניסיון הזה לקחתי צעד קדימה כשיזמתי את <bdi dir="ltr">ASTRA</bdi>, פרויקט אוטומציה לבדיקת הזמנת טיסות, שנבנה ב-<bdi dir="ltr">C#</bdi> וב-<bdi dir="ltr">.NET</bdi> בסיוע כלי <bdi dir="ltr">AI</bdi>.</p>
+        <div class="hero__cta">
+          <a class="btn btn--grad" href="#astra"><span data-i18n="hero.cta.work">גלו את <bdi dir="ltr">ASTRA</bdi></span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v14m0 0l-6-6m6 6l6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="btn btn--ghost" href="#contact" data-i18n="hero.cta.contact">יצירת קשר</a>
+          <a class="textlink" href="about.html" data-i18n="me.cta">עוד עליי</a>
+        </div>
+      </div>
+      <figure class="portrait portrait--hero" id="portrait">
+        <div class="portrait__ph" aria-hidden="true"><span>NS</span></div>
+      </figure>
+    </div>
+  </section>
+
+
+  <!-- EXPERIENCE: real testing work, on equal footing with ASTRA -->
+  <section class="section section--tight s-sand" id="xp">
+    <div class="wrap">
+      <header class="head-row" data-reveal>
+        <div>
+          <p class="kicker" data-i18n="xp.kicker">ניסיון</p>
+          <h2 class="h2" data-i18n="xp.title">ניסיון <em>מעשי</em> בבדיקות תוכנה</h2>
+        </div>
+        <a class="btn btn--ink btn--flat" href="experience.html"><span data-i18n="xp.cta">ניסיון וכישורים</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </header>
+      <ol class="xp">
+        <li data-reveal><h3 data-i18n="xp.1.t">תהליכי הזמנה מקצה לקצה</h3><p data-i18n="xp.1.d">בדיקת תהליכי הזמנה מורכבים, טיסות וטיסה + מלון, מהחיפוש ועד מסך התשלום.</p></li>
+        <li data-reveal><h3 data-i18n="xp.2.t">בדיקות פונקציונליות ורגרסיה</h3><p data-i18n="xp.2.d">בדיקת מסעות משתמש אמיתיים וגרסאות, באתרים ובמובייל, בסביבות בדיקה, stage ועוד.</p></li>
+        <li data-reveal><h3 data-i18n="xp.3.t">חקירת באגים</h3><p data-i18n="xp.3.d">קריאת דרישות, חשיבה על מקרי קצה, שחזור תקלות ותיעוד ברור ב-<bdi dir="ltr">Jira</bdi>.</p></li>
+        <li data-reveal><h3 data-i18n="xp.4.t">בדיקות <bdi dir="ltr">API</bdi> ונתונים</h3><p data-i18n="xp.4.d">שימוש ב-<bdi dir="ltr">Postman</bdi> לקריאות <bdi dir="ltr">API</bdi> ולבדיקת הנתונים שמאחורי המסך.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ASTRA: the proof of what I can build -->
+  <section class="section astra s-ink" id="astra">
+    <div class="hero__bg" aria-hidden="true">
+      <i class="glow glow--blue"></i><i class="glow glow--warm"></i>
+      <svg class="arc" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <path d="M-20 540 C 280 110, 780 30, 1220 310" />
+        <circle r="5"><animateMotion dur="10s" repeatCount="indefinite" path="M-20 540 C 280 110, 780 30, 1220 310" /></circle>
+      </svg>
+    </div>
+    <div class="wrap astra__content">
+      <p class="kicker" data-i18n="astra.kicker">הפרויקט המרכזי שלי</p>
+      <div class="hero__title">
+        <h2 class="wm" dir="ltr" aria-label="ASTRA">
+          <span aria-hidden="true" style="--i:0">A</span><span aria-hidden="true" style="--i:1">S</span><span aria-hidden="true" style="--i:2">T</span><span aria-hidden="true" style="--i:3">R</span><span aria-hidden="true" style="--i:4">A</span>
+        </h2>
+        <p class="hero__label" data-i18n="hero.label">פרויקט אוטומציה לבדיקות תוכנה</p>
+      </div>
+      <div class="hero__row">
+        <div>
+          <p class="lead" data-i18n="hero.desc"><bdi dir="ltr">ASTRA</bdi> מריצה תהליכי הזמנת טיסות מקצה לקצה, מתעדת את תוצאת כל הרצה ועוזרת לבדוק הרצות שנעצרו או נכשלו. נבנתה ב-<bdi dir="ltr">C#</bdi>, ב-<bdi dir="ltr">.NET</bdi> וב-<bdi dir="ltr">Playwright</bdi>.</p>
+          <p class="scope" data-i18n="hero.scope">אוטומציה של תהליכי הזמנת טיסות, מעמוד הבית ועד מסך התשלום, ללא ביצוע חיוב בפועל.</p>
+          <p class="credit" data-i18n="hero.credit">תוכננה ופותחה על ידי נתן שור.</p>
+        </div>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#demo"><span data-i18n="hero.cta1">צפו בהדגמה</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v14m0 0l-6-6m6 6l6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="btn btn--ghost" href="#action" data-i18n="hero.cta2">איך זה עובד</a>
+          <!-- Shown only when a verified, approved public ASTRA repository is set in js/config.js -->
+          <a class="btn btn--ghost" data-github hidden target="_blank" rel="noopener" href="#" data-i18n="hero.cta3">צפו ב-<bdi dir="ltr">ASTRA</bdi> ב-<bdi dir="ltr">GitHub</bdi></a>
+        </div>
+      </div>
+      <ul class="techs">
+        <li data-i18n="tech.1"><bdi dir="ltr">C#</bdi></li>
+        <li data-i18n="tech.2"><bdi dir="ltr">.NET 8</bdi></li>
+        <li data-i18n="tech.3"><bdi dir="ltr">Microsoft Playwright</bdi></li>
+        <li data-i18n="tech.4"><bdi dir="ltr">ASP.NET Web API</bdi></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROJECT IN BRIEF -->
+  <section class="section section--tight s-paper" id="project">
+    <div class="wrap split">
+      <header data-reveal>
+        <p class="kicker" data-i18n="intro.kicker">הפרויקט</p>
+        <h2 class="h2" data-i18n="intro.title">מעמוד הבית עד <em>התשלום</em></h2>
+      </header>
+      <p class="body-lg" data-reveal data-i18n="intro.text"><bdi dir="ltr">ASTRA</bdi> מריצה תהליכי הזמנה בדפדפן: מחפשת טיסות, מגדירה נוסעים ומוסיפה שירותים נלווים, ונעצרת במסך התשלום לפני כל חיוב.</p>
+    </div>
+    <div class="wrap" data-reveal>
+      <p class="mini-label" data-i18n="route.label">תהליך ההזמנה</p>
+      <ol class="route">
+        <li><span class="route__dot"></span><span class="route__t" data-i18n="route.1">עמוד הבית</span></li>
+        <li><span class="route__dot"></span><span class="route__t" data-i18n="route.2">חיפוש טיסה</span></li>
+        <li><span class="route__dot"></span><span class="route__t" data-i18n="route.3">נוסעים</span></li>
+        <li><span class="route__dot"></span><span class="route__t" data-i18n="route.4">שירותים נלווים</span></li>
+        <li class="route__last"><span class="route__dot"></span><span class="route__t" data-i18n="route.5">מסך תשלום</span><span class="route__end" data-i18n="route.end">נעצרת לפני חיוב</span></li>
+      </ol>
+      <p class="fine" data-i18n="route.note">המחשה של תהליך הזמנה. לא מתבצע חיוב בפועל.</p>
+    </div>
+  </section>
+
+  <!-- MAIN PROOF: DEMONSTRATION VIDEO -->
+  <section class="section s-stage" id="demo">
+    <div class="wrap">
+      <header class="stage-head" data-reveal>
+        <p class="kicker" data-i18n="video.kicker">הדגמה</p>
+        <h2 class="h2" data-i18n="video.title">צפו <em>בהדגמה</em></h2>
+        <p class="sub" data-i18n="video.sub">הקלטה אמיתית של <bdi dir="ltr">ASTRA</bdi> מריצה תהליך הזמנת טיסה בדפדפן, מעמוד הבית ועד מסך התשלום.</p>
+      </header>
+      <div class="stage" id="stage" data-reveal>
+        <div class="stage__ph" id="stagePh">
+          <div class="ph-center">
+            <button class="play" id="playBtn" type="button" aria-describedby="phNote" data-i18n-attr="aria-label:video.play" aria-label="ניגון ההדגמה"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></button>
+            <p class="ph-title" data-i18n="video.ph.title">צפו בהרצה אמיתית של <bdi dir="ltr">ASTRA</bdi></p>
+            <p class="ph-text" data-i18n="video.ph.text">כ-73 שניות. הסרטון נטען רק אחרי לחיצה.</p>
+            <p class="ph-note" id="phNote" role="status" hidden><span data-i18n="video.unavail">הנגן לא נטען.</span> <a href="https://vimeo.com/1239085629" target="_blank" rel="noopener noreferrer" data-i18n="video.open">לצפייה ב-<bdi dir="ltr">Vimeo</bdi></a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASTRA IN ACTION: configure, run, review (one compact, connected section) -->
+  <section class="section s-paper" id="action">
+    <div class="wrap">
+      <header class="head-row" data-reveal>
+        <div>
+          <p class="kicker" data-i18n="act.kicker">בפועל</p>
+          <h2 class="h2" data-i18n="act.title"><bdi dir="ltr">ASTRA</bdi> <em>בפעולה</em></h2>
+        </div>
+        <p class="sub sub--ink" data-i18n="act.sub">מה בניתי, מה היא בודקת ומה נשמר אחרי כל הרצה.</p>
+      </header>
+
+      <div class="case" data-reveal>
+        <div class="case__lead">
+          <p class="body-lg" data-i18n="ax.lead">פיתחתי את <bdi dir="ltr">ASTRA</bdi> כדי להפוך בדיקות של תהליכי הזמנת טיסות לאוטומטיות. במקום לבצע את כל השלבים ידנית, המערכת עוברת את התהליך בדפדפן ומתעדת את התוצאות.</p>
+          <p class="fine" data-i18n="ax.site"><bdi dir="ltr">ASTRA</bdi> אינה אתר הזמנות. היא בודקת אתר הזמנות טיסות קיים.</p>
+        </div>
+
+        <div class="case__block">
+          <h3 class="case__h" data-i18n="ax.eg.h">בדיקה אחת, כדוגמה</h3>
+          <article class="scenario">
+            <div class="scenario__route">
+              <div class="scenario__city"><b data-i18n="act.city.tlv">תל אביב</b></div>
+              <div class="scenario__line" aria-hidden="true"><i></i></div>
+              <div class="scenario__city"><b data-i18n="act.city.dxb">דובאי</b></div>
+              <div class="scenario__line" aria-hidden="true"><i></i></div>
+              <div class="scenario__city"><b data-i18n="act.city.tlv">תל אביב</b></div>
+            </div>
+            <ul class="scenario__facts">
+              <li data-i18n="act.sc.trip">טיסה הלוך ושוב</li>
+              <li data-i18n="act.sc.pax">מבוגר אחד</li>
+              <li data-i18n="act.sc.air">חברת תעופה מועדפת: <bdi dir="ltr">Emirates</bdi></li>
+              <li data-i18n="act.sc.bag">כבודה בטיסת החזור</li>
+              <li data-i18n="act.sc.ord">ללא שליחת הזמנה</li>
+            </ul>
+          </article>
+          <p class="fine" data-i18n="ax.eg.note">זו דוגמה אחת בלבד. אפשר להגדיר מסלולים, מספר נוסעים, חברות תעופה ובחירות כבודה אחרים.</p>
+        </div>
+
+        <div class="case__block">
+          <h3 class="case__h" data-i18n="ax.flow.h">מה <bdi dir="ltr">ASTRA</bdi> עושה לבד</h3>
+          <ol class="stp"><li><span class="stp__n" aria-hidden="true">1</span><span data-i18n="ax.s1">חיפוש טיסה</span></li><li><span class="stp__n" aria-hidden="true">2</span><span data-i18n="ax.s2">בחירת טיסה</span></li><li><span class="stp__n" aria-hidden="true">3</span><span data-i18n="ax.s3">תעריף רגיל או גמיש</span></li><li><span class="stp__n" aria-hidden="true">4</span><span data-i18n="ax.s4">פרטי נוסעים וכבודה</span></li><li><span class="stp__n" aria-hidden="true">5</span><span data-i18n="ax.s5">שירותים נוספים</span></li><li><span class="stp__n" aria-hidden="true">6</span><span data-i18n="ax.s6">סיכום ותשלום</span></li></ol>
+          <p class="fine" data-i18n="ax.flow.note">ההרצה מגיעה עד מסך התשלום ונעצרת שם, בלי תשלום אמיתי.</p>
+        </div>
+
+        <div class="case__duo">
+          <div class="case__block">
+            <h3 class="case__h" data-i18n="ax.after.h">ומה קורה בסוף ההרצה?</h3>
+            <p class="body-lg" data-i18n="ax.after">בסיום ההרצה נשמרת תוצאה שמאפשרת לראות מה הצליח, היכן הבדיקה נעצרה ומה כדאי לבדוק.</p>
+          </div>
+          <div class="case__block case__why">
+            <h3 class="case__h" data-i18n="ax.why.h">מה הפרויקט מראה עליי</h3>
+            <p data-i18n="ax.why">התחלתי מניסיון אמיתי ב-<bdi dir="ltr">QA</bdi> ומזיהוי של תהליך בדיקה חוזר שאפשר לאוטמט. את <bdi dir="ltr">ASTRA</bdi> בניתי תחילה ב-<bdi dir="ltr">Python</bdi> והעברתי ל-<bdi dir="ltr">C#</bdi> ול-<bdi dir="ltr">.NET</bdi> כדי להתאים לסביבת הפיתוח של החברה. כלי <bdi dir="ltr">AI</bdi> סייעו לי בכתיבה, בחקירת תקלות ובלמידה.</p>
+          </div>
+        </div>
+
+        <div class="case__more">
+          <details class="more">
+            <summary><span data-i18n="ax.tech.sum">איך זה עובד מאחורי הקלעים?</span></summary>
+            <ol class="io">
+              <li><strong data-i18n="ax.io1">בקשת JSON</strong><small data-i18n="ax.io1d">מגדירה מה לבדוק</small></li>
+              <li><strong>Postman</strong><small data-i18n="ax.io2d">שולח את הבקשה</small></li>
+              <li><strong>ASTRA API</strong><small data-i18n="ax.io3d">מפעיל את ההרצה</small></li>
+              <li><strong>Playwright</strong><small data-i18n="ax.io4d">מפעיל את הדפדפן</small></li>
+              <li class="io__last"><strong data-i18n="ax.io5">תוצאה</strong><small data-i18n="ax.io5d">נשמרת בסיום ההרצה</small></li>
+            </ol>
+            <figure class="code" dir="ltr"><pre><code><span class="c-p">{</span>
+  <span class="c-k">"Site"</span><span class="c-p">:</span> <span class="c-s">"https://test-environment.example/"</span><span class="c-p">,</span>
+  <span class="c-k">"Search_Params"</span><span class="c-p">: {</span>
+    <span class="c-k">"Segments"</span><span class="c-p">: [</span>
+      <span class="c-p">{</span> <span class="c-k">"OriginCity"</span><span class="c-p">:</span> <span class="c-s">"TLV"</span><span class="c-p">,</span> <span class="c-k">"DestinationCity"</span><span class="c-p">:</span> <span class="c-s">"DXB"</span> <span class="c-p">},</span>
+      <span class="c-p">{</span> <span class="c-k">"OriginCity"</span><span class="c-p">:</span> <span class="c-s">"DXB"</span><span class="c-p">,</span> <span class="c-k">"DestinationCity"</span><span class="c-p">:</span> <span class="c-s">"TLV"</span> <span class="c-p">}</span>
+    <span class="c-p">],</span>
+    <span class="c-k">"Passengers"</span><span class="c-p">: {</span> <span class="c-k">"Adults"</span><span class="c-p">:</span> <span class="c-n">1</span> <span class="c-p">},</span>
+    <span class="c-k">"FilterParams"</span><span class="c-p">: {</span> <span class="c-k">"TargetAirline"</span><span class="c-p">:</span> <span class="c-s">"EK"</span> <span class="c-p">}</span>
+  <span class="c-p">},</span>
+  <span class="c-k">"Booking_Params"</span><span class="c-p">: {</span>
+    <span class="c-k">"PassengerDetails"</span><span class="c-p">: [{</span> <span class="c-k">"BaggageSelection"</span><span class="c-p">: {</span> <span class="c-k">"ReturnBaggageOption"</span><span class="c-p">:</span> <span class="c-n">1</span> <span class="c-p">} }],</span>
+    <span class="c-k">"PaymentParams"</span><span class="c-p">: {</span> <span class="c-k">"ShouldSubmitOrder"</span><span class="c-p">:</span> <span class="c-n">false</span> <span class="c-p">}</span>
+  <span class="c-p">},</span>
+  <span class="c-k">"Media"</span><span class="c-p">: {</span> <span class="c-k">"CreateVideoFile"</span><span class="c-p">:</span> <span class="c-n">true</span><span class="c-p">,</span> <span class="c-k">"CreateHtmlFile"</span><span class="c-p">:</span> <span class="c-n">true</span> <span class="c-p">}</span>
+<span class="c-p">}</span></code></pre></figure>
+            <ul class="jsec__notes">
+              <li data-i18n="ax.n1"><code>Segments</code>: קטע טיסה לכל כיוון.</li><li data-i18n="ax.n2"><code>TargetAirline</code>: חברת התעופה המועדפת.</li><li data-i18n="ax.n3"><code>ShouldSubmitOrder: false</code>: ההרצה לא שולחת הזמנה.</li><li data-i18n="ax.n4"><code>Media</code>: אפשר לבקש הקלטת וידאו ותמונת <bdi dir="ltr">HTML</bdi>.</li>
+            </ul>
+            <p class="fine" data-i18n="ax.tech.note">התיאור ברמת הזרימה בלבד, והערכים בדוגמה סינתטיים. הבקשה האמיתית אינה מפורסמת.</p>
+          </details>
+
+          <details class="more" id="examples">
+            <summary><span data-i18n="ax.rep.sum">דוגמה לדוחות ותוצאות</span></summary>
+            <div class="charts" id="charts">
+              <figure class="chart chart--donut">
+                <figcaption class="chart__title" data-i18n="ax.rep.title">מה נשמר בדוח של כל הרצה</figcaption>
+                <p class="chart__lead" data-i18n="ax.rep.lead">בזמן הפיתוח נרשמו 187 הרצות. בדוח, לכל הרצה מסומן אם היא הצליחה, נכשלה או נעצרה ידנית, ובהרצות שנכשלו גם באיזה שלב ההרצה נעצרה.</p>
+                <div class="donut-wrap"><div class="donut" id="donut" role="img"></div><ul class="res__legend" id="donutLegend"></ul></div>
+                <p class="chart__read" id="donutRead"></p>
+              </figure>
+            </div>
+            <p class="fine" id="statsNote" data-i18n="act.res.sub">נתונים היסטוריים מתקופת הפיתוח של <bdi dir="ltr">ASTRA</bdi>, לא ניטור חי. הרצה שנכשלה אינה בהכרח באג באתר: היא מראה איפה ההרצה נעצרה.</p>
+          </details>
+        </div>
+      </div>
     </div>
 </section>
 
+  <!-- HOW IT WAS BUILT: Python to C#, AI-assisted, stated plainly -->
+  <section class="section section--tight s-blue" id="story">
+    <div class="wrap ai-band">
+      <div data-reveal>
+        <p class="kicker" data-i18n="st.kicker">איך ASTRA נבנתה</p>
+        <h2 class="h2 h2--wide" data-i18n="st.title">התחלה ב-<bdi dir="ltr">Python</bdi>, מעבר ל-<bdi dir="ltr">C#</bdi>, ופיתוח <em>בסיוע</em> <bdi dir="ltr">AI</bdi></h2>
+        <p class="body-lg" data-i18n="st.text">התחלתי את הפרויקט ב-<bdi dir="ltr">Python</bdi>, ובהמשך עברתי ל-<bdi dir="ltr">C#</bdi> ול-<bdi dir="ltr">.NET</bdi> כדי להתאים אותו לסביבת הפיתוח של החברה. השתמשתי בכלי <bdi dir="ltr">AI</bdi> באופן נרחב למימוש, לארגון הקוד, לאיתור תקלות וללמידה. מה שאני מביא הוא ההבנה בבדיקות: מה כדאי לאטמט, איך תהליך הזמנה אמור להתנהג ואם התוצאה נכונה.</p>
+      </div>
+      <div data-reveal>
+        <ol class="mini-flow mini-flow--big">
+          <li><span><strong data-i18n="st.1"><bdi dir="ltr">Python</bdi></strong><small data-i18n="st.1d">הגרסה הראשונה</small></span></li>
+          <li><span><strong data-i18n="st.2"><bdi dir="ltr">C#</bdi> ו-<bdi dir="ltr">.NET</bdi></strong><small data-i18n="st.2d">התאמה לסביבת הפיתוח של החברה</small></span></li>
+          <li><span><strong data-i18n="st.3">פיתוח בסיוע <bdi dir="ltr">AI</bdi></strong><small data-i18n="st.3d">מימוש, ארגון, איתור תקלות ולמידה</small></span></li>
+        </ol>
+        <p class="fine fine--light" data-i18n="st.note"><bdi dir="ltr">ASTRA</bdi> אינה פלטפורמת בדיקות מבוססת <bdi dir="ltr">AI</bdi>. ה-<bdi dir="ltr">AI</bdi> עזר לי לבנות אותה.</p>
+      </div>
+    </div>
+  </section>
 
-  <li class="icon fa-flag">
-    <h3 style="color: white; font-size: 28px;">כיצד לשמור על קשר</h3>
-    <p style="color: white; font-size: 20px;">:אני תמיד זמין לשיחה! אתם מוזמנים ליצור קשר דרך אחד מהלחצנים למטה</p>
-    <a href="mailto:2323natan2323@gmail.com" class="contact-button" target="_blank">שלח אימייל</a>
-    <a href="https://www.linkedin.com/in/natan-shor1/" class="contact-button" target="_blank">LinkedIn-צור קשר ב</a>
-	<a href="tel:+972527491280" class="contact-button">צור קשר בטלפון</a>
- <a href="https://github.com/2323natan2323/" class="contact-button" target="_blank">GitHub-ראה את העבודות שלי ב</a>
-</li>
+  <!-- SELECTED PROJECTS -->
+  <section class="section s-ink" id="projects">
+    <div class="wrap">
+      <header class="head-row" data-reveal>
+        <div>
+          <p class="kicker" data-i18n="proj.kicker">פרויקטים נבחרים</p>
+          <h2 class="h2" data-i18n="proj.title">עבודות שאפשר <em>להראות</em></h2>
+        </div>
+        <a class="btn btn--ghost" href="projects.html" data-i18n="proj.all">כל הפרויקטים</a>
+      </header>
+      <ul class="rows">
+        <li data-reveal><a href="projects.html#astra"><span class="rows__n">01</span><h3 data-i18n="pr.astra.title"><bdi dir="ltr">ASTRA</bdi>: פרויקט אוטומציה לבדיקות תוכנה</h3><p data-i18n="proj.astra.d">פרויקט אוטומציה שפיתחתי ביוזמתי לבדיקת תהליכי הזמנת טיסות.</p><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li data-reveal><a href="projects.html#previous"><span class="rows__n">02</span><h3 data-i18n="pr.1.t"><bdi dir="ltr">STR</bdi>: אתר סופר-פארם</h3><p data-i18n="pr.1.d">בדיקות באתר גדול ומוכר, עם דיווח באגים ב-<bdi dir="ltr">Jira</bdi> וניהול בדיקות ב-<bdi dir="ltr">TestRail</bdi>, בשיתוף עם חברה לצוות.</p><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li data-reveal><a href="projects.html#previous"><span class="rows__n">03</span><h3 data-i18n="pr.2.t"><bdi dir="ltr">STR</bdi>: אפליקציית טיב טעם</h3><p data-i18n="pr.2.d">בדיקות יסודיות וניהול תקלות באפליקציית מובייל, בשיתוף עם חברה לצוות.</p><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+      </ul>
+    </div>
+  </section>
+</main>
 
+<!--@footer-->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2 class="contact__title" data-i18n="contact.title">נדבר על ההזדמנות הבאה?</h2>
+    <p class="contact__sub" data-i18n="contact.sub">מחפש את האתגר הבא שלי בתחום האוטומציה. אשמח לשמוע על הזדמנויות מתאימות.</p>
+    <ul class="contact__links">
+      <li><a href="mailto:2323natan2323@gmail.com"><small data-i18n="contact.email">אימייל</small><span dir="ltr">2323natan2323@gmail.com</span></a></li>
+      <li><a href="https://www.linkedin.com/in/natan-shor1/" target="_blank" rel="noopener"><small data-i18n="contact.linkedin">LinkedIn</small><span dir="ltr">in/natan-shor1</span></a></li>
+      <li><a href="https://github.com/2323natan2323/" target="_blank" rel="noopener"><small data-i18n="contact.github">GitHub</small><span dir="ltr">2323natan2323</span></a></li>
+    </ul>
+  </div>
+</section>
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <span data-i18n="foot.rights">© 2026 נתן שור</span>
+  </div>
+</footer>
+<button class="totop" id="totop" type="button" data-i18n-attr="aria-label:common.back" aria-label="חזרה לראש העמוד"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0l-6 6m6-6l6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<!--/@footer-->
 
-
-
-<style>
-    .icon.fa-flag {
-        text-align: center; /* מרכז את הטקסט */
-        background-color: #007bff; /* צבע הרקע */
-        padding: 20px; /* ריווח פנימי */
-        border-radius: 10px; /* קצוות מעוגלים */
-    }
-    
-    .contact-button {
-        display: inline-block;
-        margin: 10px 0;
-        padding: 15px 30px; /* ריווח פנימי של הכפתורים */
-        color: white; /* צבע המלל בלחצן */
-        background-color: #0056b3; /* צבע הכפתור */
-        border-radius: 5px;
-        text-decoration: none;
-        transition: background-color 0.3s;
-        font-size: 20px; /* הגדלת גובה המלל בכפתורים */
-    }
-
-    .contact-button:hover {
-        background-color: #004494; /* צבע הכפתור בה-hover */
-    }
-</style>
-
-<!-- Scroll to Top Button -->
-<a href="#top" class="scroll-to-top">
-    <img src="images/up-arrow.png" alt="Scroll to Top" />
-</a>
-
-<!-- Scroll to Top Button CSS -->
-<style>
-    .scroll-to-top {
-        position: fixed;
-        bottom: 10px;
-        right: 20px;
-        display: none; /* הכפתור יהיה מוסתר בהתחלה */
-        cursor: pointer;
-        text-decoration: none; /* מסיר קו תחתי */
-        border: none; /* מסיר גבולות */
-        outline: none; /* מסיר מסגרת לחיצה */
-    }
-
-    .scroll-to-top img {
-        width: 60px; /* הגדלת רוחב התמונה */
-        height: auto; /* שמירה על פרופורציות התמונה */
-        border-radius: 50%; /* הופך את התמונה לעגולה */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* מוסיף צל רך */
-        transition: transform 0.3s ease; /* אפקט מעבר חלק */
-    }
-
-    .scroll-to-top img:hover {
-        transform: scale(1.2); /* הגדלה במעבר עכבר */
-    }
-</style>
-
-<!-- Scroll to Top Button JavaScript -->
-<script>
-    // הצגת הלחצן כשמגלגלים למטה
-    window.onscroll = function() {
-        var button = document.querySelector('.scroll-to-top');
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            button.style.display = "block"; // מציג את הלחצן
-        } else {
-            button.style.display = "none"; // מסיר את הלחצן כשהתוכן על גבי הדף
-        }
-    };
-
-    // גלילה למעלה בלחיצה על הכפתור
-    document.querySelector('.scroll-to-top').addEventListener('click', function(e) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-</script>
-
-
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+<script src="js/config.js"></script>
+<script src="js/report-stats.js"></script>
+<script src="js/i18n-he.js"></script>
+<script src="js/i18n-en.js"></script>
+<script src="js/main.js"></script>
+</body>
 </html>
