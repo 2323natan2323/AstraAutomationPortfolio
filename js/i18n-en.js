@@ -57,7 +57,7 @@ window.I18N.en = {
   /* home: demo video */
   "video.kicker": "Demonstration",
   "video.title": "Watch the <em>demo</em>",
-  "video.sub": "A real recording of ASTRA running a flight booking workflow in the browser, from the homepage to the payment screen.",
+  "video.sub": "A real recording of ASTRA running a flight booking workflow in the browser against a live booking site, from the homepage to the payment screen. No order and no payment.",
   "video.ph.title": "Watch a real ASTRA run",
   "video.ph.text": "About a minute and a quarter.",
   "video.play": "Play the demonstration",
@@ -68,7 +68,6 @@ window.I18N.en = {
   /* home: in action */
   "act.kicker": "In practice",
   "act.title": "<bdi dir=\"ltr\">ASTRA</bdi> <em>in action</em>",
-  "act.sub": "What I built, what it tests and what is saved after every run.",
 
   "video.unavail": "The player did not load.",
   "xp.kicker": "Experience",
@@ -94,7 +93,7 @@ window.I18N.en = {
   "act.chart.runs": "runs",
 
   "hero.name": "Natan <em>Shor</em>",
-  "hero.role": "QA Engineer with hands-on experience<span class=\"role__focus\">focused on <span class=\"nw\">QA Automation Engineering</span></span>",
+  "hero.role": "QA Engineer with over a year and a half of hands-on experience<span class=\"role__focus\">focused on <span class=\"nw\">QA Automation Engineering</span></span>",
   "hero.lead": "I bring end-to-end testing of complex booking flows, defect investigation and regression. I took that experience a step further when I started ASTRA, an automation project for flight booking tests, built in C# and .NET with the help of AI tools.",
   "hero.cta.contact": "Contact me",
   "hero.cta.work": "Discover ASTRA",
@@ -117,7 +116,7 @@ window.I18N.en = {
   "video.open": "Watch on Vimeo",
 
   "ax.lead": "I built ASTRA to automate tests of flight booking flows. Instead of going through every step by hand, the system walks through the process in a browser and records the results.",
-  "ax.site": "ASTRA is not a booking site. It tests an existing flight booking website.",
+  "ax.site": "ASTRA is not a booking site. It tests an existing flight booking website. In the demo it runs against a live site, up to the payment screen, with no order and no payment.",
   "ax.eg.h": "One test, as an example",
   "ax.eg.note": "This is only one example. Routes, passenger counts, airlines and baggage choices can all be defined differently.",
   "ax.flow.h": "What ASTRA does on its own",
@@ -131,7 +130,7 @@ window.I18N.en = {
   "ax.after.h": "And when the run ends?",
   "ax.after": "When a run ends, a result is saved that shows what succeeded, where the test stopped and what is worth checking.",
   "ax.why.h": "What this project shows about me",
-  "ax.why": "I started from real QA experience and from spotting a repetitive test process that could be automated. I first built ASTRA in Python, then moved it to C# and .NET to fit the company's development environment. AI tools helped me with writing, troubleshooting and learning.",
+  "ax.why": "I started from real QA experience and from spotting a repetitive test process that could be automated. I worked with a developer on adding stable selectors to the site, so that the automation would run reliably. I first built ASTRA in Python, then moved it to C# and .NET to fit the company's development environment. AI tools helped me with writing, troubleshooting and learning.",
   "ax.tech.sum": "How does it work behind the scenes?",
   "ax.io1": "JSON request",
   "ax.io1d": "defines what to test",
@@ -149,6 +148,8 @@ window.I18N.en = {
 
   "ax.rep.title": "What each run report records",
   "ax.rep.lead": "187 runs were recorded during development. For every run the report marks whether it succeeded, failed or was stopped by hand, and for failed runs also the step where it stopped.",
+
+  "video.note": "The recording was slowed down on purpose so the process is easy to follow. In practice the run is much faster.",
 
   /* home: how it was built */
   "st.kicker": "How ASTRA was built",
@@ -240,7 +241,7 @@ window.I18N.en = {
   "ab.kicker": "About Natan",
   "ab.title": "From QA experience to <em>building automation</em>",
   "ab.sub": "Natan Shor, looking for the next role in QA Automation Engineering.",
-  "ab.intro": "I'm Natan Shor, 27, from Kiryat Bialik. I have hands-on experience as a QA engineer on end-to-end booking flows, flights and flight + hotel, and my next step is QA Automation Engineering.",
+  "ab.intro": "I'm Natan Shor, 27, from Kiryat Bialik. I have over a year and a half of hands-on experience as a QA engineer on end-to-end booking flows, flights and flight + hotel, and my next step is QA Automation Engineering.",
   "ab.story.kicker": "My story",
   "ab.story.title": "How I got to QA",
   "tl.1.t": "Age 7: a Nokia phone",

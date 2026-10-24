@@ -59,7 +59,7 @@ window.I18N.he = {
   /* home: demo video */
   "video.kicker": "הדגמה",
   "video.title": "צפו <em>בהדגמה</em>",
-  "video.sub": "הקלטה אמיתית של <bdi dir=\"ltr\">ASTRA</bdi> מריצה תהליך הזמנת טיסה בדפדפן, מעמוד הבית ועד מסך התשלום.",
+  "video.sub": "הקלטה אמיתית של <bdi dir=\"ltr\">ASTRA</bdi> מריצה תהליך הזמנת טיסה בדפדפן, מול אתר הזמנות חי, מעמוד הבית ועד מסך התשלום. בלי הזמנה ובלי תשלום.",
   "video.ph.title": "צפו בהרצה אמיתית של <em dir=\"ltr\">ASTRA</em>",
   "video.ph.text": "כדקה ורבע.",
   "video.play": "ניגון ההדגמה",
@@ -70,7 +70,6 @@ window.I18N.he = {
   /* home: in action */
   "act.kicker": "בפועל",
   "act.title": "<bdi dir=\"ltr\">ASTRA</bdi> <em>בפעולה</em>",
-  "act.sub": "מה בניתי, מה היא בודקת ומה נשמר אחרי כל הרצה.",
 
   "video.unavail": "הנגן לא נטען.",
   "xp.kicker": "ניסיון",
@@ -96,7 +95,7 @@ window.I18N.he = {
   "act.chart.runs": "הרצות",
 
   "hero.name": "נתן <em>שור</em>",
-  "hero.role": "QA Engineer עם ניסיון מעשי<span class=\"role__focus\">מתמקד ב-<bdi dir=\"ltr\" class=\"nw\">QA Automation Engineering</bdi></span>",
+  "hero.role": "QA Engineer עם ניסיון מעשי של מעל שנה וחצי<span class=\"role__focus\">מתמקד ב-<bdi dir=\"ltr\" class=\"nw\">QA Automation Engineering</bdi></span>",
   "hero.lead": "אני מביא ניסיון בבדיקות מקצה לקצה של תהליכי הזמנה מורכבים, בחקירת תקלות וברגרסיה. את הניסיון הזה לקחתי צעד קדימה כשיזמתי את <bdi dir=\"ltr\">ASTRA</bdi>, פרויקט אוטומציה לבדיקת הזמנת טיסות, שנבנה ב-<bdi dir=\"ltr\">C#</bdi> וב-<bdi dir=\"ltr\">.NET</bdi> בסיוע כלי <bdi dir=\"ltr\">AI</bdi>.",
   "hero.cta.contact": "יצירת קשר",
   "hero.cta.work": "גלו את <bdi dir=\"ltr\">ASTRA</bdi>",
@@ -119,7 +118,7 @@ window.I18N.he = {
   "video.open": "לצפייה ב-<bdi dir=\"ltr\">Vimeo</bdi>",
 
   "ax.lead": "פיתחתי את <bdi dir=\"ltr\">ASTRA</bdi> כדי להפוך בדיקות של תהליכי הזמנת טיסות לאוטומטיות. במקום לבצע את כל השלבים ידנית, המערכת עוברת את התהליך בדפדפן ומתעדת את התוצאות.",
-  "ax.site": "<bdi dir=\"ltr\">ASTRA</bdi> אינה אתר הזמנות. היא בודקת אתר הזמנות טיסות קיים.",
+  "ax.site": "<bdi dir=\"ltr\">ASTRA</bdi> אינה אתר הזמנות. היא בודקת אתר הזמנות טיסות קיים. בהדגמה היא רצה מול אתר חי, עד מסך התשלום, בלי הזמנה ובלי תשלום.",
   "ax.eg.h": "בדיקה אחת, כדוגמה",
   "ax.eg.note": "זו דוגמה אחת בלבד. אפשר להגדיר מסלולים, מספר נוסעים, חברות תעופה ובחירות כבודה אחרים.",
   "ax.flow.h": "מה <bdi dir=\"ltr\">ASTRA</bdi> עושה לבד",
@@ -133,7 +132,7 @@ window.I18N.he = {
   "ax.after.h": "ומה קורה בסוף ההרצה?",
   "ax.after": "בסיום ההרצה נשמרת תוצאה שמאפשרת לראות מה הצליח, היכן הבדיקה נעצרה ומה כדאי לבדוק.",
   "ax.why.h": "מה הפרויקט מראה עליי",
-  "ax.why": "התחלתי מניסיון אמיתי ב-<bdi dir=\"ltr\">QA</bdi> ומזיהוי של תהליך בדיקה חוזר שאפשר להפוך לאוטומטי. את <bdi dir=\"ltr\">ASTRA</bdi> בניתי תחילה ב-<bdi dir=\"ltr\">Python</bdi> והעברתי ל-<bdi dir=\"ltr\">C#</bdi> ול-<bdi dir=\"ltr\">.NET</bdi> כדי להתאים לסביבת הפיתוח של החברה. כלי <bdi dir=\"ltr\">AI</bdi> סייעו לי בכתיבה, בחקירת תקלות ובלמידה.",
+  "ax.why": "התחלתי מניסיון אמיתי ב-<bdi dir=\"ltr\">QA</bdi> ומזיהוי של תהליך בדיקה חוזר שאפשר להפוך לאוטומטי. עבדתי עם מפתח על הוספת סלקטורים יציבים לאתר, כדי שהאוטומציה תרוץ באמינות. את <bdi dir=\"ltr\">ASTRA</bdi> בניתי תחילה ב-<bdi dir=\"ltr\">Python</bdi> והעברתי ל-<bdi dir=\"ltr\">C#</bdi> ול-<bdi dir=\"ltr\">.NET</bdi> כדי להתאים לסביבת הפיתוח של החברה. כלי <bdi dir=\"ltr\">AI</bdi> סייעו לי בכתיבה, בחקירת תקלות ובלמידה.",
   "ax.tech.sum": "איך זה עובד מאחורי הקלעים?",
   "ax.io1": "בקשת JSON",
   "ax.io1d": "מגדירה מה לבדוק",
@@ -151,6 +150,8 @@ window.I18N.he = {
 
   "ax.rep.title": "מה נשמר בדוח של כל הרצה",
   "ax.rep.lead": "בזמן הפיתוח נרשמו 187 הרצות. בדוח, לכל הרצה מסומן אם היא הצליחה, נכשלה או נעצרה ידנית, ובהרצות שנכשלו גם באיזה שלב ההרצה נעצרה.",
+
+  "video.note": "ההקלטה הואטה בכוונה כדי שיהיה קל לעקוב אחרי התהליך. בפועל ההרצה מהירה בהרבה.",
 
   /* home: how it was built */
   "st.kicker": "איך ASTRA נבנתה",
@@ -242,7 +243,7 @@ window.I18N.he = {
   "ab.kicker": "אודות",
   "ab.title": "מהניסיון ב-<bdi dir=\"ltr\">QA</bdi> <em>לעשייה</em> באוטומציה",
   "ab.sub": "נתן שור, מחפש את התפקיד הבא ב-<bdi dir=\"ltr\" class=\"nw\">QA Automation Engineering</bdi>.",
-  "ab.intro": "אני נתן שור, בן 27, מקרית ביאליק. יש לי ניסיון מעשי כ-<bdi dir=\"ltr\">QA Engineer</bdi> בתהליכי הזמנה מקצה לקצה, טיסות וטיסה + מלון, והצעד הבא שלי הוא <bdi dir=\"ltr\" class=\"nw\">QA Automation Engineering</bdi>.",
+  "ab.intro": "אני נתן שור, בן 27, מקרית ביאליק. יש לי ניסיון מעשי של מעל שנה וחצי כ-<bdi dir=\"ltr\">QA Engineer</bdi> בתהליכי הזמנה מקצה לקצה, טיסות וטיסה + מלון, והצעד הבא שלי הוא <bdi dir=\"ltr\" class=\"nw\">QA Automation Engineering</bdi>.",
   "ab.story.kicker": "הסיפור שלי",
   "ab.story.title": "איך הגעתי ל-<bdi dir=\"ltr\">QA</bdi>",
   "tl.1.t": "גיל 7: טלפון נוקיה",
