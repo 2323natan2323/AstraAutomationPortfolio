@@ -1,0 +1,7 @@
+node_modules/
+tests/screenshots/
+tests/report.json
+.claude/
+ASTRA_INTERVIEW_GUIDE*
+*.private.*
+astra-private/

@@ -1,0 +1,12 @@
+{
+  "name": "astra-portfolio",
+  "private": true,
+  "description": "Static site. The only dependency is a dev-time test runner; nothing is shipped to visitors.",
+  "scripts": {
+    "check": "node tools/site.js check",
+    "test": "node tests/regression.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.48.0"
+  }
+}
