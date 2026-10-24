@@ -221,6 +221,7 @@
           <div class="case__block">
             <h3 class="case__h" data-i18n="ax.after.h">ומה קורה בסוף ההרצה?</h3>
             <p class="body-lg" data-i18n="ax.after">בסיום ההרצה נשמרת תוצאה שמאפשרת לראות מה הצליח, היכן הבדיקה נעצרה ומה כדאי לבדוק.</p>
+            <p class="fine" data-i18n="ax.rep.lead">בזמן הפיתוח נרשמו 187 הרצות. לכל הרצה הדוח שומר אם הצליחה, נכשלה או נעצרה ידנית, ובכישלון גם באיזה שלב.</p>
           </div>
           <div class="case__block case__why">
             <h3 class="case__h" data-i18n="ax.why.h">מה הפרויקט מראה עליי</h3>
@@ -258,19 +259,6 @@
               <li data-i18n="ax.n1"><code>Segments</code>: קטע טיסה לכל כיוון.</li><li data-i18n="ax.n2"><code>TargetAirline</code>: חברת התעופה המועדפת.</li><li data-i18n="ax.n3"><code>ShouldSubmitOrder: false</code>: ההרצה לא שולחת הזמנה.</li><li data-i18n="ax.n4"><code>Media</code>: אפשר לבקש הקלטת וידאו ותמונת <bdi dir="ltr">HTML</bdi>.</li>
             </ul>
             <p class="fine" data-i18n="ax.tech.note">התיאור ברמת הזרימה בלבד, והערכים בדוגמה סינתטיים. הבקשה האמיתית אינה מפורסמת.</p>
-          </details>
-
-          <details class="more" id="examples">
-            <summary><span data-i18n="ax.rep.sum">דוגמה לדוחות ותוצאות</span></summary>
-            <div class="charts" id="charts">
-              <figure class="chart chart--donut">
-                <figcaption class="chart__title" data-i18n="ax.rep.title">מה נשמר בדוח של כל הרצה</figcaption>
-                <p class="chart__lead" data-i18n="ax.rep.lead">בזמן הפיתוח נרשמו 187 הרצות. בדוח, לכל הרצה מסומן אם היא הצליחה, נכשלה או נעצרה ידנית, ובהרצות שנכשלו גם באיזה שלב ההרצה נעצרה.</p>
-                <div class="donut-wrap"><div class="donut" id="donut" role="img"></div><ul class="res__legend" id="donutLegend"></ul></div>
-                <p class="chart__read" id="donutRead"></p>
-              </figure>
-            </div>
-            <p class="fine" id="statsNote" data-i18n="act.res.sub">נתונים היסטוריים מתקופת הפיתוח של <bdi dir="ltr">ASTRA</bdi>, לא ניטור חי. הרצה שנכשלה אינה בהכרח באג באתר: היא מראה איפה ההרצה נעצרה.</p>
           </details>
         </div>
       </div>
@@ -336,7 +324,6 @@
 <!--/@footer-->
 
 <script src="js/config.js"></script>
-<script src="js/report-stats.js"></script>
 <script src="js/i18n-he.js"></script>
 <script src="js/i18n-en.js"></script>
 <script src="js/main.js"></script>

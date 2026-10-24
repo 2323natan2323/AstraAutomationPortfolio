@@ -14,25 +14,6 @@
   }
   function plain(s) { return s.replace(/<[^>]+>/g, ""); }
 
-  /* ---------- charts from the historical aggregates (js/report-stats.js) ---------- */
-  function renderStats() {
-    var st = window.ASTRA_STATS, donut = doc.getElementById("donut"); if (!st || !donut) return;
-    if (cfg.showHistoricalStats === false) { ["examples"].forEach(function (id) { var el = doc.getElementById(id); if (el) el.hidden = true; }); return; }
-    var parts = [["ok", st.succeeded, "act.res.ok"], ["fail", st.failedOther, "act.res.fail"], ["stop", st.stopped, "act.res.stop"]], colors = { ok: "#0a9f70", fail: "#ff5c7a", stop: "#9aa3bd" };
-    var C = 2 * Math.PI * 15.915, off = 0, circles = "", legend = "", gap = 0.5;
-    parts.forEach(function (p) {
-      var len = p[1] / st.total * C;
-      circles += '<circle cx="21" cy="21" r="15.915" stroke="' + colors[p[0]] + '" stroke-dasharray="' + Math.max(len - gap, 0).toFixed(3) + " " + (C - Math.max(len - gap, 0)).toFixed(3) + '" stroke-dashoffset="' + (-off).toFixed(3) + '"/>';
-      off += len;
-      legend += '<li class="' + p[0] + '"><b>' + p[1] + "</b><span>" + t(p[2]) + "</span><span class=\"pct\">" + Math.round(p[1] / st.total * 100) + "%</span></li>";
-    });
-    donut.innerHTML = '<svg viewBox="0 0 42 42" aria-hidden="true" focusable="false">' + circles + '</svg><div class="donut__center"><b>' + st.total + "</b><small>" + t("act.chart.runs") + "</small></div>";
-    donut.setAttribute("aria-label", st.total + " " + t("act.chart.runs") + ": " + parts.map(function (p) { return p[1] + " " + plain(t(p[2])); }).join(", "));
-    doc.getElementById("donutLegend").innerHTML = legend;
-    var rd2 = doc.getElementById("donutRead");
-    if (rd2) rd2.innerHTML = t("act.res.read").replace("{t}", st.total).replace("{s}", st.succeeded).replace("{x}", st.stopped).replace("{f}", st.failedOther);
-  }
-
   /* ---------- i18n ---------- */
   function applyLang(next) {
     lang = next === "en" ? "en" : "he";
@@ -45,7 +26,6 @@
     });
     doc.querySelectorAll(".lang button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === lang)); });
     renderStatusChips();
-    renderStats();
     try { localStorage.setItem("lang", lang); } catch (e) {}
     root.classList.remove("pending");
   }

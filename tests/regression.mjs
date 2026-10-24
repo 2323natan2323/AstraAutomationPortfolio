@@ -122,16 +122,11 @@ try {
     ok(`${l}: default view needs no JSON, API or Excel vocabulary`, !/JSON|Postman|Playwright|Segments|ShouldSubmitOrder|PNR|API/.test(vis.replace(/ASTRA/g, "")), vis.slice(0, 80));
     ok(`${l}: example is one scenario with city names and plain facts`, (await pg.locator("#action .scenario__city").count()) === 3 && (await pg.locator("#action .scenario__facts li").count()) === 5 && !/\bTLV\b|\bDXB\b/.test(await pg.locator("#action .scenario").innerText()));
     ok(`${l}: six booking stages in a compact progression`, (await pg.locator("#action .stp li").count()) === 6);
-    ok(`${l}: only two optional disclosures, both closed, none nested`, (await pg.locator("#action details").count()) === 2 && (await pg.locator("#action details[open]").count()) === 0 && (await pg.locator("#action details details").count()) === 0);
-    ok(`${l}: the charts are not visible by default`, !(await pg.locator("#donut").isVisible()) && !false);
+    ok(`${l}: only one optional disclosure, closed, none nested`, (await pg.locator("#action details").count()) === 1 && (await pg.locator("#action details[open]").count()) === 0 && (await pg.locator("#action details details").count()) === 0);
     await pg.locator("#action details").first().locator("summary").click();
     const tech = await pg.locator("#action details").first().innerText(); const code = await pg.locator("#action details").first().locator("pre").innerText();
     ok(`${l}: technical area explains the chain and shows a sanitized request`, /Postman/.test(tech) && /Playwright/.test(tech) && /Segments/.test(code) && /test-environment\.example/.test(code) && /ShouldSubmitOrder/.test(code) && !/\d{9,}/.test(code));
     ok(`${l}: code stays inside its block and the page does not scroll sideways`, await pg.evaluate(() => { const c = document.querySelector("#action pre").getBoundingClientRect(), w = document.querySelector("#action .wrap").getBoundingClientRect(); return c.right <= w.right + 1 && c.left >= w.left - 1 && document.documentElement.scrollWidth <= innerWidth; }));
-    await pg.locator("#examples summary").click();
-    const stats = await pg.evaluate(() => window.ASTRA_STATS);
-    ok(`${l}: donut and legend match the aggregates and add up`, (await pg.locator("#donut circle").count()) === 3 && stats.succeeded + stats.failedOther + stats.stopped === stats.total && (await pg.locator("#donutLegend li b").allInnerTexts()).map(Number).reduce((x, y) => x + y, 0) === stats.total && (await pg.innerText("#donut")).includes(String(stats.total)));
-    ok(`${l}: reports area explains the dataset in plain words and has no invented sample runs`, (await pg.locator("#examples .run").count()) === 0 && (await pg.locator("#examples .chart__lead").innerText()).includes("187") && /אינה בהכרח|not automatically/.test(await pg.innerText("#statsNote")) && (await pg.locator("#examples #stepBars").count()) === 0);
     ok(`${l}: nothing in the section links to a company resource`, (await pg.locator("#action a[href]").count()) === 0); await ctx.close(); }
   for (const l of LANGS) { const ctx = await newCtx(); const pg = await open(ctx, "index", `?lang=${l}`); const b = pg.locator("#playBtn"); await b.scrollIntoViewIfNeeded();
     const geo = await pg.evaluate(() => { const bb = document.querySelector("#playBtn").getBoundingClientRect(), s = document.querySelector("#playBtn svg"), tr = getComputedStyle(s).transform, path = s.querySelector("path").getBoundingClientRect(); return { w: bb.width, h: bb.height, tr, dx: (path.left + path.width / 2) - (bb.left + bb.width / 2) }; });
@@ -144,7 +139,7 @@ try {
     await ctx.close(); }
   group("data");
   { const { execFileSync } = await import("node:child_process"); let out = "", code = 0; try { out = execFileSync("python", ["-I", path.join(ROOT, "tools", "derive_report_stats.py"), "--check"], { encoding: "utf8", cwd: ROOT }); } catch (e) { code = e.status; out = String(e.stdout || "") + String(e.stderr || ""); }
-    ok("published aggregates equal a fresh computation from the workbook", code === 0, out.trim()); }
+    ok("the published run count equals the workbook row count", code === 0, out.trim()); }
   { const ctx = await newCtx(); const pg = await open(ctx, "index"); ok("ASTRA section lists only programming technologies (four)", (await pg.locator("#astra .techs li").count()) === 4);
     ok("hero identity items are single text units (no split bidi fragments)", await pg.$$eval(".identity li", (ls) => ls.every((li) => li.children.length === 1)));
     await ctx.close(); }
@@ -173,8 +168,6 @@ try {
     const tx = await pg.locator("main").innerText();
     ok(`${l}: About leads with automation and keeps the five-step personal story`, /Automation/.test(tx) && (await pg.locator(".timeline > li").count()) === 5 && /Nokia|נוקיה/.test(tx) && (await pg.locator(".timeline__end").count()) === 1 && (await pg.locator("#intro img").getAttribute("alt")).length > 3);
     await ctx.close(); }
-  { const ctx = await newCtx(); await ctx.route("**/js/config.js", (r) => r.fulfill({ contentType: "text/javascript", body: 'window.ASTRA_MEDIA={video:{},github:"",portrait:"",showHistoricalStats:false};' })); const pg = await open(ctx, "index"); 
-    ok("historical stats can be switched off without leaving an empty block", (await pg.locator("#charts").isHidden()) && (await pg.locator("#statsNote").isHidden()) && (await pg.locator("#examples").isHidden())); await ctx.close(); }
   group("privacy");
   { const { execFileSync } = await import("node:child_process"); let out = "", code = 0; try { out = execFileSync("python", ["-I", path.join(ROOT, "tests", "leak_scan.py")], { encoding: "utf8", cwd: ROOT }); } catch (e) { code = e.status; out = String(e.stdout || "") + String(e.stderr || ""); }
     ok("no sensitive string from the original request or workbook appears in the publishable tree", code === 0, out.split("\n").filter((x) => /LEAK|not found/.test(x)).join(" | "));

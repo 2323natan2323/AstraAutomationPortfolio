@@ -484,10 +484,6 @@ html[dir="rtl"] .sheet__tab { display: inline-block; margin: 0; padding: .3rem 1
 @media (max-width: 480px) { .cfg { grid-template-columns: 1fr 1fr; } .cfg__route, .cfg__set, .cfg article:nth-child(4) { grid-column: span 2; } .cfg__tag code { white-space: normal; overflow-wrap: anywhere; } }
 
 /* ---------- results view ---------- */
-.res__legend { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; margin: .9rem 0 .6rem; }
-.res__legend li { display: flex; align-items: center; gap: .45rem; font-size: .95rem; }
-.res__legend li::before { content: ""; width: .6rem; height: .6rem; border-radius: 50%; }
-.res__legend b { font-family: var(--font-display); font-weight: var(--w-display); font-size: 1.4rem; line-height: 1; }
 .pill { grid-row: 1 / span 2; padding: .2rem .7rem; border-radius: 999px; font-size: .78rem; font-weight: 700; }
 .pill--ok { background: #dff6ec; color: #0a6b4c; } .pill--fail { background: #ffe3e8; color: #a3122e; } .pill--stop { background: #e8eaf2; color: #3c4560; }
 .track { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: 1rem; counter-reset: t; }
@@ -500,28 +496,6 @@ html[dir="rtl"] .sheet__tab { display: inline-block; margin: 0; padding: .3rem 1
 /* phones: the travelling dot would cross a cropped path, so only the dashed arc stays (intentional, not a workaround) */
 
 /* ---------- real charts (historical aggregates) ---------- */
-.charts { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 1.4rem; align-items: stretch; }
-.chart { margin: 0; padding: 1.2rem 1.3rem; border-radius: 20px; background: #fff; border: 1px solid var(--line-light); }
-.chart .mini-label { margin-bottom: 1rem; }
-.donut-wrap { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.2rem; align-items: center; }
-.donut { position: relative; width: clamp(8.5rem, 22vw, 11rem); aspect-ratio: 1; }
-.donut svg { width: 100%; height: 100%; transform: rotate(-90deg); }
-.donut circle { fill: none; stroke-width: 5; }
-.donut__center { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; line-height: 1.1; }
-.donut__center b { font-family: var(--font-display); font-weight: var(--w-display); font-size: clamp(1.7rem, 1.4rem + 1vw, 2.2rem); letter-spacing: 0; }
-.donut__center small { font-size: .78rem; color: var(--muted-light); }
-.res__legend { display: grid; gap: .55rem; margin: 0; }
-.res__legend li { display: grid; grid-template-columns: auto auto 1fr auto; align-items: baseline; gap: .1rem .6rem; font-size: .92rem; }
-.res__legend li::before { content: ""; width: .7rem; height: .7rem; border-radius: 50%; align-self: center; background: var(--c); }
-.res__legend .ok { --c: #0a9f70; } .res__legend .fail { --c: var(--coral); } .res__legend .stop { --c: #9aa3bd; }
-.res__legend b { font-family: var(--font-display); font-weight: var(--w-display); font-size: 1.25rem; line-height: 1; }
-.res__legend .pct { font: 600 .8rem/1 var(--font-mono); color: var(--muted-light); }
-.hbars { display: grid; gap: .55rem; }
-.hbars li { display: grid; grid-template-columns: minmax(7rem, 11rem) minmax(0, 1fr) 2rem; gap: .7rem; align-items: center; font-size: .9rem; }
-.hbars .bar { height: .8rem; border-radius: 999px; background: #eef0f6; overflow: hidden; }
-.hbars .bar i { display: block; height: 100%; width: var(--w); border-radius: 999px; background: var(--coral); }
-.hbars li:first-child .bar i { background: #e0334f; }
-.hbars b { font: 700 .95rem/1 var(--font-mono); text-align: end; }
 @media (max-width: 860px) { .charts { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .donut-wrap { grid-template-columns: 1fr; justify-items: center; } .res__legend { width: 100%; } .hbars li { grid-template-columns: 1fr 2rem; } .hbars .bar { grid-column: 1 / -1; grid-row: 2; } .hbars li > span { grid-column: 1; } .hbars b { grid-column: 2; grid-row: 1; } }
 
@@ -557,11 +531,8 @@ html[lang="he"] .name { line-height: 1.05; }
 .inv dd { font-weight: 500; }
 .inv dd.muted { font-weight: 400; color: var(--muted-light); font-size: .92rem; }
 .inv .track { margin-bottom: 0; }
-.chart__read { margin-top: 1rem; font-size: .95rem; font-weight: 500; }
 @media (max-width: 640px) { .inv > div { grid-template-columns: 1fr; } }
 
-.res__legend { width: max-content; max-width: 100%; }
-.res__legend li { grid-template-columns: auto auto auto auto; column-gap: .7rem; }
 
 .hero--person .hero__cta { justify-content: flex-start; }
 
@@ -660,9 +631,6 @@ html[lang="he"] .name { line-height: 1.05; }
 /* inside the optional areas the content is narrower, so stack it */
 .case__more .io { grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); }
 .case__more .io li::after { display: none; }
-.case__more .charts { grid-template-columns: 1fr 1fr; }
-.case__more .donut-wrap { grid-template-columns: 1fr; justify-items: start; gap: .9rem; }
-.case__more .res__legend { width: 100%; }
 .runs2 .inv > div { grid-template-columns: 1fr; gap: .15rem; }
 @media (max-width: 760px) { .case__more .charts { grid-template-columns: 1fr; } }
 .case__more .more > :not(summary) { max-width: none; }
@@ -674,16 +642,7 @@ html[lang="he"] .name { line-height: 1.05; }
 
 .astra { contain: paint; clip-path: inset(0); }
 .arc { overflow: hidden; }
-.chart__title { font-family: var(--font-display); font-weight: var(--w-display); font-size: 1.25rem; letter-spacing: var(--track-display); }
-.chart__lead { color: var(--muted-light); max-width: 60ch; line-height: 1.6; }
-.case__more .charts { grid-template-columns: 1fr; }
-.case__more .chart--donut { display: grid; gap: 1rem; padding: clamp(1.2rem, 3vw, 2rem); }
-.case__more .donut-wrap { grid-template-columns: auto minmax(0, 1fr); justify-items: stretch; gap: clamp(1.2rem, 4vw, 3rem); }
-.case__more .res__legend { width: 100%; gap: .9rem; }
-.case__more .res__legend li { grid-template-columns: auto auto 1fr auto; align-items: baseline; }
-.case__more .res__legend li span:nth-of-type(1) { font-weight: 500; font-size: 1rem; line-height: 1.35; }
 @media (max-width: 560px) { .case__more .donut-wrap { grid-template-columns: 1fr; justify-items: center; } }
-.case__more .res__legend li { grid-template-columns: auto auto auto auto; justify-content: start; column-gap: .8rem; }
 .case__more .chart__read { display: none; }
 
 /* nav portrait */

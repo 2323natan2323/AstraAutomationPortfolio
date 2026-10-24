@@ -81,16 +81,8 @@ window.I18N.en = {
   "xp.4.t": "API and data checks",
   "xp.4.d": "Postman for API calls, and checking the data behind a screen.",
   "xp.cta": "Experience and skills",
-  "act.res.hist": "Historical dataset",
-  "act.res.sub": "Historical data from the development of ASTRA, not live monitoring. A failed run is not automatically a defect in the site: it shows where the run stopped.",
-  "act.res.ok": "Succeeded, finished with no failure",
-  "act.res.fail": "Failed, stopped at some step",
-  "act.res.stop": "Stopped by hand",
-  "act.res.list": "Sample runs",
-  "act.res.ill": "These three runs are illustrative.",
 
 
-  "act.chart.runs": "runs",
 
   "hero.name": "Natan <em>Shor</em>",
   "hero.role": "QA Engineer with over a year and a half of hands-on experience<span class=\"role__focus\">focused on <span class=\"nw\">QA Automation Engineering</span></span>",
@@ -100,7 +92,6 @@ window.I18N.en = {
   "portrait.cap": "Natan Shor, QA Engineer",
   "astra.kicker": "My main project",
   "hero.label": "QA Automation Framework",
-  "act.res.read": "Of {t} runs, {s} succeeded, {x} were stopped by hand and {f} failed at some step.",
 
   "ab.intro2": "That is why I started ASTRA: a test automation project for flight booking. I began it in Python, rebuilt it in C# and .NET to fit the company's stack, and used AI tools substantially along the way.",
   "tl.end": "That journey is why my focus today is building and improving test automation.",
@@ -144,10 +135,8 @@ window.I18N.en = {
   "ax.n2": "<code>TargetAirline</code>: the preferred airline.",
   "ax.n3": "<code>ShouldSubmitOrder: false</code>: the run does not submit an order.",
   "ax.n4": "<code>Media</code>: a video recording and an <bdi dir=\"ltr\">HTML</bdi> snapshot can be requested.",
-  "ax.rep.sum": "Example reports and results",
 
-  "ax.rep.title": "What each run report records",
-  "ax.rep.lead": "187 runs were recorded during development. For every run the report marks whether it succeeded, failed or was stopped by hand, and for failed runs also the step where it stopped.",
+  "ax.rep.lead": "187 runs were recorded during development. For every run the report keeps whether it succeeded, failed or was stopped by hand, and for a failure also the step where it stopped.",
 
   "video.note": "The recording was slowed down on purpose so the process is easy to follow. In practice the run is much faster.",
 
@@ -174,8 +163,8 @@ window.I18N.en = {
 
   /* experience page */
   "exp.kicker": "Experience & Skills",
-  "exp.title": "QA experience, with <em>automation</em> in focus",
-  "exp.sub": "Hands-on testing experience on real user journeys, and an automation project I started myself with the help of AI tools.",
+  "exp.title": "From software testing to <em>automation</em>",
+  "exp.sub": "Hands-on software testing experience on flight and holiday package booking flows, alongside developing ASTRA, an independent automation project I initiated and built with the help of AI tools.",
   "exp.work.kicker": "Professional experience",
   "exp.work.title": "Software testing, hands-on",
   "exp.work.sum": "Experience details",
