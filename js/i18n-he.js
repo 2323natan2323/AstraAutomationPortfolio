@@ -87,7 +87,7 @@ window.I18N.he = {
 
 
   "hero.name": "נתן <em>שור</em>",
-  "hero.role": "QA Engineer עם ניסיון מעשי של מעל שנה וחצי<span class=\"role__focus\">מתמקד ב-<bdi dir=\"ltr\" class=\"nw\">QA Automation Engineering</bdi></span>",
+  "hero.role": "QA Engineer עם ניסיון מעשי של שנתיים<span class=\"role__focus\">מתמקד ב-<bdi dir=\"ltr\" class=\"nw\">QA Automation Engineering</bdi></span>",
   "hero.lead": "אני מביא ניסיון בבדיקות מקצה לקצה של תהליכי הזמנה מורכבים, בחקירת תקלות וברגרסיה. את הניסיון הזה לקחתי צעד קדימה כשיזמתי את <bdi dir=\"ltr\">ASTRA</bdi>, פרויקט אוטומציה לבדיקת הזמנת טיסות, שנבנה ב-<bdi dir=\"ltr\">C#</bdi> וב-<bdi dir=\"ltr\">.NET</bdi> בסיוע כלי <bdi dir=\"ltr\">AI</bdi>.",
   "hero.cta.contact": "יצירת קשר",
   "hero.cta.work": "גלו את <bdi dir=\"ltr\">ASTRA</bdi>",
@@ -232,7 +232,7 @@ window.I18N.he = {
   "ab.kicker": "אודות",
   "ab.title": "מהניסיון ב-<bdi dir=\"ltr\">QA</bdi> <em>לעשייה</em> באוטומציה",
   "ab.sub": "נתן שור, מחפש את התפקיד הבא ב-<bdi dir=\"ltr\" class=\"nw\">QA Automation Engineering</bdi>.",
-  "ab.intro": "אני נתן שור, בן 27, מקרית ביאליק. יש לי ניסיון מעשי של מעל שנה וחצי כ-<bdi dir=\"ltr\">QA Engineer</bdi> בתהליכי הזמנה מקצה לקצה, טיסות וטיסה + מלון, והצעד הבא שלי הוא <bdi dir=\"ltr\" class=\"nw\">QA Automation Engineering</bdi>.",
+  "ab.intro": "אני נתן שור, בן 27, מקרית ביאליק. יש לי ניסיון מעשי של שנתיים כ-<bdi dir=\"ltr\">QA Engineer</bdi> בתהליכי הזמנה מקצה לקצה, טיסות וטיסה + מלון, והצעד הבא שלי הוא <bdi dir=\"ltr\" class=\"nw\">QA Automation Engineering</bdi>.",
   "ab.story.kicker": "הסיפור שלי",
   "ab.story.title": "איך הגעתי ל-<bdi dir=\"ltr\">QA</bdi>",
   "tl.1.t": "גיל 7: טלפון נוקיה",

@@ -58,7 +58,7 @@ window.I18N.en = {
   "video.kicker": "Demonstration",
   "video.title": "Watch the <em>demo</em>",
   "video.sub": "A real recording of ASTRA running a flight booking workflow in the browser against a live booking site, from the homepage to the payment screen. No order and no payment.",
-  "video.ph.title": "Watch a real ASTRA run",
+  "video.ph.title": "Watch a real <em>ASTRA</em> run",
   "video.ph.text": "About a minute and a quarter.",
   "video.play": "Play the demonstration",
 
@@ -85,7 +85,7 @@ window.I18N.en = {
 
 
   "hero.name": "Natan <em>Shor</em>",
-  "hero.role": "QA Engineer with over a year and a half of hands-on experience<span class=\"role__focus\">focused on <span class=\"nw\">QA Automation Engineering</span></span>",
+  "hero.role": "QA Engineer with two years of hands-on experience<span class=\"role__focus\">focused on <span class=\"nw\">QA Automation Engineering</span></span>",
   "hero.lead": "I bring end-to-end testing of complex booking flows, defect investigation and regression. I took that experience a step further when I started ASTRA, an automation project for flight booking tests, built in C# and .NET with the help of AI tools.",
   "hero.cta.contact": "Contact me",
   "hero.cta.work": "Discover ASTRA",
@@ -230,7 +230,7 @@ window.I18N.en = {
   "ab.kicker": "About Natan",
   "ab.title": "From QA experience to <em>building automation</em>",
   "ab.sub": "Natan Shor, looking for the next role in QA Automation Engineering.",
-  "ab.intro": "I'm Natan Shor, 27, from Kiryat Bialik. I have over a year and a half of hands-on experience as a QA engineer on end-to-end booking flows, flights and flight + hotel, and my next step is QA Automation Engineering.",
+  "ab.intro": "I'm Natan Shor, 27, from Kiryat Bialik. I have two years of hands-on experience as a QA engineer on end-to-end booking flows, flights and flight + hotel, and my next step is QA Automation Engineering.",
   "ab.story.kicker": "My story",
   "ab.story.title": "How I got to QA",
   "tl.1.t": "Age 7: a Nokia phone",
