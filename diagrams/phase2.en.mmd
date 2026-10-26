@@ -1,0 +1,4 @@
+%% Phase 2 (English): the automated booking-test steps. {{D}} is LR on desktop and TB on phones (replaced by tools/build-diagrams.mjs).
+flowchart {{D}}
+  S1["Flight<br/>search"]:::step --> S2["Flight and<br/>fare selection"]:::step --> S3["Passenger<br/>details"]:::step --> S4["Baggage<br/>and extras"]:::step --> S5["Booking<br/>summary"]:::step
+  classDef step fill:#ffffff,stroke:#c9bdf8,stroke-width:1.2px,color:#0b1020;

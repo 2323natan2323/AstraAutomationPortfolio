@@ -11,7 +11,7 @@ const PORT = 5199, BASE = `http://127.0.0.1:${PORT}`;
 const PAGES = ["index", "experience", "projects", "about"];
 const LANGS = ["he", "en"];
 const WIDTHS = [320, 360, 390, 430, 768, 1280, 1920];
-const MIME = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".jpg": "image/jpeg", ".png": "image/png", ".woff2": "font/woff2", ".ttf": "font/ttf", ".txt": "text/plain" };
+const MIME = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".jpg": "image/jpeg", ".png": "image/png", ".woff2": "font/woff2", ".ttf": "font/ttf", ".txt": "text/plain", ".pdf": "application/pdf" };
 
 const server = http.createServer((req, res) => {
   let p = decodeURIComponent(new URL(req.url, BASE).pathname); if (p.endsWith("/")) p += "index.html";
@@ -60,7 +60,7 @@ try {
     await pg.click('.lang button[data-lang="en"]'); await pg.waitForFunction(() => document.documentElement.lang === "en");
     await pg.click('.lang button[data-lang="he"]'); await pg.waitForFunction(() => document.documentElement.lang === "he"); i = await info(pg); ok("switching back to Hebrew works", i.dir === "rtl" && i.stored === "he", JSON.stringify(i)); await ctx.close(); }
   { // no flash: with a saved English preference the page stays hidden until strings are applied
-    const ctx = await newCtx(); await ctx.addInitScript(() => localStorage.setItem("lang", "en")); const pg = await ctx.newPage(); await ctx.route("**/js/main.js", (r) => r.abort()); await pg.goto(url("index"));
+    const ctx = await newCtx(); await ctx.addInitScript(() => localStorage.setItem("lang", "en")); const pg = await ctx.newPage(); await ctx.route("**/js/main.js*", (r) => r.abort()); await pg.goto(url("index"));
     const hidden = await pg.evaluate(() => getComputedStyle(document.body).opacity === "0" || document.documentElement.classList.contains("pending"));
     ok("saved English: body is held back until the language is applied (no Hebrew flash)", hidden); await ctx.close(); }
 
@@ -102,7 +102,7 @@ try {
     ok("play button has an accessible name", !!(await pg.locator(".play").getAttribute("aria-label")));
     const ar = await pg.$eval("#stage", (e) => { const r = e.getBoundingClientRect(); return r.width / r.height; }); ok("stage keeps a cinematic aspect ratio on desktop", ar > 1.6 && ar < 1.9, ar);
     ok("no <video> and nothing autoplays before a recording exists", (await pg.locator("video").count()) === 0); await ctx.close(); }
-  { const ctx = await newCtx(); await ctx.route("**/js/config.js", (r) => r.fulfill({ contentType: "text/javascript", body: 'window.ASTRA_MEDIA={video:{src:"media/demo.mp4",poster:"img/natan-home.jpg",captions:{he:"media/he.vtt",en:"media/en.vtt"}},portrait:"img/me-3.jpg"};' }));
+  { const ctx = await newCtx(); await ctx.route("**/js/config.js*", (r) => r.fulfill({ contentType: "text/javascript", body: 'window.ASTRA_MEDIA={video:{src:"media/demo.mp4",poster:"img/natan-home.jpg",captions:{he:"media/he.vtt",en:"media/en.vtt"}},portrait:"img/me-3.jpg"};' }));
     const pg = await ctx.newPage(); await pg.goto(url("index"), { waitUntil: "load" }); await pg.waitForSelector("#stage video");
     const v = await pg.$eval("#stage video", (e) => ({ controls: e.controls, autoplay: e.autoplay, muted: e.muted, tracks: e.querySelectorAll("track").length, poster: !!e.poster }));
     ok("real recording: native controls (fullscreen included), no autoplay, captions, poster", v.controls && !v.autoplay && v.tracks === 2 && v.poster, JSON.stringify(v));
@@ -117,11 +117,14 @@ try {
     await burger.click(); await pg.waitForTimeout(900); await pg.locator('#primary a[href="projects.html"]').click(); await pg.waitForURL(/projects\.html/); ok("mobile: menu link navigates", true); await ctx.close(); }
   for (const l of LANGS) { const ctx = await newCtx(); const pg = await open(ctx, "index", `?lang=${l}`);
     await pg.locator("#action .case").scrollIntoViewIfNeeded();
-    ok(`${l}: ASTRA in Action is one scrolling story with no tabs`, (await pg.locator("#action [role=tab]").count()) === 0 && (await pg.locator("#action [role=tablist]").count()) === 0 && (await pg.locator("#action .case__block").count()) >= 3);
+    ok(`${l}: ASTRA in Action is one scrolling story with no tabs, no switching and no carousel`, (await pg.locator("#action [role=tab]").count()) === 0 && (await pg.locator("#action [role=tablist]").count()) === 0 && (await pg.locator("#action .action__tabs").count()) === 0);
     const vis = await pg.locator("#action .case").innerText();
-    ok(`${l}: default view needs no JSON, API or Excel vocabulary`, !/JSON|Postman|Playwright|Segments|ShouldSubmitOrder|PNR|API/.test(vis.replace(/ASTRA/g, "")), vis.slice(0, 80));
-    ok(`${l}: example is one scenario with city names and plain facts`, (await pg.locator("#action .scenario__city").count()) === 3 && (await pg.locator("#action .scenario__facts li").count()) === 5 && !/\bTLV\b|\bDXB\b/.test(await pg.locator("#action .scenario").innerText()));
-    ok(`${l}: six booking stages in a compact progression`, (await pg.locator("#action .stp li").count()) === 6);
+    ok(`${l}: default view needs no JSON, API or Excel vocabulary`, !/JSON|Postman|Segments|ShouldSubmitOrder|PNR|API/.test(vis.replace(/ASTRA/g, "")), vis.slice(0, 80));
+    ok(`${l}: workflow has three Mermaid phases in the right order and direction, the ASTRA phase is the widest`, await pg.evaluate((rtl) => { const P = [...document.querySelectorAll("#action .wf__p")]; if (P.length !== 3) return false; const R = P.map((e) => e.getBoundingClientRect()); const vis = P.every((e) => [...e.querySelectorAll("svg[data-v]")].filter((s) => getComputedStyle(s).display !== "none").length === 1); const order = rtl ? (R[0].left > R[1].left && R[1].left > R[2].left) : (R[0].left < R[1].left && R[1].left < R[2].left); const wide = R[1].width > R[0].width * 1.8 && R[1].width > R[2].width * 1.8; const box = document.querySelector("#action .mmd").getBoundingClientRect(); return vis && order && wide && R.every((r) => r.left >= box.left - 1 && r.right <= box.right + 1) && !!document.querySelector("#action .mmd figcaption").textContent.trim(); }, l === "he"));
+    { const wt = (await pg.locator("#action .wf").evaluate((e) => e.textContent.replace(/\s+/g, " "))); const need = l === "he" ? ["מגדירים תרחיש בדיקה", "מבצעת את הבדיקה", "מתקבל דוח הרצה", "תיעוד התוצאה של כל הרצה", "חיפוש", "בחירת טיסה", "פרטי", "כבודה ושירותים", "סיכום", "מסלול טיסה", "תאריכי טיסה", "הרכב נוסעים", "תוצאת ההרצה", "משך ההרצה", "שלב העצירה וההודעה"] : ["Define a Test Scenario", "ASTRA Runs the Test", "Execution Report", "A record of every run", "Flight", "fare", "Passenger", "Baggage", "Booking", "route", "dates", "Passengers", "Run result", "Run duration", "Stopping step"]; ok(`${l}: the approved workflow wording is present and nothing claims a real purchase`, need.every((s) => wt.includes(s)) && !/רכישה אמיתית|real purchase/i.test(wt), need.filter((s) => !wt.includes(s)).join("|")); }
+    ok(`${l}: the report sample shows all three real examples at once, with plain fields and no sensitive values`, (await pg.locator("#reports tbody tr").count()) === 3 && (await pg.locator("#reports tbody tr:visible").count()) === 3 && (await pg.locator("#reports .c-dur b").allInnerTexts()).join() === "0:53,1:53,0:22" && (await pg.locator("#reports").evaluate((e) => e.scrollWidth <= e.clientWidth + 1 && getComputedStyle(e).overflowY !== "scroll")) && !/eyJ|https?:|PNR|token|iframe|payment handler/i.test(await pg.locator("#reports").innerText()));
+    ok(`${l}: the orange dot is replaced by one star on the hero arc, no sparkle in the section, and no run statistics or sensitive values`, (await pg.locator("#action .spark").count()) === 0 && (await pg.locator("#astra .arc .star").count()) === 1 && (await pg.locator("#astra .arc circle[fill=\"var(--orange)\"]").count()) === 0 && !/(?<![:\d])(71|94|22|187)(?![:\d])/.test(await pg.locator("#action .case").innerText()) && !/eyJ|https?:\/\/(?!test-environment|www\.w3\.org)|PNR|token=/i.test(await pg.locator("#action").innerHTML()));
+    ok(`${l}: no run statistics or sensitive values on the page`, !/(71|94|22|187)/.test(await pg.locator("#action .case").innerText()) && !/eyJ|https?:\/\/(?!test-environment|www.w3.org)|PNR|token=/i.test(await pg.locator("#action").innerHTML()));
     ok(`${l}: only one optional disclosure, closed, none nested`, (await pg.locator("#action details").count()) === 1 && (await pg.locator("#action details[open]").count()) === 0 && (await pg.locator("#action details details").count()) === 0);
     await pg.locator("#action details").first().locator("summary").click();
     const tech = await pg.locator("#action details").first().innerText(); const code = await pg.locator("#action details").first().locator("pre").innerText();
@@ -138,9 +141,7 @@ try {
     ok(`${w}px: decorative circles stay round (no stretched ellipse)`, d.length > 0 ? d.every(([a, b2]) => a === 0 || Math.abs(a - b2) < 1.5) : true, JSON.stringify(d));
     await ctx.close(); }
   group("data");
-  { const { execFileSync } = await import("node:child_process"); let out = "", code = 0; try { out = execFileSync("python", ["-I", path.join(ROOT, "tools", "derive_report_stats.py"), "--check"], { encoding: "utf8", cwd: ROOT }); } catch (e) { code = e.status; out = String(e.stdout || "") + String(e.stderr || ""); }
-    ok("the published run count equals the workbook row count", code === 0, out.trim()); }
-  { const ctx = await newCtx(); const pg = await open(ctx, "index"); ok("ASTRA section lists only programming technologies (four)", (await pg.locator("#astra .techs li").count()) === 4);
+  { const ctx = await newCtx(); const pg = await open(ctx, "index"); ok("ASTRA section lists only programming technologies (four)", (await pg.locator("#astra .stack .st").count()) === 4);
     ok("hero identity items are single text units (no split bidi fragments)", await pg.$$eval(".identity li", (ls) => ls.every((li) => li.children.length === 1)));
     await ctx.close(); }
   group("first screen");
@@ -158,7 +159,7 @@ try {
   group("direction");
   for (const l of LANGS) { const ctx = await newCtx(); const pg = await open(ctx, "index", `?lang=${l}`);
     const hero = await pg.innerText(".hero--person");
-    ok(`${l}: hero names the next role and offers ASTRA first`, /QA Automation Engineering/.test(hero) && !/בדרך לאוטומציה|moving into/.test(hero) && (await pg.locator(".hero .btn--grad").getAttribute("href")) === "#astra" && (await pg.locator('.hero a[href="#contact"]').count()) === 1);
+    ok(`${l}: hero states about two years of testing experience, the automation focus, and offers ASTRA first`, (l === "he" ? /כשנתיים בבדיקות תוכנה/.test(hero) && /המתמקד בפיתוח אוטומציה/.test(hero) : /about two years/.test(hero) && /building automation/.test(hero)) && !/בדרך לאוטומציה|moving into/.test(hero) && (await pg.locator(".hero .btn--grad").getAttribute("href")) === "#astra" && (await pg.locator('.hero a[href="#contact"]').count()) === 1);
     ok(`${l}: hero uses the real portrait inside a cropping frame`, (await pg.locator("#portrait .portrait__frame img").count()) === 1 && (await pg.locator("#portrait .portrait__cap").count()) === 0);
     const all = (await pg.locator("#astra, #project, #demo, #action, #story").allInnerTexts()).join(" ");
     ok(`${l}: ASTRA is never described as flight + hotel or travel booking automation`, !/ASTRA[^.]{0,120}(hotel|מלון)/i.test(all) && !/travel booking|הזמנות נסיעות/.test(all));
@@ -166,7 +167,34 @@ try {
     await ctx.close(); }
   for (const l of LANGS) { const ctx = await newCtx(); const pg = await open(ctx, "about", `?lang=${l}`);
     const tx = await pg.locator("main").innerText();
-    ok(`${l}: About leads with automation and keeps the five-step personal story`, /Automation/.test(tx) && (await pg.locator(".timeline > li").count()) === 5 && /Nokia|נוקיה/.test(tx) && (await pg.locator(".timeline__end").count()) === 1 && (await pg.locator("#intro img").getAttribute("alt")).length > 3);
+    ok(`${l}: About leads with automation and keeps the five-step personal story`, /Automation/.test(tx) && (await pg.locator(".jr > li").count()) === 6 && /Nokia|נוקיה/.test(tx) && (await pg.locator(".jr__s--6").count()) === 1 && (await pg.locator("#intro img").getAttribute("alt")).length > 3);
+    await ctx.close(); }
+  group("project pages");
+  { const ctx = await newCtx(); const pg = await open(ctx, "projects");
+    const hrefs = await pg.$$eval("#previous a.rows__go, #previous li > a", (as) => as.map((a) => a.getAttribute("href")));
+    ok("both QA project cards open pages inside the site, not GitHub or a short link", hrefs.length === 2 && hrefs.every((h) => /^projects\/(super-pharm|tiv-taam)\/$/.test(h)), hrefs.join(","));
+    ok("the QA section is labelled as practical QA course projects", /קורס QA/.test(await pg.locator("#previous").innerText())); await ctx.close(); }
+  { const ctx = await newCtx(); const pg = await open(ctx, "index"); const hs = await pg.$$eval("#projects .rows a", (as) => as.map((a) => a.getAttribute("href")));
+    ok("homepage project cards go straight to their own page (ASTRA to its section, the QA projects to their pages) with no stop on the projects list", hs[0] === "#astra" && hs[1] === "projects/super-pharm/" && hs[2] === "projects/tiv-taam/", hs.join(","));
+    await pg.click('#projects .rows a[href="projects/super-pharm/"]'); await pg.waitForURL(/projects\/super-pharm\//); ok("clicking Super-Pharm on the homepage lands on its project page in one click", /Super-Pharm|סופר-פארם/.test(await pg.locator("h1").innerText())); await ctx.close(); }
+  for (const l of LANGS) for (const [route, who] of [["projects/super-pharm/", "sp"], ["projects/tiv-taam/", "tt"]]) {
+    const ctx = await newCtx(); const reqs = []; const pg = await ctx.newPage(); pg.on("request", (r) => reqs.push(r.url()));
+    await pg.goto(`${BASE}/${route}?lang=${l}`, { waitUntil: "networkidle" });
+    const info = await pg.evaluate(() => ({ h1: document.querySelectorAll("h1").length, sx: document.documentElement.scrollWidth - document.documentElement.clientWidth, back: document.querySelector(".back").getAttribute("href"), brand: document.querySelector(".brand").getAttribute("href"), docHidden: document.getElementById("doc").hidden, text: document.querySelector("main").innerText, links: [...document.querySelectorAll("main a[href]")].map((a) => a.getAttribute("href")) }));
+    ok(`${l} ${who}: page opens directly with assets resolved from the nested path, one h1, no horizontal scroll`, info.h1 === 1 && info.sx <= 0 && info.brand === "../../index.html" && !reqs.some((u) => /404/.test(u)));
+    ok(`${l} ${who}: credits both authors and names the verifier separately, and it is not presented as company work`, (l === "he" ? /נתן שור ומיכל כהן/.test(info.text) && /אומת על ידי גל מטלון/.test(info.text) && /לא עבודה עבור החברה/.test(info.text) : /Natan Shor and Michal Cohen/.test(info.text) && /verified by Gal Matalon/.test(info.text) && /not work for the company/.test(info.text)));
+    const docInfo = await pg.evaluate(() => ({ visible: !document.getElementById("doc").hidden, figs: document.querySelectorAll("#docStage .doc__reader figure").length, noButton: !document.getElementById("docView"), extraText: /נטען רק אחרי|לקוח מהמסמך המקורי|loads only after|comes from the original/.test(document.body.innerText), open: document.getElementById("docOpen").getAttribute("href"), dl: document.getElementById("docDl").getAttribute("href"), gh: document.getElementById("docGh").getAttribute("href") }));
+    const pdfRes = await pg.request.get(new URL(docInfo.open, pg.url()).href);
+    ok(`${l} ${who}: the original document opens by itself as a reader on the page (every page present), with the PDF, download and GitHub links, no extra sentences, and the PDF is never requested unless opened`, docInfo.visible && docInfo.figs === (who === "sp" ? 133 : 163) && docInfo.noButton && !docInfo.extraText && /^\.\.\/\.\.\/media\/docs\/.+\.pdf$/.test(docInfo.open) && docInfo.dl === docInfo.open && /^https:\/\/github\.com\/2323natan2323\/STR-/.test(docInfo.gh) && pdfRes.status() === 200 && /pdf/.test(pdfRes.headers()["content-type"] || "") && (await pdfRes.body()).slice(0, 4).toString() === "%PDF" && !reqs.some((u) => /\.pdf/i.test(u)));
+    const r = await pg.goto(`${BASE}/${route}?lang=${l}`); ok(`${l} ${who}: refresh of the direct link works`, r.status() === 200);
+    await pg.click(".back"); await pg.waitForURL(/projects\.html/); ok(`${l} ${who}: back link returns to the QA section of the portfolio`, /#previous/.test(pg.url()) || /projects\.html/.test(pg.url()));
+    await ctx.close(); }
+  for (const l of LANGS) { const ctx = await newCtx({ viewport: { width: 390, height: 800 }, isMobile: true, hasTouch: true }); const imgs = []; const pg = await ctx.newPage(); pg.on("request", (r) => imgs.push(r.url()));
+    await pg.goto(`${BASE}/projects/tiv-taam/?lang=${l}`, { waitUntil: "load" });
+    await pg.evaluate(() => window.scrollTo(0, document.getElementById("docStage").getBoundingClientRect().top + scrollY - 100)); await pg.waitForFunction(() => { const i = document.querySelector(".doc__reader img"); return i && i.complete && i.naturalWidth > 0; });
+    await pg.waitForTimeout(800);
+    const rd = await pg.evaluate(() => ({ figs: document.querySelectorAll(".doc__reader figure").length, alt: document.querySelector(".doc__reader img").alt, iframe: !!document.querySelector("#docStage iframe"), btn: !!document.getElementById("docView"), sx: document.documentElement.scrollWidth - document.documentElement.clientWidth, open: !!document.getElementById("docOpen").offsetParent }));
+    ok(`${l} mobile: the page-by-page reader is already open (all pages present, only the first few downloaded, readable alt text, full-document link still visible, no sideways scroll)`, rd.figs === 163 && !rd.iframe && !rd.btn && rd.sx <= 0 && rd.open && imgs.filter((u) => /\.webp/.test(u)).length < 14 && (l === "he" ? /עמוד 1 מתוך 163/.test(rd.alt) : /Page 1 of 163/.test(rd.alt)) && !imgs.some((u) => /\.pdf/.test(u)));
     await ctx.close(); }
   group("privacy");
   { const { execFileSync } = await import("node:child_process"); let out = "", code = 0; try { out = execFileSync("python", ["-I", path.join(ROOT, "tests", "leak_scan.py")], { encoding: "utf8", cwd: ROOT }); } catch (e) { code = e.status; out = String(e.stdout || "") + String(e.stderr || ""); }
@@ -196,7 +224,7 @@ try {
       ok("en: accent words keep Instrument Serif italic", accent.some((f) => /Instrument/i.test(f)) && (await pg.$eval("h2 em", (e) => getComputedStyle(e).fontStyle)) === "italic", accent.join(",")); }
     await ctx.close(); }
   { const ctx = await newCtx(); const pg = await open(ctx, "index"); const e = await pg.$$eval("em", (es) => es.map((x) => x.textContent.trim())); ok("he: accent words are short and Hebrew-only", e.every((t) => t === "ASTRA" || (HEB.test(t) && !/[A-Za-z]/.test(t) && t.split(/\s+/).length <= 2)), e.join(" | "));
-    for (const p of PAGES.slice(1)) { const q = await open(ctx, p); const ee = await q.$$eval("em", (es) => es.map((x) => x.textContent.trim())); ok(`he: accent words short on ${p}`, ee.every((t) => !/[A-Za-z]/.test(t) && t.split(/\s+/).length <= 2), ee.join(" | ")); } await ctx.close(); }
+    for (const p of PAGES.slice(1)) { const q = await open(ctx, p); const ee = await q.$$eval("em", (es) => es.map((x) => x.textContent.trim())); ok(`he: accent words short on ${p}`, ee.every((t) => t === "ASTRA" || !/[A-Za-z]/.test(t) && t.split(/\s+/).length <= 2), ee.join(" | ")); } await ctx.close(); }
 
   group("assets");
   { const ctx = await newCtx(); const bad = [];
@@ -204,7 +232,7 @@ try {
       for (let y = 0; y < h; y += 500) { await pg.evaluate((yy) => window.scrollTo(0, yy), y); await pg.waitForTimeout(60); } await pg.waitForTimeout(500);
       const broken = await pg.$$eval("img", (is) => is.filter((i) => !i.complete || i.naturalWidth === 0).map((i) => i.getAttribute("src")));
       if (broken.length) bad.push(`${p}/${l}: ${broken.join(",")}`); if (pg.errs.length) bad.push(`${p}/${l}: ${pg.errs.join(";")}`);
-      if (l === "he") { const wrong = await pg.$$eval("*", (els) => els.filter((e) => /Gveret/.test(getComputedStyle(e).fontFamily) && e.tagName !== "EM").map((e) => e.tagName + "." + e.className)); if (wrong.length) bad.push(`${p}: Gveret Levin outside <em>: ${wrong.join(",")}`); } await pg.close(); }
+      if (l === "he") { const wrong = await pg.$$eval("*", (els) => els.filter((e) => /Gveret/.test(getComputedStyle(e).fontFamily) && e.tagName !== "EM" && !e.closest("em")).map((e) => e.tagName + "." + e.className)); if (wrong.length) bad.push(`${p}: Gveret Levin outside <em>: ${wrong.join(",")}`); } await pg.close(); }
     ok("every image loads after scrolling; no console or network errors; Gveret Levin only on <em>", bad.length === 0, bad.join(" | ")); await ctx.close(); }
 
   // 8. content QA

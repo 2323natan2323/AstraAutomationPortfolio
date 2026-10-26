@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="meta.tt.title">בדיקות אפליקציית טיב טעם | נתן שור</title>
+  <meta name="description" content="פרויקט QA מעשי במסגרת קורס: בדיקות אפליקציית טיב טעם באנדרואיד ובאייפון, עם דיווח באגים ב־Jira." data-i18n-attr="content:meta.tt.desc">
+  <meta name="theme-color" content="#0b1020">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%230b1020%27/%3E%3Ctext x=%2716%27 y=%2722.5%27 font-family=%27Arial,sans-serif%27 font-size=%2716%27 font-weight=%27700%27 text-anchor=%27middle%27 fill=%27%23ff6a13%27%3ENS%3C/text%3E%3C/svg%3E">
+  <script>!function(){var d=document.documentElement;d.classList.add("js");if(/[?&]motion=off/.test(location.search))d.classList.add("still");try{var l=new URLSearchParams(location.search).get("lang")||localStorage.getItem("lang");if(l==="en"){d.lang="en";d.dir="ltr";d.classList.add("pending")}}catch(e){}}()</script>
+  <link rel="preload" href="../../fonts/Rubik-hebrew.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../fonts/GveretLevin-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Heebo:wght@300;400;600;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/tokens.css?v=202610262106">
+  <link rel="stylesheet" href="../../css/site.css?v=202610262106">
+</head>
+<body class="page-inner pj-tt">
+<!--@nav-->
+<a class="skip" href="#main" data-i18n="skip">דלגו לתוכן</a>
+<div class="runbar" aria-hidden="true"><span></span></div>
+<div class="wipe" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="brand" href="../../index.html" aria-label="Natan Shor">
+      <span class="brand__mark" aria-hidden="true"><img src="../../img/natan-home.jpg" alt="" width="64" height="64"></span>
+      <span class="brand__name" data-i18n="brand">נתן שור</span>
+    </a>
+    <nav class="nav__links" id="primary" data-i18n-attr="aria-label:nav.primary" aria-label="ניווט ראשי">
+      <a href="../../index.html" data-i18n="nav.home">ASTRA</a>
+      <a href="../../experience.html" data-i18n="nav.experience">ניסיון וכישורים</a>
+      <a href="../../projects.html" aria-current="page" data-i18n="nav.projects">פרויקטים</a>
+      <a href="../../about.html" data-i18n="nav.about">אודות</a>
+      <a href="#contact" data-i18n="nav.contact">יצירת קשר</a>
+    </nav>
+    <div class="nav__tools">
+      <div class="lang" role="group" aria-label="שפה" data-i18n-attr="aria-label:lang.label">
+        <button type="button" data-lang="he" aria-pressed="true" lang="he">עב</button>
+        <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="primary" data-i18n-attr="aria-label:nav.menu" aria-label="תפריט"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<!--/@nav-->
+<main id="main">
+  <section class="page-hero" id="top">
+    <div class="hero__bg" aria-hidden="true"><i class="glow glow--blue"></i><i class="glow glow--warm"></i></div>
+    <div class="wrap">
+      <a class="back" href="../../projects.html#previous"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5m6-6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pj.back">חזרה לפרויקטי הבדיקות</span></a>
+      <p class="kicker" data-i18n="pj.kicker">פרויקט מעשי במסגרת קורס QA</p>
+      <h1 class="h1" data-i18n="tt.title">בדיקות אפליקציית <em>טיב טעם</em></h1>
+      <p class="sub" data-i18n="tt.sub">בדיקות מקצה לקצה של אפליקציית הקניות של טיב טעם, באנדרואיד ובאייפון. זה פרויקט לימודי במסגרת קורס ה־QA, לא עבודה עבור החברה.</p>
+      <dl class="pj-stats" data-i18n-attr="aria-label:pj.h.nums" aria-label="במספרים, כפי שנרשם במסמך"><div><dt data-i18n="tt.n1">בדיקות באנדרואיד</dt><dd dir="ltr">647</dd></div><div><dt data-i18n="tt.n2">בדיקות באייפון</dt><dd dir="ltr">531</dd></div><div><dt data-i18n="tt.n3">באגים דווחו באנדרואיד</dt><dd dir="ltr">36</dd></div><div><dt data-i18n="tt.n4">באגים דווחו באייפון</dt><dd dir="ltr">22</dd></div></dl>
+    </div>
+  </section>
+
+  <section class="section s-paper" id="summary">
+    <div class="wrap pj4">
+      <div class="pj4__main" data-reveal>
+        <h2 class="pj__h" data-i18n="pj.h.scope">מה נבדק</h2>
+        <p class="body-lg" data-i18n="tt.scope">אפליקציית הקניות, באנדרואיד ובאייפון: התקנה והסרה, מיקום, שפה, נגישות, התאמה למסכים, ביצועים, סריקת מוצרים, פרטים אישיים, איפוס סיסמה והזמנה במשלוח.</p>
+        <h2 class="pj__h" data-i18n="pj.h.how">איך נבדק</h2>
+        <ul class="ticks"><li data-i18n="tt.w1">עץ בדיקות ותרשים של האפליקציה</li><li data-i18n="tt.w2">דיווח באגים ב־<bdi dir="ltr">Jira</bdi>, עם רמת חומרה לכל באג</li><li data-i18n="tt.w3">קריטריוני יציאה ומסקנות</li></ul>
+        <p class="pj4__tools" data-i18n="tt.tools"><bdi dir="ltr">Jira</bdi> לדיווח באגים. סביבות: <bdi dir="ltr">Android</bdi> ו־<bdi dir="ltr">iPhone</bdi>.</p>
+      </div>
+      <aside class="pj4__side" data-reveal>
+        <blockquote class="pj4__quote"><span data-i18n="pj.h.result">המסקנה במסמך</span><p data-i18n="tt.result">לפי המסמך נמצא גם באג שחסם את פעילות האפליקציה, והמסקנה היא שנדרשים שיפורים משמעותיים לפני שחרור. באג אחד יכול להיות קשור לכמה בדיקות שנכשלו.</p></blockquote>
+        <p class="pj__credit"><b data-i18n="pj.h.credit">יוצרים</b> <span data-i18n="pj.credit">נתן שור ומיכל כהן. המסמך אומת על ידי גל מטלון.</span></p>
+        <a class="pj4__go" href="#doc"><span data-i18n="pj.toDoc">לקריאת המסמך</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14m0 0l-6-6m6 6l6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Original document: a page-by-page reader of small images that load while scrolling (no PDF is downloaded until "Full PDF" or "Download" is used). -->
+  <section class="section s-sand" id="doc" data-id="tiv-taam" data-src="../../media/docs/tiv-taam-qa-mobile-project.pdf" data-pages="163" data-w="900" data-h="1273" data-dir="../../media/docs/pages/tiv-taam/">
+    <div class="wrap">
+      <div class="doc__head">
+        <h2 class="h2" data-i18n="tt.doc.h">הפרויקט - <em>טיב טעם</em></h2>
+        <div class="doc__links">
+          <a class="doc__link" id="docOpen" href="#" target="_blank" rel="noopener" data-i18n="pj.doc.open">PDF מלא</a>
+          <a class="doc__link" id="docDl" href="#" download data-i18n="pj.doc.dl">הורדה</a>
+          <a class="doc__link" id="docGh" href="https://github.com/2323natan2323/STR-Tiv-Taam-Project/blob/main/Tiv-Taam%20QA%20Mobile%20Project%20Natan%20Shor%20and%20Michal%20Cohen%20STR.pdf" target="_blank" rel="noopener" data-i18n="pj.doc.gh">GitHub</a>
+        </div>
+      </div>
+      <div class="doc__stage" id="docStage"></div>
+    </div>
+  </section>
+</main>
+<!--@footer-->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2 class="contact__title" data-i18n="contact.title">נדבר על ההזדמנות הבאה?</h2>
+    <p class="contact__sub" data-i18n="contact.sub">מחפש את האתגר הבא שלי בתחום האוטומציה. אשמח לשמוע על הזדמנויות מתאימות.</p>
+    <ul class="contact__links">
+      <li><a href="mailto:2323natan2323@gmail.com"><small data-i18n="contact.email">אימייל</small><span dir="ltr">2323natan2323@gmail.com</span></a></li>
+      <li><a href="https://www.linkedin.com/in/natan-shor1/" target="_blank" rel="noopener"><small data-i18n="contact.linkedin">LinkedIn</small><span dir="ltr">in/natan-shor1</span></a></li>
+      <li><a href="https://github.com/2323natan2323/" target="_blank" rel="noopener"><small data-i18n="contact.github">GitHub</small><span dir="ltr">2323natan2323</span></a></li>
+    </ul>
+  </div>
+</section>
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <span data-i18n="foot.rights">© 2026 נתן שור</span>
+  </div>
+</footer>
+<button class="totop" id="totop" type="button" data-i18n-attr="aria-label:common.back" aria-label="חזרה לראש העמוד"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0l-6 6m6-6l6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<!--/@footer-->
+
+<script src="../../js/config.js?v=202610262106"></script>
+<script src="../../js/i18n-he.js?v=202610262106"></script>
+<script src="../../js/i18n-en.js?v=202610262106"></script>
+<script src="../../js/main.js?v=202610262106"></script>
+</body>
+</html>

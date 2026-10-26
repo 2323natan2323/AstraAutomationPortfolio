@@ -1,0 +1,6 @@
+%% Optional technical view, Hebrew (flow-level description only).
+flowchart {{D}}
+  J["בקשת JSON<br/>מגדירה מה לבדוק"]:::plain --> P["Postman<br/>שולח את הבקשה"]:::plain --> API["ASTRA API<br/>מפעיל את ההרצה"]:::plain --> PW["Playwright<br/>מפעיל את הדפדפן"]:::step --> R["תוצאה ודוח<br/>וידאו ו־HTML לפי הצורך"]:::report
+  classDef plain fill:#ffffff,stroke:#2338ff,stroke-width:1.6px,color:#0b1020;
+  classDef step fill:#eef0ff,stroke:#7a5cff,stroke-width:2px,color:#0b1020;
+  classDef report fill:#fff0e4,stroke:#ff6a13,stroke-width:1.8px,color:#5c2200;

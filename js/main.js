@@ -26,6 +26,7 @@
     });
     doc.querySelectorAll(".lang button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === lang)); });
     renderStatusChips();
+    doc.querySelectorAll(".doc__reader img").forEach(function (im, i, all) { im.alt = t("pj.doc.page").replace("{n}", i + 1).replace("{t}", all.length); });
     try { localStorage.setItem("lang", lang); } catch (e) {}
     root.classList.remove("pending");
   }
@@ -172,6 +173,29 @@
     img.src = cfg.portrait; img.width = 800; img.height = 1000; img.decoding = "async"; img.setAttribute("data-i18n-attr", "alt:portrait.alt");
     var phEl = fig.querySelector(".portrait__ph"), cap = fig.querySelector(".portrait__cap"), frame = doc.createElement("div");
     frame.className = "portrait__frame"; frame.appendChild(img); fig.replaceChild(frame, phEl); if (cap) cap.remove();
+  }
+
+  /* ---------- original project document: a page-by-page reader of small images, built right away.
+     The browser fetches only the pages near the screen, so even a slow phone connection shows the first page in seconds.
+     The full PDF is downloaded only if the visitor opens or downloads it. ---------- */
+  var docSec = doc.getElementById("doc");
+  if (docSec && !docSec.hidden && docSec.dataset.src) {
+    var dSrc = docSec.dataset.src, dStage = doc.getElementById("docStage");
+    ["docOpen", "docDl"].forEach(function (id) { var a = doc.getElementById(id); if (a) a.href = dSrc; });
+    var total = +docSec.dataset.pages, dw = +docSec.dataset.w, dh = +docSec.dataset.h, dir = docSec.dataset.dir, box = doc.createElement("div");
+    box.className = "doc__reader";
+    for (var i = 1; i <= total; i++) {
+      var fig = doc.createElement("figure"), img = doc.createElement("img"), n = ("00" + i).slice(-3);
+      fig.style.aspectRatio = dw + " / " + dh; img.width = dw; img.height = dh; img.loading = "lazy"; img.decoding = "async";
+      img.dataset.n = i; img.alt = t("pj.doc.page").replace("{n}", i).replace("{t}", total); img.src = dir + n + ".webp";
+      (function (f, im) {
+        im.addEventListener("error", function () { f.classList.add("failed"); f.setAttribute("role", "button"); f.tabIndex = 0; f.dataset.msg = t("pj.doc.pfail"); f.setAttribute("aria-label", t("pj.doc.pfail")); });
+        var retry = function () { if (!f.classList.contains("failed")) return; f.classList.remove("failed"); f.removeAttribute("role"); f.removeAttribute("tabindex"); im.src = im.src.split("?")[0] + "?r=" + Date.now(); };
+        f.addEventListener("click", retry); f.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); retry(); } });
+      })(fig, img);
+      fig.appendChild(img); box.appendChild(fig);
+    }
+    dStage.appendChild(box);
   }
 
   /* ---------- init: Hebrew by default; ?lang= or saved preference wins ---------- */

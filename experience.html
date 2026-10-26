@@ -13,8 +13,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Heebo:wght@300;400;600;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/tokens.css?v=202610262106">
+  <link rel="stylesheet" href="css/site.css?v=202610262106">
 </head>
 <body class="page-inner">
 <!--@nav-->
@@ -56,37 +56,29 @@
   </section>
 
   <section class="section s-paper" id="experience">
-    <div class="wrap split">
+    <div class="wrap">
       <header data-reveal>
         <p class="kicker kicker--blue" data-i18n="exp.work.kicker">ניסיון מקצועי</p>
-        <h2 class="h2" data-i18n="exp.work.title">בדיקות תוכנה, הלכה למעשה</h2>
+        <h2 class="h2" data-i18n="exp.work.title">בדיקות תוכנה, <em>הלכה</em> למעשה</h2>
       </header>
-      <div data-reveal>
-        <details class="more" open>
-          <summary><span data-i18n="exp.work.sum">פירוט הניסיון</span></summary>
-          <!-- Verified role, employer and dates: to be added by Natan. Nothing is invented here. -->
-          <ul class="bullets">
-            <li data-i18n="exp.work.1">בדיקות פונקציונליות ורגרסיה של אתרים ואפליקציות מובייל, על מסעות משתמש אמיתיים ועל גרסאות, כולל ניתוח מערכות וכתיבת תסריטי בדיקה, בסביבות בדיקה שונות.</li>
-            <li data-i18n="exp.work.2">חשיבה על מקרי קצה, חקירה ושחזור של באגים, תיעוד ב-<bdi dir="ltr">Jira</bdi> והעברת הממצאים, וניהול בדיקות ב-<bdi dir="ltr">TestRail</bdi>.</li>
-            <li data-i18n="exp.work.3">בדיקות מקצה לקצה של תהליכי הזמנה מורכבים, טיסות וטיסה + מלון, בעבודה מול צוותי פיתוח, עיצוב וניהול.</li>
-          </ul>
-        </details>
+      <div class="xrole" data-reveal>
+        <b class="xrole__r" data-i18n="exp.role">QA Engineer</b>
+        <span class="xrole__t" data-i18n="exp.role.t">כשנתיים</span>
+        <span class="xrole__d" data-i18n="exp.role.d">מערכות הזמנת טיסות וחבילות נופש, במספר מותגים ואתרים</span>
       </div>
+      <ol class="xw"><li data-reveal><span class="xw__n" aria-hidden="true">1</span><p data-i18n="exp.w1">בדיקות מקצה לקצה של תהליכי הזמנה: חיפוש, בחירת טיסה, פרטי נוסעים, שירותים נלווים ותשלום.</p></li><li data-reveal><span class="xw__n" aria-hidden="true">2</span><p data-i18n="exp.w2">בדיקות רגרסיה, פונקציונליות ו־<bdi dir="ltr">UI</bdi> בסביבות <bdi dir="ltr">Test</bdi>, <bdi dir="ltr">Stage</bdi> ו־<bdi dir="ltr">Production</bdi>, לקראת שחרורי גרסאות.</p></li><li data-reveal><span class="xw__n" aria-hidden="true">3</span><p data-i18n="exp.w3">חקירת תקלות, שחזור ותיעוד באגים, אימות תיקונים ומעקב אחר משימות ב־<bdi dir="ltr">Azure DevOps</bdi>.</p></li><li data-reveal><span class="xw__n" aria-hidden="true">4</span><p data-i18n="exp.w4">בדיקת תרחישים מורכבים: חברות תעופה, ספקים, תצורות נוסעים, מזוודות וזרימות הזמנה מגוונות.</p></li><li data-reveal><span class="xw__n" aria-hidden="true">5</span><p data-i18n="exp.w5">ניתוח דרישות וכתיבת תסריטי בדיקה, בהתאם לתהליכים העסקיים.</p></li><li data-reveal><span class="xw__n" aria-hidden="true">6</span><p data-i18n="exp.w6">עבודה יומיומית מול צוותי פיתוח, עיצוב וניהול, על מוצרי טיסות וטיסה + מלון.</p></li></ol>
     </div>
   </section>
 
   <section class="section s-ink" id="automation">
-    <div class="wrap">
+    <div class="wrap xauto">
       <header data-reveal>
         <p class="kicker" data-i18n="exp.auto.kicker">טכנולוגיות אוטומציה</p>
-        <h2 class="h2" data-i18n="exp.auto.title">הטכנולוגיות שמאחורי <bdi dir="ltr">ASTRA</bdi></h2>
+        <h2 class="h2" data-i18n="exp.auto.title">מה שבניתי מעבר לבדיקות: <em><bdi dir="ltr">ASTRA</bdi></em></h2>
+        <p class="body-lg" data-i18n="exp.auto.text">יזמתי ובניתי את <bdi dir="ltr">ASTRA</bdi> במהלך העבודה, בסיוע מפתח וכלי <bdi dir="ltr">AI</bdi>. התחלתי ב־<bdi dir="ltr">Python</bdi> ועברתי ל־<bdi dir="ltr">C#</bdi> ול־<bdi dir="ltr">.NET</bdi>. ההרצות מוגדרות בתרחישי <bdi dir="ltr">JSON</bdi>, והתוצאות נשמרות בדוחות <bdi dir="ltr">Excel</bdi> ו־<bdi dir="ltr">JSON</bdi>.</p>
+        <a class="btn btn--primary" href="projects.html#astra"><span data-i18n="exp.auto.cta">לפרויקט ASTRA</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </header>
-      <dl class="stack">
-        <div data-reveal><dt data-i18n="tech.1"><bdi dir="ltr">C#</bdi></dt><dd data-i18n="exp.auto.1">שפה ופלטפורמה לפרויקט.</dd></div>
-        <div data-reveal><dt data-i18n="tech.2"><bdi dir="ltr">.NET 8</bdi></dt><dd data-i18n="exp.auto.2">סביבת הריצה שעליה בנויה <bdi dir="ltr">ASTRA</bdi>.</dd></div>
-        <div data-reveal><dt data-i18n="tech.3"><bdi dir="ltr">Microsoft Playwright</bdi></dt><dd data-i18n="exp.auto.3">אוטומציית דפדפן לתהליכים מקצה לקצה.</dd></div>
-        <div data-reveal><dt data-i18n="tech.4"><bdi dir="ltr">ASP.NET Web API</bdi></dt><dd data-i18n="exp.auto.4">השירות שמקבל בקשת הרצה.</dd></div>
-      </dl>
+      <ul class="stack stack--grid" data-reveal><li class="st st--cs"><i class="st__g" dir="ltr" aria-hidden="true">C#</i><b data-i18n="tech.1"><bdi dir="ltr">C#</bdi></b><small data-i18n="tech.r1">שפה ופלטפורמה</small></li><li class="st st--net"><i class="st__g" dir="ltr" aria-hidden="true">.NET</i><b data-i18n="tech.2"><bdi dir="ltr">.NET 8</bdi></b><small data-i18n="tech.r2">סביבת הריצה</small></li><li class="st st--pw"><i class="st__g" dir="ltr" aria-hidden="true">PW</i><b data-i18n="tech.3"><bdi dir="ltr">Microsoft Playwright</bdi></b><small data-i18n="tech.r3">אוטומציית דפדפן</small></li><li class="st st--api"><i class="st__g" dir="ltr" aria-hidden="true">API</i><b data-i18n="tech.4"><bdi dir="ltr">ASP.NET Web API</bdi></b><small data-i18n="tech.r4">שירות להפעלת הרצות</small></li></ul>
     </div>
   </section>
 
@@ -94,30 +86,22 @@
     <div class="wrap">
       <header data-reveal>
         <p class="kicker kicker--blue" data-i18n="exp.skills.kicker">כישורים טכניים</p>
-        <h2 class="h2" data-i18n="exp.skills.title">מה אני מביא לעולם הבדיקות</h2>
+        <h2 class="h2" data-i18n="exp.skills.title">מה אני <em>מביא</em> לעולם הבדיקות</h2>
+        <p class="sub sub--ink" data-i18n="exp.skills.sub">כלים, שיטות וידע שרכשתי בעבודה, בקורס ובפיתוח של ASTRA.</p>
       </header>
-      <div class="skills">
-        <section data-reveal><h3 data-i18n="sk.1.t">בדיקות</h3><ul><li data-i18n="sk.1.1">בדיקות ידניות של אתרים ואפליקציות מובייל</li><li data-i18n="sk.1.2">בדיקות דפדפנים: <bdi dir="ltr">Chrome</bdi>, <bdi dir="ltr">Firefox</bdi> ו-<bdi dir="ltr">Edge</bdi></li><li data-i18n="sk.1.3">בדיקות בפלטפורמות שונות (ווב ומובייל)</li></ul></section>
-        <section data-reveal><h3 data-i18n="sk.2.t">תהליך</h3><ul><li data-i18n="sk.2.1">מתודולוגיות <bdi dir="ltr">Waterfall</bdi> ו-<bdi dir="ltr">Agile</bdi></li><li data-i18n="sk.2.2">עבודה שיטתית בהתאם ללוחות זמנים</li><li data-i18n="sk.2.3">עבודת צוות עם מפתחים, מעצבים ומנהלים</li></ul></section>
-        <section data-reveal><h3 data-i18n="sk.3.t"><bdi dir="ltr">API</bdi> ונתונים</h3><ul><li data-i18n="sk.3.1">קריאות <bdi dir="ltr">API</bdi> ושליפת נתוני צד שרת באמצעות <bdi dir="ltr">Postman</bdi></li><li data-i18n="sk.3.2">שאילתות <bdi dir="ltr">SQL</bdi> בסיסיות לקריאת נתונים</li><li data-i18n="sk.3.3"><bdi dir="ltr">HTML</bdi> ו-<bdi dir="ltr">CSS</bdi> ברמה בסיסית, בדיקות פונקציונליות וויזואליות של אתרים</li></ul></section>
-        <section data-reveal><h3 data-i18n="sk.4.t">כלים</h3><ul><li data-i18n="sk.4.1"><bdi dir="ltr">Jira</bdi> לדיווח באגים</li><li data-i18n="sk.4.2"><bdi dir="ltr">TestRail</bdi> לניהול בדיקות ותוצאות</li></ul></section>
-      </div>
+      <div class="bento"><article class="sk sk--blue" data-reveal><header><i class="sk__i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg></i><h3 data-i18n="sk.a.t">אוטומציה ופיתוח</h3></header><ul class="sk__chips"><li><bdi dir="ltr">C#</bdi></li><li><bdi dir="ltr">.NET 8</bdi></li><li><bdi dir="ltr">Playwright</bdi></li><li><bdi dir="ltr">Python</bdi></li><li><bdi dir="ltr">pytest</bdi></li><li><bdi dir="ltr">ASP.NET Web API</bdi></li><li><bdi dir="ltr">JSON</bdi></li></ul></article><article class="sk sk--orange" data-reveal><header><i class="sk__i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 3h6M10 3v6L4.5 19a1.6 1.6 0 0 0 1.4 2.4h12.2A1.6 1.6 0 0 0 19.5 19L14 9V3"/><path d="M7.5 15h9"/></svg></i><h3 data-i18n="sk.b.t">בדיקות</h3></header><ul class="sk__chips"><li data-i18n="sk.b.1">בדיקות מקצה לקצה</li><li data-i18n="sk.b.2">רגרסיה</li><li data-i18n="sk.b.3">פונקציונליות</li><li data-i18n="sk.b.4"><bdi dir="ltr">UI</bdi> ו־<bdi dir="ltr">UX</bdi></li><li data-i18n="sk.b.5"><bdi dir="ltr">API</bdi> עם <bdi dir="ltr">Postman</bdi></li><li data-i18n="sk.b.6">אתרים ואפליקציות מובייל</li><li data-i18n="sk.b.7"><bdi dir="ltr">iOS</bdi> ו־<bdi dir="ltr">Android</bdi></li><li data-i18n="sk.b.8">בדיקות דפדפנים</li></ul></article><article class="sk sk--coral" data-reveal><header><i class="sk__i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3h7.5L19 7.5V21H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></i><h3 data-i18n="sk.c.t">תכנון ותיעוד</h3></header><ul class="sk__chips"><li data-i18n="sk.c.1">ניתוח דרישות</li><li data-i18n="sk.c.2">תסריטי בדיקה</li><li data-i18n="sk.c.3">מקרי קצה</li><li data-i18n="sk.c.4">דיווח וחקירת באגים</li><li data-i18n="sk.c.5">אימות תיקונים</li><li data-i18n="sk.c.6"><bdi dir="ltr">STP</bdi>, <bdi dir="ltr">STD</bdi> ו־<bdi dir="ltr">STR</bdi></li></ul></article><article class="sk sk--ink" data-reveal><header><i class="sk__i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 6.5a4 4 0 0 0-5 5L3.5 17.5l3 3 6-6a4 4 0 0 0 5-5l-2.5 2.5-2.5-.5-.5-2.5z"/></svg></i><h3 data-i18n="sk.d.t">כלים</h3></header><ul class="sk__chips"><li><bdi dir="ltr">Azure DevOps</bdi></li><li><bdi dir="ltr">Jira</bdi></li><li><bdi dir="ltr">TestRail</bdi></li><li><bdi dir="ltr">Postman</bdi></li><li><bdi dir="ltr">Git</bdi></li><li><bdi dir="ltr">Excel</bdi></li></ul></article><article class="sk sk--green" data-reveal><header><i class="sk__i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5M16 14.5c2.7 0 5 1.6 5 4.5"/></svg></i><h3 data-i18n="sk.e.t">תהליך ועבודת צוות</h3></header><ul class="sk__chips"><li data-i18n="sk.e.1"><bdi dir="ltr">Agile</bdi> ו־<bdi dir="ltr">Waterfall</bdi></li><li data-i18n="sk.e.2">עבודה מול פיתוח, עיצוב וניהול</li><li data-i18n="sk.e.3">סביבות <bdi dir="ltr">Test</bdi>, <bdi dir="ltr">Stage</bdi> ו־<bdi dir="ltr">Production</bdi></li><li data-i18n="sk.e.4">עבודה שיטתית מול לוחות זמנים</li></ul></article><article class="sk sk--violet" data-reveal><header><i class="sk__i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 3L3 10.5l7 2.5 2.5 7z"/></svg></i><h3 data-i18n="sk.f.t">עולם התוכן</h3></header><ul class="sk__chips"><li data-i18n="sk.f.1">הזמנות טיסות</li><li data-i18n="sk.f.2">טיסה + מלון</li><li data-i18n="sk.f.3">תשלומים</li><li data-i18n="sk.f.4">פרטי נוסעים</li><li data-i18n="sk.f.5">שירותים נלווים</li><li data-i18n="sk.f.6">אינטגרציות עם ספקים</li></ul></article><article class="sk sk--sand sk--wide" data-reveal><header><i class="sk__i"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></i><h3 data-i18n="sk.g.t">ידע בסיסי ורקע</h3></header><ul class="sk__chips"><li data-i18n="sk.g.1"><bdi dir="ltr">SQL</bdi> בסיסי</li><li data-i18n="sk.g.2"><bdi dir="ltr">HTML</bdi> ו־<bdi dir="ltr">CSS</bdi> בסיסי</li><li data-i18n="sk.g.3"><bdi dir="ltr">Windows</bdi> ו־<bdi dir="ltr">Android</bdi></li><li data-i18n="sk.g.4">עברית שפת אם</li><li data-i18n="sk.g.5">אנגלית ברמה מצוינת</li></ul></article></div>
     </div>
   </section>
 
   <section class="section section--tight s-blue" id="ai">
-    <div class="wrap ai-compact">
+    <div class="wrap ai2">
       <header data-reveal>
         <p class="kicker" data-i18n="aiw.kicker">פיתוח בסיוע <bdi dir="ltr">AI</bdi></p>
         <h2 class="h2" data-i18n="aiw.title"><bdi dir="ltr">AI</bdi> הוא חלק מ<em>הדרך</em> שבה אני בונה</h2>
+        <p class="body-lg" data-i18n="aiw.text">אני משתמש בכלי <bdi dir="ltr">AI</bdi> כדי לבנות מהר ולהבין לעומק. שיקול הדעת של בודק נשאר אצלי: איפה כדאי להשקיע באוטומציה, איך נראית התנהגות תקינה ואם התוצאה הגיונית.</p>
       </header>
-      <div data-reveal>
-        <p class="body-lg" data-i18n="aiw.text">אני משתמש בכלי <bdi dir="ltr">AI</bdi> באופן נרחב למימוש, לארגון קוד, לאיתור תקלות וללמידה. שיקול הדעת של בודק נשאר אצלי: מה כדאי לאטמט, איך נראית התנהגות תקינה ואם התוצאה הגיונית.</p>
-        <ul class="chips chips--light">
-          <li data-i18n="aiw.1">בחינת גישות טכניות</li><li data-i18n="aiw.2">הפיכת דרישות לתוכנית מימוש</li><li data-i18n="aiw.3">כתיבה ושיפור קוד</li><li data-i18n="aiw.4">פתרון תקלות</li><li data-i18n="aiw.5">שיפור מבנה הקוד</li><li data-i18n="aiw.6">למידה וחקירה טכנית</li>
-        </ul>
-        <p class="fine fine--light" data-i18n="aiw.note"><bdi dir="ltr">ASTRA</bdi> עצמה היא פרויקט אוטומציה רגיל. ה-<bdi dir="ltr">AI</bdi> היה חלק מהפיתוח שלה, ולא חלק מהאופן שבו היא רצה.</p>
-      </div>
+      <ol class="ai2__grid" data-reveal><li><b aria-hidden="true">1</b><span data-i18n="aiw.1">בחינת גישות טכניות</span></li><li><b aria-hidden="true">2</b><span data-i18n="aiw.2">הפיכת דרישות לתוכנית מימוש</span></li><li><b aria-hidden="true">3</b><span data-i18n="aiw.3">כתיבה ושיפור קוד</span></li><li><b aria-hidden="true">4</b><span data-i18n="aiw.4">פתרון תקלות</span></li><li><b aria-hidden="true">5</b><span data-i18n="aiw.5">שיפור מבנה הקוד</span></li><li><b aria-hidden="true">6</b><span data-i18n="aiw.6">למידה וחקירה טכנית</span></li></ol>
+      <p class="ai2__note" data-reveal data-i18n="aiw.note"><bdi dir="ltr">ASTRA</bdi> עצמה היא פרויקט אוטומציה רגיל. ה־<bdi dir="ltr">AI</bdi> היה חלק מהפיתוח שלה, ולא חלק מהאופן שבו היא רצה.</p>
     </div>
   </section>
 </main>
@@ -142,9 +126,9 @@
 <button class="totop" id="totop" type="button" data-i18n-attr="aria-label:common.back" aria-label="חזרה לראש העמוד"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0l-6 6m6-6l6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <!--/@footer-->
 
-<script src="js/config.js"></script>
-<script src="js/i18n-he.js"></script>
-<script src="js/i18n-en.js"></script>
-<script src="js/main.js"></script>
+<script src="js/config.js?v=202610262106"></script>
+<script src="js/i18n-he.js?v=202610262106"></script>
+<script src="js/i18n-en.js?v=202610262106"></script>
+<script src="js/main.js?v=202610262106"></script>
 </body>
 </html>

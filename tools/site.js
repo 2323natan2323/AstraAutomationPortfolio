@@ -8,7 +8,8 @@ const path = require("path");
 const vm = require("vm");
 
 const ROOT = path.resolve(__dirname, "..");
-const PAGES = ["index", "experience", "projects", "about"];
+const PAGES = ["index", "experience", "projects", "about", "projects/super-pharm/index", "projects/tiv-taam/index"];
+const prefixOf = (page) => "../".repeat(page.split("/").length - 1);
 const REDIRECTS = ["generic.html", "elements.html"];
 const read = (f) => fs.readFileSync(path.join(ROOT, f), "utf8");
 
@@ -24,8 +25,11 @@ function inject(html, name, partial, page) {
   const re = new RegExp(`(<!--@${name}-->)[\\s\\S]*?(<!--/@${name}-->)`);
   if (!re.test(html)) throw new Error(`missing <!--@${name}--> markers`);
   let body = partial.trim();
+  const pre = prefixOf(page);
+  if (pre) body = body.replace(/(href|src)="(?!https?:|mailto:|tel:|data:|#)([^"]+)"/g, `$1="${pre}$2"`);
   if (name === "nav") {
-    body = body.replace(new RegExp(`(<a [^>]*data-page="${page}")`), "$1 aria-current=\"page\"");
+    const cur = page.startsWith("projects/") ? "projects" : page;
+    body = body.replace(new RegExp(`(<a [^>]*data-page="${cur}")`), "$1 aria-current=\"page\"");
     body = body.replace(/ data-page="[^"]+"/g, "");
   }
   return html.replace(re, `$1\n${body}\n$2`);
@@ -100,8 +104,10 @@ function check() {
     for (const m of html.matchAll(/(?:href|src|poster)="([^"]+)"/g)) {
       const u = m[1];
       if (/^(https?:|mailto:|tel:|data:)/.test(u)) continue;
-      const [file, hash] = u.split("#");
-      const target = file === "" ? p + ".html" : file;
+      const [file0, hash] = u.split("#"); const file = file0.split("?")[0];
+      let target = file === "" ? p + ".html" : path.posix.normalize(path.posix.join(path.posix.dirname(p), file));
+      if (target === "." || target.endsWith("/")) target = path.posix.join(target, "index.html");
+      if (fs.existsSync(path.join(ROOT, target)) && fs.statSync(path.join(ROOT, target)).isDirectory()) target = path.posix.join(target, "index.html");
       if (!fs.existsSync(path.join(ROOT, target))) { err(`${p}.html: broken link ${u}`); continue; }
       if (hash && target.endsWith(".html")) {
         const tp = target.replace(".html", "");

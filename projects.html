@@ -13,8 +13,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Heebo:wght@300;400;600;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/tokens.css?v=202610262106">
+  <link rel="stylesheet" href="css/site.css?v=202610262106">
 </head>
 <body class="page-inner">
 <!--@nav-->
@@ -66,16 +66,8 @@
           <a class="btn btn--ghost" data-github hidden target="_blank" rel="noopener" href="#" data-i18n="hero.cta3">צפו ב-<bdi dir="ltr">ASTRA</bdi> ב-<bdi dir="ltr">GitHub</bdi></a>
         </div>
         <div class="feature__side">
-          <ul class="techs techs--dark">
-            <li data-i18n="tech.1"><bdi dir="ltr">C#</bdi></li><li data-i18n="tech.2"><bdi dir="ltr">.NET 8</bdi></li><li data-i18n="tech.3"><bdi dir="ltr">Microsoft Playwright</bdi></li>
-            <li data-i18n="tech.4"><bdi dir="ltr">ASP.NET Web API</bdi></li>
-          </ul>
-          <details class="more more--dark" open>
-            <summary><span data-i18n="pr.astra.more">פרטי הפרויקט</span></summary>
-            <ul class="bullets bullets--light">
-              <li data-i18n="pr.astra.d1">היקף: תהליכי הזמנה, תצורות נוסעים ושירותים נלווים</li><li data-i18n="pr.astra.d2">פלט: תוצאות <bdi dir="ltr">JSON</bdi>, דוח <bdi dir="ltr">Excel</bdi> וחומרי אבחון</li><li data-i18n="pr.astra.d3">סטטוס: פרויקט עצמאי שפותח בזמני הפנוי, אינו מותקן בסביבת ייצור</li><li data-i18n="pr.astra.d4">קוד המקור: אינו מפורסם כרגע</li>
-            </ul>
-          </details>
+          <ul class="stack stack--grid"><li class="st st--cs"><i class="st__g" dir="ltr" aria-hidden="true">C#</i><b data-i18n="tech.1"><bdi dir="ltr">C#</bdi></b><small data-i18n="tech.r1">שפה ופלטפורמה</small></li><li class="st st--net"><i class="st__g" dir="ltr" aria-hidden="true">.NET</i><b data-i18n="tech.2"><bdi dir="ltr">.NET 8</bdi></b><small data-i18n="tech.r2">סביבת הריצה</small></li><li class="st st--pw"><i class="st__g" dir="ltr" aria-hidden="true">PW</i><b data-i18n="tech.3"><bdi dir="ltr">Microsoft Playwright</bdi></b><small data-i18n="tech.r3">אוטומציית דפדפן</small></li><li class="st st--api"><i class="st__g" dir="ltr" aria-hidden="true">API</i><b data-i18n="tech.4"><bdi dir="ltr">ASP.NET Web API</bdi></b><small data-i18n="tech.r4">שירות להפעלת הרצות</small></li></ul>
+          <p class="feature__note" data-i18n="pr.astra.note">פרויקט עצמאי שיזמתי במהלך העבודה, ללא התקנה בסביבת ייצור.</p>
         </div>
       </article>
     </div>
@@ -84,12 +76,12 @@
   <section class="section s-ink" id="previous">
     <div class="wrap">
       <header data-reveal>
-        <p class="kicker" data-i18n="pr.prev.kicker">פרויקטי <bdi dir="ltr">QA</bdi> קודמים</p>
+        <p class="kicker" data-i18n="pr.prev.kicker">פרויקטים מעשיים במסגרת קורס QA</p>
         <h2 class="h2" data-i18n="pr.prev.title">פרויקטי בדיקות</h2>
       </header>
       <ul class="rows">
-        <li data-reveal><a href="https://bit.ly/STR-SuperPharm-Michal-Natan" target="_blank" rel="noopener"><span class="rows__n">01</span><h3 data-i18n="pr.1.t"><bdi dir="ltr">STR</bdi>: אתר סופר-פארם</h3><p data-i18n="pr.1.d">בדיקות באתר גדול ומוכר, עם דיווח באגים ב-<bdi dir="ltr">Jira</bdi> וניהול בדיקות ב-<bdi dir="ltr">TestRail</bdi>, בשיתוף עם חברה לצוות.</p><span class="rows__go"><span data-i18n="pr.open">לצפייה בפרויקט</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7m0 0H8m9 0v9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
-        <li data-reveal><a href="https://github.com/2323natan2323/STR-Tiv-Taam-Project/blob/main/Tiv-Taam%20QA%20Mobile%20Project%20Natan%20Shor%20and%20Michal%20Cohen%20STR.pdf" target="_blank" rel="noopener"><span class="rows__n">02</span><h3 data-i18n="pr.2.t"><bdi dir="ltr">STR</bdi>: אפליקציית טיב טעם</h3><p data-i18n="pr.2.d">בדיקות יסודיות וניהול תקלות באפליקציית מובייל, בשיתוף עם חברה לצוות.</p><span class="rows__go"><span data-i18n="pr.open">לצפייה בפרויקט</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7m0 0H8m9 0v9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
+        <li data-reveal><a href="projects/super-pharm/"><span class="rows__n">01</span><h3 data-i18n="pr.1.t"><bdi dir="ltr">STR</bdi>: אתר סופר-פארם</h3><p data-i18n="pr.1.d">בדיקות באתר גדול ומוכר, עם דיווח באגים ב-<bdi dir="ltr">Jira</bdi> וניהול בדיקות ב-<bdi dir="ltr">TestRail</bdi>, בשיתוף עם חברה לצוות.</p><span class="rows__go"><span data-i18n="pr.open">לצפייה בפרויקט</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7m0 0H8m9 0v9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
+        <li data-reveal><a href="projects/tiv-taam/"><span class="rows__n">02</span><h3 data-i18n="pr.2.t"><bdi dir="ltr">STR</bdi>: אפליקציית טיב טעם</h3><p data-i18n="pr.2.d">בדיקות יסודיות וניהול תקלות באפליקציית מובייל, בשיתוף עם חברה לצוות.</p><span class="rows__go"><span data-i18n="pr.open">לצפייה בפרויקט</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7m0 0H8m9 0v9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
       </ul>
     </div>
   </section>
@@ -115,9 +107,9 @@
 <button class="totop" id="totop" type="button" data-i18n-attr="aria-label:common.back" aria-label="חזרה לראש העמוד"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0l-6 6m6-6l6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <!--/@footer-->
 
-<script src="js/config.js"></script>
-<script src="js/i18n-he.js"></script>
-<script src="js/i18n-en.js"></script>
-<script src="js/main.js"></script>
+<script src="js/config.js?v=202610262106"></script>
+<script src="js/i18n-he.js?v=202610262106"></script>
+<script src="js/i18n-en.js?v=202610262106"></script>
+<script src="js/main.js?v=202610262106"></script>
 </body>
 </html>
