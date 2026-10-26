@@ -207,11 +207,10 @@
     };
     addPages(1, Math.min(FIRST, total), true);
     dStage.appendChild(box);
-    if (total > FIRST) {
-      var more = doc.createElement("button"); more.type = "button"; more.className = "btn btn--primary doc__more"; more.id = "docMore"; more.setAttribute("data-i18n", "pj.doc.more"); more.textContent = t("pj.doc.more");
-      more.addEventListener("click", function () { addPages(FIRST + 1, total, false); more.remove(); });
-      dStage.appendChild(more);
-    }
+    /* every 15 pages the reader stops and offers "Show more", so a slow connection never loads more than a visitor asked for */
+    var moreBtn = doc.createElement("button"); moreBtn.type = "button"; moreBtn.className = "btn btn--primary doc__more"; moreBtn.id = "docMore"; moreBtn.setAttribute("data-i18n", "pj.doc.more"); moreBtn.textContent = t("pj.doc.more");
+    moreBtn.addEventListener("click", function () { var from = shown + 1; addPages(from, Math.min(shown + FIRST, total), true); if (shown >= total) moreBtn.hidden = true; else dStage.appendChild(moreBtn); });
+    if (total > FIRST) dStage.appendChild(moreBtn);
   }
 
   /* ---------- init: Hebrew by default; ?lang= or saved preference wins ---------- */
