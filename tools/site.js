@@ -8,7 +8,7 @@ const path = require("path");
 const vm = require("vm");
 
 const ROOT = path.resolve(__dirname, "..");
-const PAGES = ["index", "experience", "projects", "about", "projects/super-pharm/index", "projects/tiv-taam/index"];
+const PAGES = ["index", "experience", "about", "projects/super-pharm/index", "projects/tiv-taam/index"];
 const prefixOf = (page) => "../".repeat(page.split("/").length - 1);
 const REDIRECTS = ["generic.html", "elements.html"];
 const read = (f) => fs.readFileSync(path.join(ROOT, f), "utf8");

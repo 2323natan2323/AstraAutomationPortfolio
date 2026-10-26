@@ -13,8 +13,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Heebo:wght@300;400;600;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/tokens.css?v=202610262200">
-  <link rel="stylesheet" href="css/site.css?v=202610262200">
+  <link rel="stylesheet" href="css/tokens.css?v=202610262230">
+  <link rel="stylesheet" href="css/site.css?v=202610262230">
 </head>
 <body class="page-home">
 <!--@nav-->
@@ -30,7 +30,7 @@
     <nav class="nav__links" id="primary" data-i18n-attr="aria-label:nav.primary" aria-label="ניווט ראשי">
       <a href="index.html" aria-current="page" data-i18n="nav.home">ASTRA</a>
       <a href="experience.html" data-i18n="nav.experience">ניסיון וכישורים</a>
-      <a href="projects.html" data-i18n="nav.projects">פרויקטים</a>
+      <a href="index.html#projects" data-i18n="nav.projects">פרויקטים</a>
       <a href="about.html" data-i18n="nav.about">אודות</a>
       <a href="#contact" data-i18n="nav.contact">יצירת קשר</a>
     </nav>
@@ -51,11 +51,6 @@
     <div class="hero__bg" aria-hidden="true"><i class="glow glow--blue"></i><i class="glow glow--warm"></i></div>
     <div class="wrap hero__grid">
       <div class="hero__text">
-        <ul class="identity">
-          <li><span data-i18n="id.role"><bdi dir="ltr">QA Engineer</bdi></span></li>
-          <li><span data-i18n="id.auto">אוטומציית בדיקות</span></li>
-          <li><span data-i18n="id.ai">פיתוח בסיוע <bdi dir="ltr">AI</bdi></span></li>
-        </ul>
         <h1 class="name" data-i18n="hero.name">נתן <em>שור</em></h1>
         <p class="role" data-i18n="hero.role">QA Engineer עם ניסיון מעשי של כשנתיים בבדיקות תוכנה<span class="role__focus">המתמקד בפיתוח אוטומציה</span></p>
         <p class="lead" data-i18n="hero.lead">אני בודק מערכות הזמנה מורכבות מקצה לקצה, חוקר תקלות ומריץ רגרסיה. מתוך הניסיון הזה יזמתי את <bdi dir="ltr">ASTRA</bdi>, פרויקט אוטומציה לבדיקות הזמנת טיסות, שבניתי ב־<bdi dir="ltr">C#</bdi> וב־<bdi dir="ltr">.NET</bdi> בסיוע כלי <bdi dir="ltr">AI</bdi>.</p>
@@ -77,7 +72,6 @@
     <div class="wrap">
       <header class="head-row" data-reveal>
         <div>
-          <p class="kicker" data-i18n="xp.kicker">ניסיון</p>
           <h2 class="h2" data-i18n="xp.title">ניסיון <em>מעשי</em> בבדיקות תוכנה</h2>
         </div>
         <a class="btn btn--ink btn--flat" href="experience.html"><span data-i18n="xp.cta">ניסיון וכישורים</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -130,7 +124,6 @@
   <section class="section section--tight s-paper" id="project">
     <div class="wrap split">
       <header data-reveal>
-        <p class="kicker" data-i18n="intro.kicker">הפרויקט</p>
         <h2 class="h2" data-i18n="intro.title">מעמוד הבית עד <em>התשלום</em></h2>
       </header>
       <p class="body-lg" data-reveal data-i18n="intro.text"><bdi dir="ltr">ASTRA</bdi> מריצה תהליכי הזמנה בדפדפן: מחפשת טיסות, מגדירה נוסעים ומוסיפה שירותים נלווים, ונעצרת במסך התשלום לפני כל חיוב.</p>
@@ -144,7 +137,6 @@
         <li><span class="route__dot"></span><span class="route__t" data-i18n="route.4">שירותים נלווים</span></li>
         <li class="route__last"><span class="route__dot"></span><span class="route__t" data-i18n="route.5">מסך תשלום</span><span class="route__end" data-i18n="route.end">נעצרת לפני חיוב</span></li>
       </ol>
-      <p class="fine" data-i18n="route.note">המחשה של תהליך הזמנה. לא מתבצע חיוב בפועל.</p>
     </div>
   </section>
 
@@ -152,7 +144,6 @@
   <section class="section s-stage" id="demo">
     <div class="wrap">
       <header class="stage-head" data-reveal>
-        <p class="kicker" data-i18n="video.kicker">הדגמה</p>
         <h2 class="h2" data-i18n="video.title">צפו <em>בהדגמה</em></h2>
         <p class="sub" data-i18n="video.sub">הקלטה אמיתית של <bdi dir="ltr">ASTRA</bdi> מריצה תהליך הזמנת טיסה בדפדפן, מול אתר הזמנות חי, מעמוד הבית ועד מסך התשלום. בלי הזמנה ובלי תשלום.</p>
       </header>
@@ -175,7 +166,6 @@
     <div class="wrap">
       <header class="head-row" data-reveal>
         <div>
-          <p class="kicker" data-i18n="act.kicker">בפועל</p>
           <h2 class="h2" data-i18n="act.title"><bdi dir="ltr">ASTRA</bdi> <em>בפעולה</em></h2>
         </div>
       </header>
@@ -183,7 +173,6 @@
       <div class="case" data-reveal>
         <div class="case__lead">
           <p class="body-lg" data-i18n="ax.lead"><bdi dir="ltr">ASTRA</bdi> היא מערכת אוטומציה שפיתחתי לבדיקת תהליכי הזמנת טיסות. היא מבצעת את הבדיקה בדפדפן ומתעדת את התוצאה בדוח מסודר.</p>
-          <p class="fine" data-i18n="ax.site"><bdi dir="ltr">ASTRA</bdi> אינה אתר הזמנות, היא בודקת אתרי הזמנת טיסות.</p>
         </div>
 
         <div class="case__block">
@@ -280,7 +269,6 @@
             <ul class="jsec__notes">
               <li data-i18n="ax.n1"><code>Segments</code>: קטע טיסה לכל כיוון.</li><li data-i18n="ax.n2"><code>TargetAirline</code>: חברת התעופה המועדפת.</li><li data-i18n="ax.n3"><code>ShouldSubmitOrder: false</code>: ההרצה לא שולחת הזמנה.</li><li data-i18n="ax.n4"><code>Media</code>: אפשר לבקש הקלטת וידאו ותמונת <bdi dir="ltr">HTML</bdi>.</li>
             </ul>
-            <p class="fine" data-i18n="ax.tech.note">תיאור ברמת הזרימה בלבד, והערכים בדוגמה סינתטיים. הבקשה האמיתית אינה מפורסמת.</p>
           </details>
         </div>
       </div>
@@ -291,7 +279,7 @@
   <section class="section section--tight s-blue" id="story">
     <div class="wrap ai-band">
       <div data-reveal>
-        <p class="kicker" data-i18n="st.kicker">איך ASTRA נבנתה</p>
+        <p class="kicker kicker--accent" data-i18n="st.kicker">איך <bdi dir="ltr">ASTRA</bdi> נבנתה</p>
         <h2 class="h2 h2--wide" data-i18n="st.title">התחלה ב-<bdi dir="ltr">Python</bdi>, מעבר ל-<bdi dir="ltr">C#</bdi>, ופיתוח <em>בסיוע</em> <bdi dir="ltr">AI</bdi></h2>
         <p class="body-lg" data-i18n="st.text">התחלתי את הפרויקט ב-<bdi dir="ltr">Python</bdi>, ובהמשך עברתי ל-<bdi dir="ltr">C#</bdi> ול-<bdi dir="ltr">.NET</bdi> כדי להתאים אותו לסביבת הפיתוח של החברה. השתמשתי בכלי <bdi dir="ltr">AI</bdi> באופן נרחב למימוש, לארגון הקוד, לאיתור תקלות וללמידה. מה שאני מביא הוא ההבנה בבדיקות: איפה אוטומציה מוסיפה ערך, איך תהליך הזמנה אמור להתנהג ואם התוצאה נכונה.</p>
       </div>
@@ -311,10 +299,8 @@
     <div class="wrap">
       <header class="head-row" data-reveal>
         <div>
-          <p class="kicker" data-i18n="proj.kicker">פרויקטים נבחרים</p>
-          <h2 class="h2" data-i18n="proj.title">עבודות שאפשר <em>להראות</em></h2>
+          <h2 class="h2" data-i18n="proj.title">פרויקטים <em>נבחרים</em></h2>
         </div>
-        <a class="btn btn--ghost" href="projects.html" data-i18n="proj.all">כל הפרויקטים</a>
       </header>
       <ul class="rows">
         <li data-reveal><a href="#astra"><span class="rows__n">01</span><h3 data-i18n="pr.astra.title"><bdi dir="ltr">ASTRA</bdi>: פרויקט אוטומציה לבדיקות תוכנה</h3><p data-i18n="proj.astra.d">פרויקט אוטומציה שפיתחתי ביוזמתי לבדיקת תהליכי הזמנת טיסות.</p><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
@@ -345,9 +331,9 @@
 <button class="totop" id="totop" type="button" data-i18n-attr="aria-label:common.back" aria-label="חזרה לראש העמוד"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0l-6 6m6-6l6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <!--/@footer-->
 
-<script src="js/config.js?v=202610262200"></script>
-<script src="js/i18n-he.js?v=202610262200"></script>
-<script src="js/i18n-en.js?v=202610262200"></script>
-<script src="js/main.js?v=202610262200"></script>
+<script src="js/config.js?v=202610262230"></script>
+<script src="js/i18n-he.js?v=202610262230"></script>
+<script src="js/i18n-en.js?v=202610262230"></script>
+<script src="js/main.js?v=202610262230"></script>
 </body>
 </html>

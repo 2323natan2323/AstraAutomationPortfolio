@@ -12,9 +12,6 @@ window.I18N.en = {
   "nav.contact": "Contact",
   "nav.menu": "Menu",
   "lang.label": "Language",
-  "id.role": "QA Engineer",
-  "id.auto": "QA Automation",
-  "id.ai": "AI-Assisted Development",
   "status.implemented": "Implemented",
   "status.demonstrated": "Locally demonstrated",
   "status.planned": "Planned / experimental",
@@ -24,8 +21,6 @@ window.I18N.en = {
   "meta.home.desc": "Natan Shor, QA Engineer with hands-on experience, focused on QA Automation Engineering. ASTRA is an independently developed C#, .NET and Playwright project that automates flight booking test workflows from the homepage to the checkout screen.",
   "meta.experience.title": "Experience & Skills | Natan Shor",
   "meta.experience.desc": "Hands-on QA experience, automation technologies and AI-assisted development.",
-  "meta.projects.title": "Projects | Natan Shor",
-  "meta.projects.desc": "ASTRA, an independently developed QA automation project, plus previous QA projects.",
   "meta.about.title": "About | Natan Shor",
   "meta.about.desc": "Natan Shor's story: from software testing to building automation with C#, .NET and AI tools.",
 
@@ -42,7 +37,6 @@ window.I18N.en = {
   "tech.4": "<bdi dir=\"ltr\">ASP.NET Web API</bdi>",
 
   /* home: intro + route */
-  "intro.kicker": "The project",
   "intro.title": "From the homepage <em>to the payment screen</em>",
   "intro.text": "ASTRA runs booking flows in the browser: it searches flights, configures passengers and adds ancillary services, then stops at the checkout screen before any charge.",
   "route.label": "Booking workflow",
@@ -52,10 +46,8 @@ window.I18N.en = {
   "route.4": "Ancillary services",
   "route.5": "Checkout",
   "route.end": "Stops before payment",
-  "route.note": "Illustration of a booking workflow. No real payment is executed.",
 
   /* home: demo video */
-  "video.kicker": "Demonstration",
   "video.title": "Watch the <em>demo</em>",
   "video.sub": "A real recording of ASTRA running a flight booking workflow in the browser against a live booking site, from the homepage to the payment screen. No order and no payment.",
   "video.ph.title": "Watch a real <em>ASTRA</em> run",
@@ -66,11 +58,9 @@ window.I18N.en = {
 
 
   /* home: in action */
-  "act.kicker": "In practice",
   "act.title": "<bdi dir=\"ltr\">ASTRA</bdi> <em>in action</em>",
 
   "video.unavail": "The player did not load.",
-  "xp.kicker": "Experience",
   "xp.title": "Hands-on <em>testing</em> experience",
   "xp.1.t": "End-to-end booking flows",
   "xp.1.d": "Testing complex travel booking flows, flights and flight + hotel, from search to the payment screen.",
@@ -100,11 +90,9 @@ window.I18N.en = {
   "video.open": "Watch on Vimeo",
 
   "ax.lead": "ASTRA is an automation system I built to test flight booking flows. It runs the test in the browser and records the result in a structured report.",
-  "ax.site": "ASTRA is not a booking site, it tests flight booking websites.",
   "ax.why.h": "What this project shows about me",
   "ax.why": "I started ASTRA from real QA experience. I began in Python, moved to C# and .NET with Playwright, and built it with the help of AI tools.",
   "ax.tech.sum": "How does it work behind the scenes?",
-  "ax.tech.note": "A flow-level description only, and the values in the example are synthetic. The real request is not published.",
   "ax.n1": "<code>Segments</code>: one flight segment per direction.",
   "ax.n2": "<code>TargetAirline</code>: the preferred airline.",
   "ax.n3": "<code>ShouldSubmitOrder: false</code>: the run does not submit an order.",
@@ -188,10 +176,6 @@ window.I18N.en = {
   "tt.n3": "bugs reported on Android",
   "tt.n4": "bugs reported on iPhone",
 
-  "tech.r1": "Language and platform",
-  "tech.r2": "Runtime",
-  "tech.r3": "Browser automation",
-  "tech.r4": "Service that starts runs",
 
   "exp.role": "QA Engineer",
   "exp.role.t": "About two years",
@@ -242,7 +226,6 @@ window.I18N.en = {
   "sk.g.4": "Hebrew, native",
   "sk.g.5": "English, excellent",
 
-  "exp.auto.kicker": "Automation technology",
 
   "ab.p.1.n": "About 2 years",
   "ab.p.1.t": "in QA on booking products",
@@ -261,7 +244,6 @@ window.I18N.en = {
   "tl.6.d": "Looking for my next role building test automation, with field experience and ASTRA as proof.",
   "tl.6.cta": "To the ASTRA project",
 
-  "pr.astra.note": "An independent project I initiated while working, not installed in a production environment.",
   "pj.h.how": "How it was tested",
   "pj.h.found": "What was found",
   "sp.tools": "TestRail and Jira. In the browser and on mobile: Safari and Chrome on Android and iPhone.",
@@ -270,8 +252,19 @@ window.I18N.en = {
 
   "pj.toDoc": "Read the document",
 
+  "tech.r1": "Language and platform",
+  "tech.r2": "Runtime",
+  "tech.r3": "Browser automation",
+  "tech.r4": "Service that starts runs",
+  "pr.astra.title": "ASTRA: QA Automation Framework",
+  "pr.astra.text": "An independently developed automation project for flight booking workflows, from the homepage to the checkout screen, without executing a real payment. Built with C#, .NET 8 and Playwright, with ASP.NET Web API. Scenarios are defined in JSON, and results are saved as JSON files and an Excel report.",
+  "pr.astra.badge": "Featured project",
+  "pr.astra.cta": "Watch the demo",
+  "pr.astra.note": "An independent project I initiated while working, not installed in a production environment.",
+  "pr.open": "View project",
+
   /* home: how it was built */
-  "st.kicker": "How ASTRA was built",
+  "st.kicker": "How <bdi dir=\"ltr\">ASTRA</bdi> was built",
   "st.title": "Started in Python, moved to C#, built <em>with AI</em>",
   "st.text": "I started the project in Python, then moved to C# and .NET to fit the company's development environment. I used AI tools extensively for implementation, organizing the code, debugging and learning. What I bring is the testing perspective: where automation adds value, how a booking flow should behave, and whether a result is right.",
   "st.1": "Python",
@@ -286,9 +279,7 @@ window.I18N.en = {
   "me.cta": "More about me",
   "portrait.alt": "Portrait of Natan Shor",
   "portrait.alt2": "Natan Shor smiling beside a railing and an old street lamp",
-  "proj.kicker": "Selected projects",
-  "proj.title": "Work <em>I can show</em>",
-  "proj.all": "All projects",
+  "proj.title": "Selected <em>projects</em>",
   "proj.astra.d": "An independently developed automation project for flight booking workflows.",
 
   /* experience page */
@@ -298,9 +289,7 @@ window.I18N.en = {
   "exp.work.kicker": "Professional experience",
   "exp.work.title": "Software testing, <em>in</em> practice",
   "exp.auto.title": "What I built beyond testing: <em>ASTRA</em>",
-  "exp.skills.kicker": "Technical competencies",
   "exp.skills.title": "What I <em>bring</em> to testing",
-  "aiw.kicker": "AI-assisted development",
   "aiw.title": "AI is part of <em>the way</em> I build",
   "aiw.text": "I use AI tools to build faster and to understand more deeply. A tester's judgment stays with me: where automation is worth the effort, what correct behavior looks like and whether a result makes sense.",
   "aiw.1": "Exploring technical approaches",
@@ -309,23 +298,15 @@ window.I18N.en = {
   "aiw.4": "Troubleshooting",
   "aiw.5": "Refactoring",
   "aiw.6": "Learning and technical investigation",
-  "aiw.note": "ASTRA itself is an ordinary automation project. AI was part of how it was developed, not part of how it runs.",
 
   /* projects page */
   "pr.kicker": "Projects",
   "pr.title": "The main project, and <em>the foundation</em>",
   "pr.sub": "ASTRA is my main project. Earlier QA projects show the testing foundation beneath it.",
-  "pr.astra.badge": "Featured project",
-  "pr.astra.title": "ASTRA: QA Automation Framework",
-  "pr.astra.text": "An independently developed automation project for flight booking workflows, from the homepage to the checkout screen, without executing a real payment. Built with C#, .NET 8 and Playwright, with ASP.NET Web API. Scenarios are defined in JSON, and results are saved as JSON files and an Excel report.",
-  "pr.astra.cta": "Watch the demo",
-  "pr.prev.kicker": "Practical QA course projects",
-  "pr.prev.title": "Testing projects",
   "pr.1.t": "STR: Super-Pharm website",
   "pr.1.d": "Testing a large, well-known website, with bug reporting in Jira and test management in TestRail, done together with a teammate.",
   "pr.2.t": "STR: Tiv Taam mobile app",
   "pr.2.d": "Thorough testing and defect management for a mobile app, done together with a teammate.",
-  "pr.open": "View project",
 
   /* about page */
   "ab.kicker": "About Natan",

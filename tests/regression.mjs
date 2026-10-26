@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const PORT = 5199, BASE = `http://127.0.0.1:${PORT}`;
-const PAGES = ["index", "experience", "projects", "about"];
+const PAGES = ["index", "experience", "about"];
 const LANGS = ["he", "en"];
 const WIDTHS = [320, 360, 390, 430, 768, 1280, 1920];
 const MIME = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".jpg": "image/jpeg", ".png": "image/png", ".woff2": "font/woff2", ".ttf": "font/ttf", ".txt": "text/plain", ".pdf": "application/pdf" };
@@ -54,7 +54,7 @@ try {
     const leftover = await pg.$$eval("[data-i18n]", (els) => els.filter((e) => /[֐-׿]/.test(e.textContent)).map((e) => e.dataset.i18n));
     ok("no Hebrew text left on English home", leftover.length === 0, leftover.join(","));
     await pg.reload({ waitUntil: "networkidle" }); i = await info(pg); ok("English persists after reload", i.lang === "en", JSON.stringify(i));
-    await pg.goto(url("projects"), { waitUntil: "networkidle" }); i = await info(pg); ok("English persists on another page", i.lang === "en" && i.dir === "ltr", JSON.stringify(i));
+    await pg.goto(url("about"), { waitUntil: "networkidle" }); i = await info(pg); ok("English persists on another page", i.lang === "en" && i.dir === "ltr", JSON.stringify(i));
     await pg.goto(url("about", "?lang=he"), { waitUntil: "networkidle" }); i = await info(pg); ok("?lang=he overrides saved English", i.lang === "he" && i.dir === "rtl", JSON.stringify(i));
     await pg.goto(url("about"), { waitUntil: "networkidle" }); i = await info(pg); ok("explicit parameter becomes the saved choice", i.lang === "he", JSON.stringify(i));
     await pg.click('.lang button[data-lang="en"]'); await pg.waitForFunction(() => document.documentElement.lang === "en");
@@ -114,7 +114,7 @@ try {
   { const ctx = await newCtx({ viewport: { width: 390, height: 844 } }); const pg = await open(ctx, "index"); const burger = pg.locator(".burger"); ok("mobile: menu button visible, links hidden", (await burger.isVisible()) && !(await pg.locator("#primary a").first().isVisible()));
     await burger.click(); await pg.waitForTimeout(900); ok("mobile: menu opens", (await burger.getAttribute("aria-expanded")) === "true" && (await pg.locator("#primary a").first().isVisible()));
     await pg.keyboard.press("Escape"); await pg.waitForTimeout(300); ok("mobile: Escape closes the menu and returns focus", (await burger.getAttribute("aria-expanded")) === "false" && (await pg.evaluate(() => document.activeElement.className)).includes("burger"));
-    await burger.click(); await pg.waitForTimeout(900); await pg.locator('#primary a[href="projects.html"]').click(); await pg.waitForURL(/projects\.html/); ok("mobile: menu link navigates", true); await ctx.close(); }
+    await burger.click(); await pg.waitForTimeout(900); await pg.locator('#primary a[href="experience.html"]').click(); await pg.waitForURL(/experience\.html/); ok("mobile: menu link navigates", true); await ctx.close(); }
   for (const l of LANGS) { const ctx = await newCtx(); const pg = await open(ctx, "index", `?lang=${l}`);
     await pg.locator("#action .case").scrollIntoViewIfNeeded();
     ok(`${l}: ASTRA in Action is one scrolling story with no tabs, no switching and no carousel`, (await pg.locator("#action [role=tab]").count()) === 0 && (await pg.locator("#action [role=tablist]").count()) === 0 && (await pg.locator("#action .action__tabs").count()) === 0);
@@ -122,7 +122,7 @@ try {
     ok(`${l}: default view needs no JSON, API or Excel vocabulary`, !/JSON|Postman|Segments|ShouldSubmitOrder|PNR|API/.test(vis.replace(/ASTRA/g, "")), vis.slice(0, 80));
     ok(`${l}: workflow has three Mermaid phases in the right order and direction, the ASTRA phase is the widest`, await pg.evaluate((rtl) => { const P = [...document.querySelectorAll("#action .wf__p")]; if (P.length !== 3) return false; const R = P.map((e) => e.getBoundingClientRect()); const vis = P.every((e) => [...e.querySelectorAll("svg[data-v]")].filter((s) => getComputedStyle(s).display !== "none").length === 1); const order = rtl ? (R[0].left > R[1].left && R[1].left > R[2].left) : (R[0].left < R[1].left && R[1].left < R[2].left); const wide = R[1].width > R[0].width * 1.8 && R[1].width > R[2].width * 1.8; const box = document.querySelector("#action .mmd").getBoundingClientRect(); return vis && order && wide && R.every((r) => r.left >= box.left - 1 && r.right <= box.right + 1) && !!document.querySelector("#action .mmd figcaption").textContent.trim(); }, l === "he"));
     { const wt = (await pg.locator("#action .wf").evaluate((e) => e.textContent.replace(/\s+/g, " "))); const need = l === "he" ? ["מגדירים תרחיש בדיקה", "מבצעת את הבדיקה", "מתקבל דוח הרצה", "תיעוד התוצאה של כל הרצה", "חיפוש", "בחירת טיסה", "פרטי", "כבודה ושירותים", "סיכום", "מסלול טיסה", "תאריכי טיסה", "הרכב נוסעים", "תוצאת ההרצה", "משך ההרצה", "שלב העצירה וההודעה"] : ["Define a Test Scenario", "ASTRA Runs the Test", "Execution Report", "A record of every run", "Flight", "fare", "Passenger", "Baggage", "Booking", "route", "dates", "Passengers", "Run result", "Run duration", "Stopping step"]; ok(`${l}: the approved workflow wording is present and nothing claims a real purchase`, need.every((s) => wt.includes(s)) && !/רכישה אמיתית|real purchase/i.test(wt), need.filter((s) => !wt.includes(s)).join("|")); }
-    ok(`${l}: the report sample shows all three real examples at once, with plain fields and no sensitive values`, (await pg.locator("#reports tbody tr").count()) === 3 && (await pg.locator("#reports tbody tr:visible").count()) === 3 && (await pg.locator("#reports .c-dur b").allInnerTexts()).join() === "0:53,1:53,0:22" && (await pg.locator("#reports").evaluate((e) => e.scrollWidth <= e.clientWidth + 1 && getComputedStyle(e).overflowY !== "scroll")) && !/eyJ|https?:|PNR|token|iframe|payment handler/i.test(await pg.locator("#reports").innerText()));
+    ok(`${l}: the report sample shows all three real examples at once, with plain fields and no sensitive values`, (await pg.locator("#reports tbody tr").count()) === 3 && (await pg.locator("#reports tbody .c-scn").evaluateAll((es) => es.map((e) => getComputedStyle(e, "::before").content).join())) === "counter(rn),counter(rn),counter(rn)" && (await pg.locator("#reports tbody tr:visible").count()) === 3 && (await pg.locator("#reports .c-dur b").allInnerTexts()).join() === "0:53,1:53,0:22" && (await pg.locator("#reports").evaluate((e) => e.scrollWidth <= e.clientWidth + 1 && getComputedStyle(e).overflowY !== "scroll")) && !/eyJ|https?:|PNR|token|iframe|payment handler/i.test(await pg.locator("#reports").innerText()));
     ok(`${l}: the orange dot is replaced by one star on the hero arc, no sparkle in the section, and no run statistics or sensitive values`, (await pg.locator("#action .spark").count()) === 0 && (await pg.locator("#astra .arc .star").count()) === 1 && (await pg.locator("#astra .arc circle[fill=\"var(--orange)\"]").count()) === 0 && !/(?<![:\d])(71|94|22|187)(?![:\d])/.test(await pg.locator("#action .case").innerText()) && !/eyJ|https?:\/\/(?!test-environment|www\.w3\.org)|PNR|token=/i.test(await pg.locator("#action").innerHTML()));
     ok(`${l}: no run statistics or sensitive values on the page`, !/(71|94|22|187)/.test(await pg.locator("#action .case").innerText()) && !/eyJ|https?:\/\/(?!test-environment|www.w3.org)|PNR|token=/i.test(await pg.locator("#action").innerHTML()));
     ok(`${l}: only one optional disclosure, closed, none nested`, (await pg.locator("#action details").count()) === 1 && (await pg.locator("#action details[open]").count()) === 0 && (await pg.locator("#action details details").count()) === 0);
@@ -170,10 +170,6 @@ try {
     ok(`${l}: About leads with automation and keeps the five-step personal story`, /Automation/.test(tx) && (await pg.locator(".jr > li").count()) === 6 && /Nokia|נוקיה/.test(tx) && (await pg.locator(".jr__s--6").count()) === 1 && (await pg.locator("#intro img").getAttribute("alt")).length > 3);
     await ctx.close(); }
   group("project pages");
-  { const ctx = await newCtx(); const pg = await open(ctx, "projects");
-    const hrefs = await pg.$$eval("#previous a.rows__go, #previous li > a", (as) => as.map((a) => a.getAttribute("href")));
-    ok("both QA project cards open pages inside the site, not GitHub or a short link", hrefs.length === 2 && hrefs.every((h) => /^projects\/(super-pharm|tiv-taam)\/$/.test(h)), hrefs.join(","));
-    ok("the QA section is labelled as practical QA course projects", /קורס QA/.test(await pg.locator("#previous").innerText())); await ctx.close(); }
   { const ctx = await newCtx(); const pg = await open(ctx, "index"); const hs = await pg.$$eval("#projects .rows a", (as) => as.map((a) => a.getAttribute("href")));
     ok("homepage project cards go straight to their own page (ASTRA to its section, the QA projects to their pages) with no stop on the projects list", hs[0] === "#astra" && hs[1] === "projects/super-pharm/" && hs[2] === "projects/tiv-taam/", hs.join(","));
     await pg.click('#projects .rows a[href="projects/super-pharm/"]'); await pg.waitForURL(/projects\/super-pharm\//); ok("clicking Super-Pharm on the homepage lands on its project page in one click", /Super-Pharm|סופר-פארם/.test(await pg.locator("h1").innerText())); await ctx.close(); }
@@ -187,7 +183,7 @@ try {
     const pdfRes = await pg.request.get(new URL(docInfo.open, pg.url()).href);
     ok(`${l} ${who}: the original document opens by itself as a reader on the page (every page present), with the PDF, download and GitHub links, no extra sentences, and the PDF is never requested unless opened`, docInfo.visible && docInfo.figs === (who === "sp" ? 133 : 163) && docInfo.noButton && !docInfo.extraText && /^\.\.\/\.\.\/media\/docs\/.+\.pdf$/.test(docInfo.open) && docInfo.dl === docInfo.open && /^https:\/\/github\.com\/2323natan2323\/STR-/.test(docInfo.gh) && pdfRes.status() === 200 && /pdf/.test(pdfRes.headers()["content-type"] || "") && (await pdfRes.body()).slice(0, 4).toString() === "%PDF" && !reqs.some((u) => /\.pdf/i.test(u)));
     const r = await pg.goto(`${BASE}/${route}?lang=${l}`); ok(`${l} ${who}: refresh of the direct link works`, r.status() === 200);
-    await pg.click(".back"); await pg.waitForURL(/projects\.html/); ok(`${l} ${who}: back link returns to the QA section of the portfolio`, /#previous/.test(pg.url()) || /projects\.html/.test(pg.url()));
+    await pg.click(".back"); await pg.waitForURL(/index\.html/); ok(`${l} ${who}: back link returns to the QA section of the portfolio`, /#previous/.test(pg.url()) || /index\.html/.test(pg.url()));
     await ctx.close(); }
   for (const l of LANGS) { const ctx = await newCtx({ viewport: { width: 390, height: 800 }, isMobile: true, hasTouch: true }); const imgs = []; const pg = await ctx.newPage(); pg.on("request", (r) => imgs.push(r.url()));
     await pg.goto(`${BASE}/projects/tiv-taam/?lang=${l}`, { waitUntil: "load" });
@@ -223,8 +219,8 @@ try {
     else { ok("en: body keeps Heebo", body.some((f) => /Heebo/i.test(f)), body.join(",")); ok("en: headings keep Bricolage Grotesque", disp.some((f) => /Bricolage/i.test(f)), disp.join(","));
       ok("en: accent words keep Instrument Serif italic", accent.some((f) => /Instrument/i.test(f)) && (await pg.$eval("h2 em", (e) => getComputedStyle(e).fontStyle)) === "italic", accent.join(",")); }
     await ctx.close(); }
-  { const ctx = await newCtx(); const pg = await open(ctx, "index"); const e = await pg.$$eval("em", (es) => es.map((x) => x.textContent.trim())); ok("he: accent words are short and Hebrew-only", e.every((t) => t === "ASTRA" || (HEB.test(t) && !/[A-Za-z]/.test(t) && t.split(/\s+/).length <= 2)), e.join(" | "));
-    for (const p of PAGES.slice(1)) { const q = await open(ctx, p); const ee = await q.$$eval("em", (es) => es.map((x) => x.textContent.trim())); ok(`he: accent words short on ${p}`, ee.every((t) => t === "ASTRA" || !/[A-Za-z]/.test(t) && t.split(/\s+/).length <= 2), ee.join(" | ")); } await ctx.close(); }
+  { const ctx = await newCtx(); const pg = await open(ctx, "index"); const e = await pg.$$eval("em", (es) => es.filter((x) => !x.closest(".kicker--accent")).map((x) => x.textContent.trim())); ok("he: accent words are short and Hebrew-only", e.every((t) => t === "ASTRA" || (HEB.test(t) && !/[A-Za-z]/.test(t) && t.split(/\s+/).length <= 2)), e.join(" | "));
+    for (const p of PAGES.slice(1)) { const q = await open(ctx, p); const ee = await q.$$eval("em", (es) => es.filter((x) => !x.closest(".kicker--accent")).map((x) => x.textContent.trim())); ok(`he: accent words short on ${p}`, ee.every((t) => t === "ASTRA" || !/[A-Za-z]/.test(t) && t.split(/\s+/).length <= 2), ee.join(" | ")); } await ctx.close(); }
 
   group("assets");
   { const ctx = await newCtx(); const bad = [];
@@ -232,7 +228,7 @@ try {
       for (let y = 0; y < h; y += 500) { await pg.evaluate((yy) => window.scrollTo(0, yy), y); await pg.waitForTimeout(60); } await pg.waitForTimeout(500);
       const broken = await pg.$$eval("img", (is) => is.filter((i) => !i.complete || i.naturalWidth === 0).map((i) => i.getAttribute("src")));
       if (broken.length) bad.push(`${p}/${l}: ${broken.join(",")}`); if (pg.errs.length) bad.push(`${p}/${l}: ${pg.errs.join(";")}`);
-      if (l === "he") { const wrong = await pg.$$eval("*", (els) => els.filter((e) => /Gveret/.test(getComputedStyle(e).fontFamily) && e.tagName !== "EM" && !e.closest("em")).map((e) => e.tagName + "." + e.className)); if (wrong.length) bad.push(`${p}: Gveret Levin outside <em>: ${wrong.join(",")}`); } await pg.close(); }
+      if (l === "he") { const wrong = await pg.$$eval("*", (els) => els.filter((e) => /Gveret/.test(getComputedStyle(e).fontFamily) && e.tagName !== "EM" && !e.closest("em") && !e.closest(".kicker--accent")).map((e) => e.tagName + "." + e.className)); if (wrong.length) bad.push(`${p}: Gveret Levin outside <em>: ${wrong.join(",")}`); } await pg.close(); }
     ok("every image loads after scrolling; no console or network errors; Gveret Levin only on <em>", bad.length === 0, bad.join(" | ")); await ctx.close(); }
 
   // 8. content QA
@@ -245,7 +241,7 @@ try {
     ok("he: ASTRA scope states no real payment", /ללא ביצוע חיוב בפועל/.test(t)); await pg.goto(url("index", "?lang=en")); await pg.waitForTimeout(300);
     ok("en: ASTRA scope states no real payment", /without executing a real payment/.test(await pg.innerText("body")));
     { const he2 = await open(ctx, "about", "?lang=he"); const ab = await he2.innerText("body"); const en2 = await open(ctx, "about", "?lang=en"); const abe = await en2.innerText("body");
-      ok("about: Kiryat Bialik in both languages", /קרית ביאליק/.test(ab) && /Kiryat Bialik/.test(abe)); const pr = await open(ctx, "projects", "?lang=he"); ok("projects: טיב טעם spelled correctly", /טיב טעם/.test(await pr.innerText("body")));
+      ok("about: Kiryat Bialik in both languages", /קרית ביאליק/.test(ab) && /Kiryat Bialik/.test(abe)); const pr = await open(ctx, "index", "?lang=he"); ok("home: טיב טעם spelled correctly", /טיב טעם/.test(await pr.innerText("body")));
       const hh = await open(ctx, "index", "?lang=he"); const hb = await hh.innerText("body"); ok("he home: natural naming, Python to C# story and four steps title", /Python/.test(hb) && /ASTRA בפעולה/.test(hb) && !/מסגרת אוטומציה לבדיקות/.test(hb) && /אוטומציה לבדיקות תוכנה/.test(hb));
       const hn = await open(ctx, "index", "?lang=en"); ok("en home: Python to C# story present", /started the project in Python/i.test(await hn.innerText("body"))); }
     ok("home: intro order puts the demo before ASTRA in Action", await pg.evaluate(() => (document.querySelector("#demo").compareDocumentPosition(document.querySelector("#action")) & Node.DOCUMENT_POSITION_FOLLOWING)));

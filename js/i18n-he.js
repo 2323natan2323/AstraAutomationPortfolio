@@ -14,9 +14,6 @@ window.I18N.he = {
   "nav.contact": "יצירת קשר",
   "nav.menu": "תפריט",
   "lang.label": "שפה",
-  "id.role": "<bdi dir=\"ltr\">QA Engineer</bdi>",
-  "id.auto": "אוטומציית בדיקות",
-  "id.ai": "פיתוח בסיוע <bdi dir=\"ltr\">AI</bdi>",
   "status.implemented": "מומש",
   "status.demonstrated": "הודגם מקומית",
   "status.planned": "מתוכנן / ניסיוני",
@@ -26,8 +23,6 @@ window.I18N.he = {
   "meta.home.desc": "נתן שור, QA Engineer עם ניסיון מעשי, מתמקד ב-QA Automation Engineering. ASTRA היא מערכת אוטומציה שפותחה ביוזמתו ב-C#‎, ב-.NET וב-Playwright, לבדיקת תהליכי הזמנת טיסות מעמוד הבית ועד מסך התשלום.",
   "meta.experience.title": "ניסיון וכישורים | נתן שור",
   "meta.experience.desc": "ניסיון מעשי בבדיקות תוכנה, טכנולוגיות אוטומציה ופיתוח בסיוע AI.",
-  "meta.projects.title": "פרויקטים | נתן שור",
-  "meta.projects.desc": "ASTRA, פרויקט אוטומציה לבדיקות תוכנה שפותח ביוזמה אישית, לצד פרויקטי בדיקות קודמים.",
   "meta.about.title": "אודות | נתן שור",
   "meta.about.desc": "הסיפור של נתן שור: מבדיקות תוכנה לפיתוח אוטומציה ב-C#‎, ב-.NET ובכלי AI.",
 
@@ -44,7 +39,6 @@ window.I18N.he = {
   "tech.4": "<bdi dir=\"ltr\">ASP.NET Web API</bdi>",
 
   /* home: intro + route */
-  "intro.kicker": "הפרויקט",
   "intro.title": "מעמוד הבית עד <em>התשלום</em>",
   "intro.text": "<bdi dir=\"ltr\">ASTRA</bdi> מריצה תהליכי הזמנה בדפדפן: מחפשת טיסות, מגדירה נוסעים ומוסיפה שירותים נלווים, ונעצרת במסך התשלום לפני כל חיוב.",
   "route.label": "תהליך ההזמנה",
@@ -54,10 +48,8 @@ window.I18N.he = {
   "route.4": "שירותים נלווים",
   "route.5": "מסך תשלום",
   "route.end": "נעצרת לפני חיוב",
-  "route.note": "המחשה של תהליך הזמנה. לא מתבצע חיוב בפועל.",
 
   /* home: demo video */
-  "video.kicker": "הדגמה",
   "video.title": "צפו <em>בהדגמה</em>",
   "video.sub": "הקלטה אמיתית של <bdi dir=\"ltr\">ASTRA</bdi> מריצה תהליך הזמנת טיסה בדפדפן, מול אתר הזמנות חי, מעמוד הבית ועד מסך התשלום. בלי הזמנה ובלי תשלום.",
   "video.ph.title": "צפו בהרצה אמיתית של <em dir=\"ltr\">ASTRA</em>",
@@ -68,11 +60,9 @@ window.I18N.he = {
 
 
   /* home: in action */
-  "act.kicker": "בפועל",
   "act.title": "<bdi dir=\"ltr\">ASTRA</bdi> <em>בפעולה</em>",
 
   "video.unavail": "הנגן לא נטען.",
-  "xp.kicker": "ניסיון",
   "xp.title": "ניסיון <em>מעשי</em> בבדיקות תוכנה",
   "xp.1.t": "תהליכי הזמנה מקצה לקצה",
   "xp.1.d": "בדיקת תהליכי הזמנה מורכבים, טיסות וטיסה + מלון, מהחיפוש ועד מסך התשלום.",
@@ -102,11 +92,9 @@ window.I18N.he = {
   "video.open": "לצפייה ב-<bdi dir=\"ltr\">Vimeo</bdi>",
 
   "ax.lead": "<bdi dir=\"ltr\">ASTRA</bdi> היא מערכת אוטומציה שפיתחתי לבדיקת תהליכי הזמנת טיסות. היא מבצעת את הבדיקה בדפדפן ומתעדת את התוצאה בדוח מסודר.",
-  "ax.site": "<bdi dir=\"ltr\">ASTRA</bdi> אינה אתר הזמנות, היא בודקת אתרי הזמנת טיסות.",
   "ax.why.h": "מה הפרויקט מלמד עליי",
   "ax.why": "יזמתי את <bdi dir=\"ltr\">ASTRA</bdi> מתוך ניסיון אמיתי ב־<bdi dir=\"ltr\">QA</bdi>. התחלתי אותה ב־<bdi dir=\"ltr\">Python</bdi>, עברתי ל־<bdi dir=\"ltr\">C#</bdi> ול־<bdi dir=\"ltr\">.NET</bdi> עם <bdi dir=\"ltr\">Playwright</bdi>, ובניתי אותה בסיוע כלי <bdi dir=\"ltr\">AI</bdi>.",
   "ax.tech.sum": "איך זה עובד מאחורי הקלעים?",
-  "ax.tech.note": "תיאור ברמת הזרימה בלבד, והערכים בדוגמה סינתטיים. הבקשה האמיתית אינה מפורסמת.",
   "ax.n1": "<code>Segments</code>: קטע טיסה לכל כיוון.",
   "ax.n2": "<code>TargetAirline</code>: חברת התעופה המועדפת.",
   "ax.n3": "<code>ShouldSubmitOrder: false</code>: ההרצה לא שולחת הזמנה.",
@@ -190,10 +178,6 @@ window.I18N.he = {
   "tt.n3": "באגים דווחו באנדרואיד",
   "tt.n4": "באגים דווחו באייפון",
 
-  "tech.r1": "שפה ופלטפורמה",
-  "tech.r2": "סביבת הריצה",
-  "tech.r3": "אוטומציית דפדפן",
-  "tech.r4": "שירות להפעלת הרצות",
 
   "exp.role": "QA Engineer",
   "exp.role.t": "כשנתיים",
@@ -244,7 +228,6 @@ window.I18N.he = {
   "sk.g.4": "עברית שפת אם",
   "sk.g.5": "אנגלית ברמה מצוינת",
 
-  "exp.auto.kicker": "טכנולוגיות אוטומציה",
 
   "ab.p.1.n": "כשנתיים",
   "ab.p.1.t": "ב־<bdi dir=\"ltr\">QA</bdi> על מוצרי הזמנה",
@@ -263,7 +246,6 @@ window.I18N.he = {
   "tl.6.d": "מחפש את התפקיד הבא שלי בבניית אוטומציה לבדיקות, עם הניסיון מהשטח ועם <bdi dir=\"ltr\">ASTRA</bdi> כהוכחה.",
   "tl.6.cta": "לפרויקט ASTRA",
 
-  "pr.astra.note": "פרויקט עצמאי שיזמתי במהלך העבודה, ללא התקנה בסביבת ייצור.",
   "pj.h.how": "איך נבדק",
   "pj.h.found": "מה נמצא",
   "sp.tools": "<bdi dir=\"ltr\">TestRail</bdi> ו־<bdi dir=\"ltr\">Jira</bdi>. בדפדפן ובנייד: <bdi dir=\"ltr\">Safari</bdi> ו־<bdi dir=\"ltr\">Chrome</bdi> ב־<bdi dir=\"ltr\">Android</bdi> וב־<bdi dir=\"ltr\">iPhone</bdi>.",
@@ -272,8 +254,19 @@ window.I18N.he = {
 
   "pj.toDoc": "לקריאת המסמך",
 
+  "tech.r1": "שפה ופלטפורמה",
+  "tech.r2": "סביבת הריצה",
+  "tech.r3": "אוטומציית דפדפן",
+  "tech.r4": "שירות להפעלת הרצות",
+  "pr.astra.title": "<bdi dir=\"ltr\">ASTRA</bdi>: פרויקט אוטומציה לבדיקות תוכנה",
+  "pr.astra.text": "מערכת אוטומציה שפיתחתי ביוזמתי לבדיקת תהליכי הזמנת טיסות, מעמוד הבית ועד מסך התשלום, ללא ביצוע חיוב בפועל. נכתבה ב-<bdi dir=\"ltr\">C#</bdi>, ב-<bdi dir=\"ltr\">.NET 8</bdi> וב-<bdi dir=\"ltr\">Playwright</bdi>, עם <bdi dir=\"ltr\">ASP.NET Web API</bdi>. התרחישים מוגדרים ב-<bdi dir=\"ltr\">JSON</bdi> והתוצאות נשמרות כקובצי <bdi dir=\"ltr\">JSON</bdi> ודוח <bdi dir=\"ltr\">Excel</bdi>.",
+  "pr.astra.badge": "פרויקט מרכזי",
+  "pr.astra.cta": "צפו בהדגמה",
+  "pr.astra.note": "פרויקט עצמאי שיזמתי במהלך העבודה, ללא התקנה בסביבת ייצור.",
+  "pr.open": "לצפייה בפרויקט",
+
   /* home: how it was built */
-  "st.kicker": "איך ASTRA נבנתה",
+  "st.kicker": "איך <bdi dir=\"ltr\">ASTRA</bdi> נבנתה",
   "st.title": "התחלה ב-<bdi dir=\"ltr\">Python</bdi>, מעבר ל-<bdi dir=\"ltr\">C#</bdi>, ופיתוח <em>בסיוע</em> <bdi dir=\"ltr\">AI</bdi>",
   "st.text": "התחלתי את הפרויקט ב-<bdi dir=\"ltr\">Python</bdi>, ובהמשך עברתי ל-<bdi dir=\"ltr\">C#</bdi> ול-<bdi dir=\"ltr\">.NET</bdi> כדי להתאים אותו לסביבת הפיתוח של החברה. השתמשתי בכלי <bdi dir=\"ltr\">AI</bdi> באופן נרחב למימוש, לארגון הקוד, לאיתור תקלות וללמידה. מה שאני מביא הוא ההבנה בבדיקות: איפה אוטומציה מוסיפה ערך, איך תהליך הזמנה אמור להתנהג ואם התוצאה נכונה.",
   "st.1": "<bdi dir=\"ltr\">Python</bdi>",
@@ -288,9 +281,7 @@ window.I18N.he = {
   "me.cta": "עוד עליי",
   "portrait.alt": "דיוקן של נתן שור",
   "portrait.alt2": "נתן שור מחייך, עומד ליד מעקה ופנס ישן",
-  "proj.kicker": "פרויקטים נבחרים",
-  "proj.title": "עבודות שאפשר <em>להראות</em>",
-  "proj.all": "כל הפרויקטים",
+  "proj.title": "פרויקטים <em>נבחרים</em>",
   "proj.astra.d": "פרויקט אוטומציה שפיתחתי ביוזמתי לבדיקת תהליכי הזמנת טיסות.",
 
   /* experience page */
@@ -300,9 +291,7 @@ window.I18N.he = {
   "exp.work.kicker": "ניסיון מקצועי",
   "exp.work.title": "בדיקות תוכנה, <em>הלכה</em> למעשה",
   "exp.auto.title": "מה שבניתי מעבר לבדיקות: <em><bdi dir=\"ltr\">ASTRA</bdi></em>",
-  "exp.skills.kicker": "כישורים טכניים",
   "exp.skills.title": "מה אני <em>מביא</em> לעולם הבדיקות",
-  "aiw.kicker": "פיתוח בסיוע <bdi dir=\"ltr\">AI</bdi>",
   "aiw.title": "<bdi dir=\"ltr\">AI</bdi> הוא חלק מ<em>הדרך</em> שבה אני בונה",
   "aiw.text": "אני משתמש בכלי <bdi dir=\"ltr\">AI</bdi> כדי לבנות מהר ולהבין לעומק. שיקול הדעת של בודק נשאר אצלי: איפה כדאי להשקיע באוטומציה, איך נראית התנהגות תקינה ואם התוצאה הגיונית.",
   "aiw.1": "בחינת גישות טכניות",
@@ -311,23 +300,15 @@ window.I18N.he = {
   "aiw.4": "פתרון תקלות",
   "aiw.5": "שיפור מבנה הקוד",
   "aiw.6": "למידה וחקירה טכנית",
-  "aiw.note": "<bdi dir=\"ltr\">ASTRA</bdi> עצמה היא פרויקט אוטומציה רגיל. ה־<bdi dir=\"ltr\">AI</bdi> היה חלק מהפיתוח שלה, ולא חלק מהאופן שבו היא רצה.",
 
   /* projects page */
   "pr.kicker": "פרויקטים",
   "pr.title": "הפרויקט המרכזי, ו<em>היסודות</em>",
   "pr.sub": "<bdi dir=\"ltr\">ASTRA</bdi> היא הפרויקט המרכזי שלי. פרויקטי הבדיקות הקודמים מראים את הבסיס שעליו היא נבנתה.",
-  "pr.astra.badge": "פרויקט מרכזי",
-  "pr.astra.title": "<bdi dir=\"ltr\">ASTRA</bdi>: פרויקט אוטומציה לבדיקות תוכנה",
-  "pr.astra.text": "מערכת אוטומציה שפיתחתי ביוזמתי לבדיקת תהליכי הזמנת טיסות, מעמוד הבית ועד מסך התשלום, ללא ביצוע חיוב בפועל. נכתבה ב-<bdi dir=\"ltr\">C#</bdi>, ב-<bdi dir=\"ltr\">.NET 8</bdi> וב-<bdi dir=\"ltr\">Playwright</bdi>, עם <bdi dir=\"ltr\">ASP.NET Web API</bdi>. התרחישים מוגדרים ב-<bdi dir=\"ltr\">JSON</bdi> והתוצאות נשמרות כקובצי <bdi dir=\"ltr\">JSON</bdi> ודוח <bdi dir=\"ltr\">Excel</bdi>.",
-  "pr.astra.cta": "צפו בהדגמה",
-  "pr.prev.kicker": "פרויקטים מעשיים במסגרת קורס QA",
-  "pr.prev.title": "פרויקטי בדיקות",
   "pr.1.t": "<bdi dir=\"ltr\">STR</bdi>: אתר סופר-פארם",
   "pr.1.d": "בדיקות באתר גדול ומוכר, עם דיווח באגים ב-<bdi dir=\"ltr\">Jira</bdi> וניהול בדיקות ב-<bdi dir=\"ltr\">TestRail</bdi>, בשיתוף עם חברה לצוות.",
   "pr.2.t": "<bdi dir=\"ltr\">STR</bdi>: אפליקציית טיב טעם",
   "pr.2.d": "בדיקות יסודיות וניהול תקלות באפליקציית מובייל, בשיתוף עם חברה לצוות.",
-  "pr.open": "לצפייה בפרויקט",
 
   /* about page */
   "ab.kicker": "אודות",

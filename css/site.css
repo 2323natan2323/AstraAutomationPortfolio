@@ -111,9 +111,6 @@ html[dir="rtl"] .arc { transform: scaleX(-1); }
 .arc > path { fill: none; stroke: rgba(255, 255, 255, .22); stroke-width: 1.5; stroke-dasharray: 3 9; vector-effect: non-scaling-stroke; }
 .arc .star { pointer-events: none; }
 .hero__content { display: flex; flex-direction: column; gap: clamp(1rem, 3vh, 2rem); }
-.identity { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; font-size: .95rem; font-weight: 600; color: var(--muted-dark); }
-.identity li { display: flex; align-items: center; gap: 1.1rem; }
-.identity li + li::before { content: ""; width: .35rem; height: .35rem; border-radius: 50%; background: var(--orange); }
 .wm { display: flex; justify-content: flex-start; margin: 0; padding-block: .05em; overflow: hidden; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: clamp(4.8rem, 24vw, 19rem); line-height: .86; letter-spacing: -.045em; }
 html[dir="rtl"] .wm { justify-content: flex-start; }
 .wm span { display: inline-block; padding-inline-end: .02em; color: transparent; background-image: linear-gradient(100deg, #8d9aff, var(--blue) 22%, var(--violet) 42%, var(--coral) 66%, var(--orange) 86%, #ffb77e); background-size: 500% 100%; background-position: calc(var(--i) * 25%) 0; -webkit-background-clip: text; background-clip: text;
@@ -297,9 +294,7 @@ html[lang="he"] .contact__links small { letter-spacing: 0; text-transform: none;
   .brand__name { display: none; }
   .hero { padding-top: 5.8rem; }
   .wm { font-size: 30.5vw; }
-  .identity { font-size: .85rem; gap: .3rem .8rem; }
-  .identity li { gap: .8rem; }
-  .btn { padding: .85rem 1.2rem; }
+      .btn { padding: .85rem 1.2rem; }
 }
 @media (hover: none) { .rows a:hover { padding-inline: 0; background: none; } }
 
@@ -853,3 +848,11 @@ html[dir="rtl"] .wf__arrow { transform: scaleX(-1); }
 .pj4__go { display: inline-flex; align-items: center; gap: .5rem; justify-self: start; font-weight: 700; color: var(--brand); border-bottom: 2px solid currentColor; padding-bottom: .15rem; }
 .pj4__go svg { width: 1.1rem; height: 1.1rem; }
 @media (max-width: 860px) { .pj4 { grid-template-columns: 1fr; } .pj4__side { position: static; } }
+
+/* kicker as an expressive headline accent (Gveret Levin in Hebrew) */
+.kicker--accent { margin-bottom: .4rem; }
+html[lang="he"] .kicker--accent { font-family: var(--font-accent); font-size: clamp(1.9rem, 1.4rem + 2.2vw, 3rem); font-weight: 400; letter-spacing: 0; line-height: 1; color: var(--peach); }
+html[lang="en"] .kicker--accent { font-family: var(--font-accent); font-style: italic; font-size: clamp(1.9rem, 1.4rem + 2.2vw, 3rem); text-transform: none; letter-spacing: 0; color: var(--peach); }
+/* numbered sample rows */
+.rep2__table tbody { counter-reset: rn; }
+.rep2__table tbody .c-scn::before { counter-increment: rn; content: counter(rn); display: inline-grid; place-items: center; width: 1.5rem; height: 1.5rem; margin-inline-end: .7rem; border-radius: 50%; background: var(--ink); color: #fff; font: 700 .8rem/1 var(--font-body); vertical-align: .05em; }
