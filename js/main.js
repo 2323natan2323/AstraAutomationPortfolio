@@ -26,7 +26,7 @@
     });
     doc.querySelectorAll(".lang button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === lang)); });
     renderStatusChips();
-    doc.querySelectorAll(".doc__reader img").forEach(function (im, i, all) { im.alt = t("pj.doc.page").replace("{n}", i + 1).replace("{t}", all.length); });
+    doc.querySelectorAll(".doc__reader img").forEach(function (im, i) { im.alt = t("pj.doc.page").replace("{n}", i + 1).replace("{t}", (doc.getElementById("doc") || {dataset: {}}).dataset.pages); });
     try { sessionStorage.setItem("lang", lang); } catch (e) {}
     root.classList.remove("pending");
   }
@@ -54,7 +54,14 @@
   var nav = doc.getElementById("nav"), burger = doc.querySelector(".burger");
   function setMenu(open) { nav.classList.toggle("open", open); burger.setAttribute("aria-expanded", String(open)); doc.body.classList.toggle("lock", open); }
   burger.addEventListener("click", function () { setMenu(!nav.classList.contains("open")); });
-  doc.querySelectorAll(".nav__links a").forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
+  doc.querySelectorAll(".nav__links a").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      setMenu(false);
+      /* a link to the page you are already on (the ASTRA link on the home page) scrolls back to the top */
+      var u = new URL(a.href, location.href), cur = location.pathname.replace(/index\.html$/, "");
+      if (!u.hash && u.pathname.replace(/index\.html$/, "") === cur) { e.preventDefault(); window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" }); }
+    });
+  });
   doc.addEventListener("keydown", function (e) { if (e.key === "Escape" && nav.classList.contains("open")) { setMenu(false); burger.focus(); } });
   window.addEventListener("resize", function () { if (window.innerWidth > 900) setMenu(false); });
 
@@ -182,20 +189,29 @@
   if (docSec && !docSec.hidden && docSec.dataset.src) {
     var dSrc = docSec.dataset.src, dStage = doc.getElementById("docStage");
     ["docOpen", "docDl"].forEach(function (id) { var a = doc.getElementById(id); if (a) a.href = dSrc; });
-    var total = +docSec.dataset.pages, dw = +docSec.dataset.w, dh = +docSec.dataset.h, dir = docSec.dataset.dir, box = doc.createElement("div");
+    var total = +docSec.dataset.pages, dw = +docSec.dataset.w, dh = +docSec.dataset.h, dir = docSec.dataset.dir, box = doc.createElement("div"), FIRST = 15, shown = 0;
     box.className = "doc__reader";
-    for (var i = 1; i <= total; i++) {
-      var fig = doc.createElement("figure"), img = doc.createElement("img"), n = ("00" + i).slice(-3);
-      fig.style.aspectRatio = dw + " / " + dh; img.width = dw; img.height = dh; img.loading = "lazy"; img.decoding = "async";
-      img.dataset.n = i; img.alt = t("pj.doc.page").replace("{n}", i).replace("{t}", total); img.src = dir + n + ".webp";
-      (function (f, im) {
-        im.addEventListener("error", function () { f.classList.add("failed"); f.setAttribute("role", "button"); f.tabIndex = 0; f.dataset.msg = t("pj.doc.pfail"); f.setAttribute("aria-label", t("pj.doc.pfail")); });
-        var retry = function () { if (!f.classList.contains("failed")) return; f.classList.remove("failed"); f.removeAttribute("role"); f.removeAttribute("tabindex"); im.src = im.src.split("?")[0] + "?r=" + Date.now(); };
-        f.addEventListener("click", retry); f.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); retry(); } });
-      })(fig, img);
-      fig.appendChild(img); box.appendChild(fig);
-    }
+    var addPages = function (from, to, eager) {
+      for (var i = from; i <= to; i++) {
+        var fig = doc.createElement("figure"), img = doc.createElement("img"), n = ("00" + i).slice(-3);
+        fig.style.aspectRatio = dw + " / " + dh; img.width = dw; img.height = dh; img.loading = eager ? "eager" : "lazy"; img.decoding = "async";
+        img.alt = t("pj.doc.page").replace("{n}", i).replace("{t}", total); img.src = dir + n + ".webp";
+        (function (f, im) {
+          im.addEventListener("error", function () { f.classList.add("failed"); f.setAttribute("role", "button"); f.tabIndex = 0; f.dataset.msg = t("pj.doc.pfail"); f.setAttribute("aria-label", t("pj.doc.pfail")); });
+          var retry = function () { if (!f.classList.contains("failed")) return; f.classList.remove("failed"); f.removeAttribute("role"); f.removeAttribute("tabindex"); im.src = im.src.split("?")[0] + "?r=" + Date.now(); };
+          f.addEventListener("click", retry); f.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); retry(); } });
+        })(fig, img);
+        fig.appendChild(img); box.appendChild(fig);
+      }
+      shown = to;
+    };
+    addPages(1, Math.min(FIRST, total), true);
     dStage.appendChild(box);
+    if (total > FIRST) {
+      var more = doc.createElement("button"); more.type = "button"; more.className = "btn btn--primary doc__more"; more.id = "docMore"; more.setAttribute("data-i18n", "pj.doc.more"); more.textContent = t("pj.doc.more");
+      more.addEventListener("click", function () { addPages(FIRST + 1, total, false); more.remove(); });
+      dStage.appendChild(more);
+    }
   }
 
   /* ---------- init: Hebrew by default; ?lang= or saved preference wins ---------- */

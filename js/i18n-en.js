@@ -81,7 +81,7 @@ window.I18N.en = {
   "hero.cta.work": "Discover ASTRA",
   "portrait.cap": "Natan Shor, QA Engineer",
   "astra.kicker": "My main project",
-  "hero.label": "QA Automation Framework",
+  "hero.label": "QA automation project",
 
   "ab.intro2": "When I saw how much time goes into tests that repeat themselves, I did not wait to be asked. I started ASTRA: automation for flight booking tests. I began in Python, rebuilt it in C# and .NET to fit the development environment, and worked with a developer and AI tools along the way.",
   "tl.end": "That journey is why my focus today is building and improving test automation.",
@@ -116,11 +116,11 @@ window.I18N.en = {
   "ax.th.res": "Result",
   "ax.th.dur": "Duration",
   "ax.th.what": "What happened",
-  "ax.r1.scn": "Round trip, one adult, baggage and extra services",
+  "ax.r1.scn": "One adult, baggage and extra services",
   "ax.r1.what": "Completed with no error message. Baggage and extra services were selected.",
-  "ax.r2.scn": "One way, two adults and a child",
+  "ax.r2.scn": "Two adults and a child",
   "ax.r2.what": "Stopped at the booking summary step. Recorded message: no payment provider was detected on the page.",
-  "ax.r3.scn": "Round trip, one adult",
+  "ax.r3.scn": "One adult",
   "ax.r3.what": "Stopped at the fare selection step. Recorded message: the flight is no longer available and the page returned to the search results.",
   "ax.rep.note": "Examples from execution reports, without identifying details. A failed run is not automatically a defect in the site.",
 
@@ -256,12 +256,21 @@ window.I18N.en = {
   "tech.r2": "Runtime",
   "tech.r3": "Browser automation",
   "tech.r4": "Service that starts runs",
-  "pr.astra.title": "ASTRA: QA Automation Framework",
+  "pr.astra.title": "ASTRA: QA automation project",
   "pr.astra.text": "An independently developed automation project for flight booking workflows, from the homepage to the checkout screen, without executing a real payment. Built with C#, .NET 8 and Playwright, with ASP.NET Web API. Scenarios are defined in JSON, and results are saved as JSON files and an Excel report.",
   "pr.astra.badge": "Featured project",
   "pr.astra.cta": "Watch the demo",
   "pr.astra.note": "An independent project I initiated while working, not installed in a production environment.",
   "pr.open": "View project",
+
+  "pj.doc.more": "Show more",
+
+  "ax.rt": "Round trip",
+  "ax.ow": "One way",
+  "ax.city.TLV": "Tel Aviv",
+  "ax.city.BUD": "Budapest",
+  "ax.city.PRG": "Prague",
+  "ax.city.ATH": "Athens",
 
   /* home: how it was built */
   "st.kicker": "How <bdi dir=\"ltr\">ASTRA</bdi> was built",
@@ -303,10 +312,10 @@ window.I18N.en = {
   "pr.kicker": "Projects",
   "pr.title": "The main project, and <em>the foundation</em>",
   "pr.sub": "ASTRA is my main project. Earlier QA projects show the testing foundation beneath it.",
-  "pr.1.t": "STR: Super-Pharm website",
-  "pr.1.d": "Testing a large, well-known website, with bug reporting in Jira and test management in TestRail, done together with a teammate.",
-  "pr.2.t": "STR: Tiv Taam mobile app",
-  "pr.2.d": "Thorough testing and defect management for a mobile app, done together with a teammate.",
+  "pr.1.t": "Super-Pharm website testing",
+  "pr.1.d": "End to end testing of the online store, with bug reporting in Jira and test management in TestRail. A QA course project, done together with Michal Cohen.",
+  "pr.2.t": "Tiv Taam app testing",
+  "pr.2.d": "Testing of the shopping app on Android and iPhone, with bug reporting in Jira. A QA course project, done together with Michal Cohen.",
 
   /* about page */
   "ab.kicker": "About Natan",
