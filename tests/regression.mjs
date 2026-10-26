@@ -36,7 +36,7 @@ async function open(ctx, p, q = "") { const pg = await ctx.newPage(); const errs
   pg.on("requestfailed", (r) => errs.push("requestfailed: " + r.url()));
   pg.on("response", (r) => r.status() >= 400 && errs.push(`http ${r.status()}: ${r.url()}`));
   await pg.goto(url(p, q), { waitUntil: "networkidle" }); pg.errs = errs; return pg; }
-const info = (pg) => pg.evaluate(() => ({ lang: document.documentElement.lang, dir: document.documentElement.dir, stored: localStorage.getItem("lang"), title: document.title }));
+const info = (pg) => pg.evaluate(() => ({ lang: document.documentElement.lang, dir: document.documentElement.dir, stored: sessionStorage.getItem("lang"), title: document.title }));
 
 try {
   // 1. Hebrew default, regardless of browser locale
@@ -60,7 +60,7 @@ try {
     await pg.click('.lang button[data-lang="en"]'); await pg.waitForFunction(() => document.documentElement.lang === "en");
     await pg.click('.lang button[data-lang="he"]'); await pg.waitForFunction(() => document.documentElement.lang === "he"); i = await info(pg); ok("switching back to Hebrew works", i.dir === "rtl" && i.stored === "he", JSON.stringify(i)); await ctx.close(); }
   { // no flash: with a saved English preference the page stays hidden until strings are applied
-    const ctx = await newCtx(); await ctx.addInitScript(() => localStorage.setItem("lang", "en")); const pg = await ctx.newPage(); await ctx.route("**/js/main.js*", (r) => r.abort()); await pg.goto(url("index"));
+    const ctx = await newCtx(); await ctx.addInitScript(() => sessionStorage.setItem("lang", "en")); const pg = await ctx.newPage(); await ctx.route("**/js/main.js*", (r) => r.abort()); await pg.goto(url("index"));
     const hidden = await pg.evaluate(() => getComputedStyle(document.body).opacity === "0" || document.documentElement.classList.contains("pending"));
     ok("saved English: body is held back until the language is applied (no Hebrew flash)", hidden); await ctx.close(); }
 

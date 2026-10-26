@@ -27,7 +27,7 @@
     doc.querySelectorAll(".lang button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === lang)); });
     renderStatusChips();
     doc.querySelectorAll(".doc__reader img").forEach(function (im, i, all) { im.alt = t("pj.doc.page").replace("{n}", i + 1).replace("{t}", all.length); });
-    try { localStorage.setItem("lang", lang); } catch (e) {}
+    try { sessionStorage.setItem("lang", lang); } catch (e) {}
     root.classList.remove("pending");
   }
   function switchLang(next) {
@@ -200,6 +200,6 @@
 
   /* ---------- init: Hebrew by default; ?lang= or saved preference wins ---------- */
   var q = /[?&]lang=(en|he)/.exec(location.search), saved = null;
-  try { saved = localStorage.getItem("lang"); } catch (e) {}
+  try { saved = sessionStorage.getItem("lang"); } catch (e) {}
   applyLang(q ? q[1] : (saved === "en" ? "en" : DEFAULT_LANG));
 })();
