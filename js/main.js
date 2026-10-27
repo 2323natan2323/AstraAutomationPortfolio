@@ -189,6 +189,13 @@
   if (docSec && !docSec.hidden && docSec.dataset.src) {
     var dSrc = docSec.dataset.src, dStage = doc.getElementById("docStage");
     ["docOpen", "docDl"].forEach(function (id) { var a = doc.getElementById(id); if (a) a.href = dSrc; });
+    /* phones render a large PDF in a new tab as a black or blank screen: there "PDF מלא" jumps to the page reader instead; "Download" and GitHub still give the real file */
+    var openA = doc.getElementById("docOpen");
+    if (openA) openA.addEventListener("click", function (e) {
+      var phone = window.matchMedia && window.matchMedia("(max-width: 820px), (pointer: coarse)").matches;
+      if (!phone) return;
+      e.preventDefault(); dStage.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
     var total = +docSec.dataset.pages, dw = +docSec.dataset.w, dh = +docSec.dataset.h, dir = docSec.dataset.dir, box = doc.createElement("div"), FIRST = 15, shown = 0;
     box.className = "doc__reader";
     var addPages = function (from, to, eager) {
