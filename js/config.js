@@ -13,6 +13,5 @@ window.ASTRA_MEDIA = {
     captions: { he: "", en: "" } // optional WebVTT files
   },
   vimeo: "1239839337", // public Vimeo id of the real ASTRA run; loads only after a click
-  github: "",     // Only a VERIFIED, publicly accessible and approved ASTRA repository URL. Empty keeps the button hidden.
   portrait: "img/natan-home.jpg"
 };

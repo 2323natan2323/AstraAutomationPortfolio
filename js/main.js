@@ -129,7 +129,6 @@
   });
 
   /* ---------- optional verified GitHub link ---------- */
-  if (cfg.github) doc.querySelectorAll("[data-github]").forEach(function (a2) { a2.href = cfg.github; a2.hidden = false; });
 
   /* ---------- floating back-to-top ---------- */
   var totop = doc.getElementById("totop");

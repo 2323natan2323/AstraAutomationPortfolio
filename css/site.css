@@ -586,7 +586,7 @@ html[lang="he"] .name { line-height: 1.05; }
 
 .role__focus { display: block; }
 .nw { white-space: nowrap; }
-@media (max-width: 420px) { .hero .role { font-size: 1.02rem; } .role__focus { white-space: nowrap; } }
+@media (max-width: 420px) { .hero .role { font-size: clamp(.8rem, 3.85vw, 1.02rem); } .role__focus { white-space: nowrap; } }
 
 .astra { contain: paint; clip-path: inset(0); }
 .arc { overflow: hidden; }
