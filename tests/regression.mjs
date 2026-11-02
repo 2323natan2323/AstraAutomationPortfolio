@@ -167,7 +167,7 @@ try {
     await ctx.close(); }
   for (const l of LANGS) { const ctx = await newCtx(); const pg = await open(ctx, "about", `?lang=${l}`);
     const tx = await pg.locator("main").innerText();
-    ok(`${l}: About leads with automation and keeps the five-step personal story`, /Automation/.test(tx) && (await pg.locator(".jr > li").count()) === 6 && /Nokia|נוקיה/.test(tx) && (await pg.locator(".jr__s--6").count()) === 1 && (await pg.locator("#intro img").getAttribute("alt")).length > 3);
+    ok(`${l}: About leads with automation and keeps the five-step personal story, without the childhood phone step`, /Automation/.test(tx) && (await pg.locator(".jr > li").count()) === 5 && !/Nokia|נוקיה/.test(tx) && (await pg.locator(".jr__s--6").count()) === 1 && (await pg.locator("#intro img").getAttribute("alt")).length > 3);
     await ctx.close(); }
   group("project pages");
   { const ctx = await newCtx(); const pg = await open(ctx, "index"); const hs = await pg.$$eval("#projects .rows a", (as) => as.map((a) => a.getAttribute("href")));
@@ -237,7 +237,7 @@ try {
 
   // 8. content QA
   group("content");
-  { const ctx = await newCtx(); const banned = [[/[—–]/, "dash"], ...PRIVATE_TERMS.map((w) => [new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"), "private term"]), [/Nathan/, "Nathan"], [/\b\d+\s?%/, "percentage"], [/layoff|budget|redundan/i, "org story"], [/סביבת החברה|company'?s environment|not adopted|לא אומצ/i, "defensive status"], [/Kiryat Yam|קריית ים|קריית ביאליק|תיב טעם|מסגרת אוטומציה/, "outdated or robotic wording"], [/ticket(s)? (issued|issuance)|booking (confirmed|completed)|payment (completed|succeeded)|production-ready/i, "unsupported claim"]];
+  { const ctx = await newCtx(); const banned = [[/[—–]/, "dash"], ...PRIVATE_TERMS.map((w) => [new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"), "private term"]), [/Nathan/, "Nathan"], [/\b\d+\s?%/, "percentage"], [/layoff|budget|redundan/i, "org story"], [/סביבת החברה|company'?s environment|not adopted|לא אומצ/i, "defensive status"], [/Kiryat Yam|קריית ים|קרית ביאליק|תיב טעם|מסגרת אוטומציה/, "outdated or robotic wording"], [/ticket(s)? (issued|issuance)|booking (confirmed|completed)|payment (completed|succeeded)|production-ready/i, "unsupported claim"]];
     for (const l of LANGS) { const hits = []; for (const p of PAGES) { const pg = await open(ctx, p, `?lang=${l}`); const t = await pg.evaluate(() => document.body.innerText + " " + document.title + " " + [...document.querySelectorAll("[aria-label],[alt],meta[name=description]")].map((e) => e.getAttribute("aria-label") || e.getAttribute("alt") || e.content).join(" "));
         banned.forEach(([re, n]) => re.test(t) && hits.push(`${p}/${l}: ${n}`)); if (!/Natan Shor|נתן שור/.test(t)) hits.push(`${p}/${l}: name missing`); await pg.close(); }
       ok(`${l}: no dashes, no banned claims, name spelled Natan Shor`, hits.length === 0, hits.join(" | ")); }
@@ -245,7 +245,7 @@ try {
     ok("he: ASTRA scope states no real payment", /ללא ביצוע חיוב בפועל/.test(t)); await pg.goto(url("index", "?lang=en")); await pg.waitForTimeout(300);
     ok("en: ASTRA scope states no real payment", /without executing a real payment/.test(await pg.innerText("body")));
     { const he2 = await open(ctx, "about", "?lang=he"); const ab = await he2.innerText("body"); const en2 = await open(ctx, "about", "?lang=en"); const abe = await en2.innerText("body");
-      ok("about: Kiryat Bialik in both languages", /קרית ביאליק/.test(ab) && /Kiryat Bialik/.test(abe)); const pr = await open(ctx, "index", "?lang=he"); ok("home: טיב טעם spelled correctly", /טיב טעם/.test(await pr.innerText("body")));
+      ok("about: Kiryat Bialik in both languages", /קריית ביאליק/.test(ab) && /Kiryat Bialik/.test(abe)); const pr = await open(ctx, "index", "?lang=he"); ok("home: טיב טעם spelled correctly", /טיב טעם/.test(await pr.innerText("body")));
       const hh = await open(ctx, "index", "?lang=he"); const hb = await hh.innerText("body"); ok("he home: natural naming, Python to C# story and four steps title", /Python/.test(hb) && /ASTRA בפעולה/.test(hb) && !/מסגרת אוטומציה לבדיקות/.test(hb) && /אוטומציה לבדיקות תוכנה/.test(hb));
       const hn = await open(ctx, "index", "?lang=en"); ok("en home: Python to C# story present", /started ASTRA in Python/i.test(await hn.innerText("body"))); }
     ok("home: intro order puts the demo before ASTRA in Action", await pg.evaluate(() => (document.querySelector("#demo").compareDocumentPosition(document.querySelector("#action")) & Node.DOCUMENT_POSITION_FOLLOWING)));

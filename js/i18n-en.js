@@ -322,8 +322,6 @@ window.I18N.en = {
   "ab.intro": "I'm Natan Shor from Kiryat Bialik, a QA Engineer with about two years of experience in E2E testing of systems for booking flights and holiday packages.",
   "ab.story.kicker": "My story",
   "ab.story.title": "How I got from QA <em>to automation</em>",
-  "tl.1.t": "Age 7: a Nokia phone",
-  "tl.1.d": "My mother had just bought a Nokia. I asked to look at it, and the moment I started using it I felt a huge curiosity to learn more and explore. Ever since, every technology or computer question in the family comes to me.",
   "tl.2.t": "Computer science, and a rethink",
   "tl.2.d": "At first I thought computer science was the right choice for me, but after I started studying I realized it suited me less. I knew I wanted to stay in the technology world, so I looked for another field where I could grow and do something useful.",
   "tl.3.t": "Finding QA",
