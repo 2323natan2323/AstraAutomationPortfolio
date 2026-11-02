@@ -266,7 +266,7 @@ html[dir="rtl"] .rows a > svg.arrow { transform: scaleX(-1); }
 /* ---------- contact + footer ---------- */
 .contact { background: var(--orange); color: var(--ink); padding-block: clamp(3rem, 6vw, 5rem); }
 .contact__title { font-family: var(--font-display); font-weight: var(--w-display); font-size: clamp(2.2rem, 1.3rem + 4vw, 4.6rem); line-height: var(--lh-display); letter-spacing: var(--track-display); max-width: 18ch; text-wrap: balance; }
-.contact__sub { margin-top: 1rem; font-size: var(--fs-lead); max-width: 44ch; }
+.contact__sub { margin-top: 1rem; font-size: var(--fs-lead); max-width: min(92ch, 100%); }
 .contact__phone { margin-top: 1.2rem; font-size: .95rem; }
 .contact__phone a { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 .contact__links { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .8rem; margin-top: clamp(1.6rem, 3.5vw, 2.5rem); }
