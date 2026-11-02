@@ -360,7 +360,7 @@ window.I18N.en = {
 
   /* contact + footer */
   "contact.title": "Let's talk about the next opportunity",
-  "contact.sub": "I'm looking for a QA Automation Engineer role. I'd be glad to hear about suitable positions.",
+  "contact.sub": "I'm looking for a QA Automation Engineer role. I'd be glad to hear about <span class=\"nw\">suitable positions.</span>",
   "contact.email": "Email",
   "contact.linkedin": "LinkedIn",
   "contact.github": "GitHub",

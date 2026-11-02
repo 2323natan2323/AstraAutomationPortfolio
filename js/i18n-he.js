@@ -362,7 +362,7 @@ window.I18N.he = {
 
   /* contact + footer */
   "contact.title": "נדבר על ההזדמנות הבאה?",
-  "contact.sub": "מחפש תפקיד <bdi dir=\"ltr\">QA Automation Engineer</bdi>. אשמח לשמוע על משרות מתאימות.",
+  "contact.sub": "מחפש תפקיד <bdi dir=\"ltr\">QA Automation Engineer</bdi>. אשמח לשמוע על <span class=\"nw\">משרות מתאימות.</span>",
   "contact.email": "אימייל",
   "contact.linkedin": "LinkedIn",
   "contact.github": "GitHub",
